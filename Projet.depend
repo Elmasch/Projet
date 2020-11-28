@@ -1,0 +1,100 @@
+# depslib dependency file v1.0
+1606570086 source:c:\users\elmas\documents\cours\l3\poo\projet\brique.cpp
+	"brique.h"
+
+1606572136 c:\users\elmas\documents\cours\l3\poo\projet\brique.h
+	"graphics.h"
+	"balle.h"
+
+1606572675 source:c:\users\elmas\documents\cours\l3\poo\projet\main.cpp
+	<iostream>
+	"graphics.h"
+	"balle.h"
+	"point.h"
+	<windows.h>
+	<stddef.h>
+	<stdio.h>
+	<math.h>
+	<vector>
+	"brique.h"
+	"normale.h"
+	"dure.h"
+	"tueuse.h"
+
+1477727462 source:c:\users\elmas\documents\cours\l3\poo\projet\point.cpp
+	<iostream>
+	<cmath>
+	"point.h"
+
+1478595024 c:\users\elmas\documents\cours\l3\poo\projet\point.h
+	<iosfwd>
+
+1606572136 source:c:\users\elmas\documents\cours\l3\poo\projet\raquette.cpp
+	"raquette.h"
+
+1606572136 c:\users\elmas\documents\cours\l3\poo\projet\raquette.h
+	"brique.h"
+	"balle.h"
+
+1606557707 source:c:\users\elmas\documents\cours\l3\poo\projet\terrain.cpp
+	"terrain.h"
+
+1606557707 c:\users\elmas\documents\cours\l3\poo\projet\terrain.h
+
+1606572675 source:c:\users\elmas\documents\cours\l3\poo\projet\balle.cpp
+	"balle.h"
+	<iostream>
+
+1606572716 c:\users\elmas\documents\cours\l3\poo\projet\balle.h
+	"graphics.h"
+	<cmath>
+
+1606558330 source:c:\users\elmas\documents\cours\l3\poo\projet\rectangle.cpp
+	<iostream>
+	"rectangle.h"
+
+1606558324 c:\users\elmas\documents\cours\l3\poo\projet\rectangle.h
+	<memory>
+	"point.h"
+
+1586079705 c:\users\elmas\documents\cours\l3\poo\projet\graphics.h
+
+1586079705 source:c:\users\elmas\documents\cours\l3\poo\projet\winbgi.cpp
+	<windows.h>
+	<stddef.h>
+	<stdio.h>
+	<math.h>
+	"graphics.h"
+
+1606559222 c:\users\elmas\documents\cours\l3\poo\projet\circle.h
+	<memory>
+	"point.h"
+
+1606570301 source:c:\users\elmas\documents\cours\l3\poo\projet\briquenormale .cpp
+	"briqueNormale .h"
+
+1606570293 c:\users\elmas\documents\cours\l3\poo\projet\briquenormale .h
+	"brique.h"
+
+1606572681 source:c:\users\elmas\documents\cours\l3\poo\projet\normale.cpp
+	"normale.h"
+	<iostream>
+
+1606572136 c:\users\elmas\documents\cours\l3\poo\projet\normale.h
+	"brique.h"
+	"balle.h"
+
+1606572136 source:c:\users\elmas\documents\cours\l3\poo\projet\dure.cpp
+	"dure.h"
+
+1606572136 c:\users\elmas\documents\cours\l3\poo\projet\dure.h
+	"brique.h"
+	"balle.h"
+
+1606572675 source:c:\users\elmas\documents\cours\l3\poo\projet\tueuse.cpp
+	"tueuse.h"
+
+1606572136 c:\users\elmas\documents\cours\l3\poo\projet\tueuse.h
+	"brique.h"
+	"balle.h"
+
