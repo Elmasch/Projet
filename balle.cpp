@@ -40,7 +40,9 @@ void balle::collison(brique& b){
     }
 }
 void balle::avance(){
+    efface();
     setPosition(getX()-getVitesse(),getY()-getVitesse());
+    affiche();
 }
 
 void balle::affiche(){

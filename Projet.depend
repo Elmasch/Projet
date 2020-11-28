@@ -185,3 +185,51 @@
 1606577448 c:\users\elmas\documents\cours\l3\poo\projet2\briqueincassable.h
 	"brique.h"
 
+1606578952 source:c:\users\norma\documents\codeblocks\cassebrique\balle.cpp
+	"balle.h"
+	<iostream>
+
+1606578952 c:\users\norma\documents\codeblocks\cassebrique\balle.h
+	"graphics.h"
+	<cmath>
+	"brique.h"
+
+1606578952 c:\users\norma\documents\codeblocks\cassebrique\graphics.h
+
+1606578952 c:\users\norma\documents\codeblocks\cassebrique\brique.h
+	"graphics.h"
+	"surface.h"
+
+1606578952 source:c:\users\norma\documents\codeblocks\cassebrique\brique.cpp
+	"brique.h"
+
+1606578952 source:c:\users\norma\documents\codeblocks\cassebrique\main.cpp
+	<iostream>
+	"graphics.h"
+	"balle.h"
+	<windows.h>
+	<stddef.h>
+	<stdio.h>
+	<math.h>
+	<vector>
+	"brique.h"
+
+1606578952 source:c:\users\norma\documents\codeblocks\cassebrique\raquette.cpp
+	"raquette.h"
+
+1606578952 c:\users\norma\documents\codeblocks\cassebrique\raquette.h
+	"brique.h"
+	"balle.h"
+
+1606578952 source:c:\users\norma\documents\codeblocks\cassebrique\terrain.cpp
+	"terrain.h"
+
+1606578952 c:\users\norma\documents\codeblocks\cassebrique\terrain.h
+
+1606578952 source:c:\users\norma\documents\codeblocks\cassebrique\winbgi.cpp
+	<windows.h>
+	<stddef.h>
+	<stdio.h>
+	<math.h>
+	"graphics.h"
+
