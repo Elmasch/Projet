@@ -5,12 +5,9 @@
 class briqueIncassable : public brique
 {
     public:
-        briqueIncassable(double positionX, double positionY, surface& type);
+        briqueIncassable(geom::point& p, surface* surface);
         virtual ~briqueIncassable();
         virtual void affiche() override;
-    protected:
-
-    private:
 };
 
 #endif // BRIQUEINCASSABLE_H

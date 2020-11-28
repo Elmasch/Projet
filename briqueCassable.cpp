@@ -1,6 +1,6 @@
 #include "briqueCassable.h"
 
-briqueCassable::briqueCassable(double positionX, double positionY, surface& type, int nombre) : brique{positionX,positionY,type}, d_nombre{nombre}{
+briqueCassable::briqueCassable(geom::point& p, surface* surface, int nombre) : brique{p,surface}, d_nombre{nombre}{
 }
 
 briqueCassable::~briqueCassable(){
@@ -8,5 +8,9 @@ briqueCassable::~briqueCassable(){
 
 void briqueCassable::affiche() {
     setcolor(BLUE);
-    rectangle (getX(),getY(),getX()+100, getY()+10);
+    rectangle(getPosition().x()-50,getPosition().y()-5,getPosition().x()+50, getPosition().y()+5);
+}
+
+int briqueCassable::getNombre() const{
+    return d_nombre;
 }

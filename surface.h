@@ -5,10 +5,7 @@
 class surface
 {
     public:
-        surface();
         virtual ~surface();
-    protected:
-
     private:
 };
 

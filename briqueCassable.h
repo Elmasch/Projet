@@ -2,14 +2,14 @@
 #define BRIQUECASSABLE_H
 
 #include "brique.h"
+
 class briqueCassable : public brique
 {
     public:
-        briqueCassable(double positionX, double positionY, surface& type, int nombre);
+        briqueCassable(geom::point& p, surface* surface, int nombre);
         virtual ~briqueCassable();
         virtual void affiche() override;
-    protected:
-
+        int getNombre() const;
     private:
         int d_nombre;
 };

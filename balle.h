@@ -3,27 +3,31 @@
 #include "graphics.h"
 #include <cmath>
 #include "brique.h"
-
+#include "point.h"
+#include "vector.h"
+#include <vector>
+#include <memory>
 class balle
 {
     public:
         balle();
-        balle(double vitesse, double positionX, double positionY);
+        balle(geom::vector& vitesse, geom::point& p);
         ~balle();
-        double getVitesse() const;
-        double getX() const;
-        double getY() const;
-        void setVitesse(double valeur);
-        void setPosition(double x, double y);
-        void collison(brique& b);
+
+        geom::vector getVitesse() const;
+        geom::point getPosition() const;
+
+        void setPosition(const geom::point& p);
+        void setVitesse(const geom::vector& v);
         void avance();
+        void collision(const brique& b);
         void affiche();
         void efface();
-    protected:
+
 
     private:
-        double d_vitesse;
-        double d_X, d_Y;
+        geom::vector d_vitesse;
+        geom::point d_position;
 };
 
 #endif // BALLE_H

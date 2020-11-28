@@ -1,6 +1,6 @@
 #include "raquette.h"
 
-raquette::raquette(double positionX, double positionY, surface& type) : brique{positionX, positionY, type}{
+raquette::raquette(geom::point& p, surface* surface) : brique{p, surface}{
 }
 
 raquette::~raquette()
@@ -10,7 +10,7 @@ raquette::~raquette()
 
 void raquette::affiche(){
     setcolor(YELLOW);
-    rectangle (getX(),getY(),getX()+100, getY()+10);
+    rectangle(getPosition().x()-50,getPosition().y()-5,getPosition().x()+50, getPosition().y()+5);
 }
 
 

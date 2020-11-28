@@ -2,19 +2,15 @@
 
 
 
-brique::brique(double positionX, double positionY, surface& surface) : d_X{positionX}, d_Y{positionY}, d_surface{surface} {
+brique::brique(geom::point& p, surface* surface) : d_position{p}, d_surface{surface} {
 }
 brique::~brique() {
 }
 
-double brique::getX() const{
-    return d_X;
+geom::point brique::getPosition() const{
+    return d_position;
 }
 
-double brique::getY() const{
-    return d_Y;
-}
-
-surface brique::getSurface() const{
+surface* brique::getSurface() const{
     return d_surface;
 }
