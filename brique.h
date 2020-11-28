@@ -6,16 +6,15 @@
 class brique
 {
     public:
-        brique(double positionX, double positionY, surface& type);
+        brique(double positionX, double positionY, surface& surface);
         virtual ~brique();
         double getX() const;
         double getY() const;
+        surface getSurface() const;
         virtual void affiche() =0;
-    protected:
-
     private:
         double d_X, d_Y;
-        surface d_type;
+        surface d_surface;
 };
 
 #endif // BRIQUE_H
