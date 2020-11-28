@@ -1,6 +1,6 @@
 #include "raquette.h"
 
-raquette::raquette(double positionX, double positionY) : brique{positionX, positionY}{
+raquette::raquette(double positionX, double positionY, surface& type) : brique{positionX, positionY, type}{
 }
 
 raquette::~raquette()
@@ -13,5 +13,4 @@ void raquette::affiche(){
     rectangle (getX(),getY(),getX()+100, getY()+10);
 }
 
-void raquette::collision (balle b){
-}
+

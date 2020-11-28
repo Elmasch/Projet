@@ -98,61 +98,58 @@
 	"brique.h"
 	"balle.h"
 
-1606572945 source:c:\users\elmas\documents\cours\l3\poo\projet2\balle.cpp
+1606575277 source:c:\users\elmas\documents\cours\l3\poo\projet2\balle.cpp
 	"balle.h"
 	<iostream>
 
-1606572716 c:\users\elmas\documents\cours\l3\poo\projet2\balle.h
+1606577581 c:\users\elmas\documents\cours\l3\poo\projet2\balle.h
 	"graphics.h"
 	<cmath>
+	"brique.h"
 
 1586079705 c:\users\elmas\documents\cours\l3\poo\projet2\graphics.h
 
-1606570086 source:c:\users\elmas\documents\cours\l3\poo\projet2\brique.cpp
+1606576248 source:c:\users\elmas\documents\cours\l3\poo\projet2\brique.cpp
 	"brique.h"
 
-1606572136 c:\users\elmas\documents\cours\l3\poo\projet2\brique.h
+1606577491 c:\users\elmas\documents\cours\l3\poo\projet2\brique.h
 	"graphics.h"
-	"balle.h"
+	"surface.h"
 
-1606572136 source:c:\users\elmas\documents\cours\l3\poo\projet2\dure.cpp
+1606574764 source:c:\users\elmas\documents\cours\l3\poo\projet2\dure.cpp
 	"dure.h"
 
-1606572136 c:\users\elmas\documents\cours\l3\poo\projet2\dure.h
+1606574761 c:\users\elmas\documents\cours\l3\poo\projet2\dure.h
 	"brique.h"
 	"balle.h"
 
-1606572675 source:c:\users\elmas\documents\cours\l3\poo\projet2\main.cpp
+1606576642 source:c:\users\elmas\documents\cours\l3\poo\projet2\main.cpp
 	<iostream>
 	"graphics.h"
 	"balle.h"
-	"point.h"
 	<windows.h>
 	<stddef.h>
 	<stdio.h>
 	<math.h>
 	<vector>
 	"brique.h"
-	"normale.h"
-	"dure.h"
-	"tueuse.h"
 
-1606572136 c:\users\elmas\documents\cours\l3\poo\projet2\normale.h
+1606574744 c:\users\elmas\documents\cours\l3\poo\projet2\normale.h
 	"brique.h"
 	"balle.h"
 
-1606572136 c:\users\elmas\documents\cours\l3\poo\projet2\tueuse.h
+1606576120 c:\users\elmas\documents\cours\l3\poo\projet2\tueuse.h
 	"brique.h"
 	"balle.h"
 
-1606572681 source:c:\users\elmas\documents\cours\l3\poo\projet2\normale.cpp
+1606574800 source:c:\users\elmas\documents\cours\l3\poo\projet2\normale.cpp
 	"normale.h"
 	<iostream>
 
-1606572136 source:c:\users\elmas\documents\cours\l3\poo\projet2\raquette.cpp
+1606576842 source:c:\users\elmas\documents\cours\l3\poo\projet2\raquette.cpp
 	"raquette.h"
 
-1606572136 c:\users\elmas\documents\cours\l3\poo\projet2\raquette.h
+1606576842 c:\users\elmas\documents\cours\l3\poo\projet2\raquette.h
 	"brique.h"
 	"balle.h"
 
@@ -161,7 +158,7 @@
 
 1606557707 c:\users\elmas\documents\cours\l3\poo\projet2\terrain.h
 
-1606572675 source:c:\users\elmas\documents\cours\l3\poo\projet2\tueuse.cpp
+1606574772 source:c:\users\elmas\documents\cours\l3\poo\projet2\tueuse.cpp
 	"tueuse.h"
 
 1586079705 source:c:\users\elmas\documents\cours\l3\poo\projet2\winbgi.cpp
@@ -170,4 +167,21 @@
 	<stdio.h>
 	<math.h>
 	"graphics.h"
+
+1606575848 source:c:\users\elmas\documents\cours\l3\poo\projet2\surface.cpp
+	"surface.h"
+
+1606576120 c:\users\elmas\documents\cours\l3\poo\projet2\surface.h
+
+1606576900 source:c:\users\elmas\documents\cours\l3\poo\projet2\briquecassable.cpp
+	"briqueCassable.h"
+
+1606576892 c:\users\elmas\documents\cours\l3\poo\projet2\briquecassable.h
+	"brique.h"
+
+1606576842 source:c:\users\elmas\documents\cours\l3\poo\projet2\briqueincassable.cpp
+	"briqueIncassable.h"
+
+1606577448 c:\users\elmas\documents\cours\l3\poo\projet2\briqueincassable.h
+	"brique.h"
 

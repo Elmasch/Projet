@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="../Projet2" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -22,6 +23,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="../Projet2" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -36,14 +38,16 @@
 		<Unit filename="balle.h" />
 		<Unit filename="brique.cpp" />
 		<Unit filename="brique.h" />
+		<Unit filename="briqueCassable.cpp" />
+		<Unit filename="briqueCassable.h" />
+		<Unit filename="briqueIncassable.cpp" />
+		<Unit filename="briqueIncassable.h" />
 		<Unit filename="graphics.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="point.cpp" />
-		<Unit filename="point.h" />
 		<Unit filename="raquette.cpp" />
 		<Unit filename="raquette.h" />
-		<Unit filename="rectangle.cpp" />
-		<Unit filename="rectangle.h" />
+		<Unit filename="surface.cpp" />
+		<Unit filename="surface.h" />
 		<Unit filename="terrain.cpp" />
 		<Unit filename="terrain.h" />
 		<Unit filename="winbgi.cpp" />

@@ -28,10 +28,19 @@ void balle::setPosition(double x, double y){
     d_Y = y;
 }
 
+void balle::collison(brique& b){
+    if((getX()>=b.getX() && getX()<=b.getX()+100) && (getY()<=b.etY() && getY()>=b.getY()-10))
+    {
+        /*regarde le type de la brique
+        si ma brique est normale : rebondir nomalement
+        si ma brique est molle ou dure : ralentir ou accelerer getVitesse ralenti ou accélaire
 
+        */
 
+    }
+}
 void balle::avance(){
-   setPosition(getX()+getVitesse(),getY()+getVitesse());
+    setPosition(getX()-getVitesse(),getY()-getVitesse());
 }
 
 void balle::affiche(){

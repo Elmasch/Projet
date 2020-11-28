@@ -6,10 +6,9 @@
 class raquette : public brique
 {
     public:
-        raquette(double positionX, double positionY);
+        raquette(double positionX, double positionY,surface& type);
         virtual ~raquette();
         virtual void affiche() override ;
-        virtual void collision (balle b) override;
 
     protected:
 

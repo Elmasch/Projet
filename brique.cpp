@@ -2,7 +2,7 @@
 
 
 
-brique::brique(double positionX, double positionY) : d_X{positionX}, d_Y{positionY}{
+brique::brique(double positionX, double positionY, surface& type) : d_X{positionX}, d_Y{positionY}, d_type{type} {
 }
 brique::~brique() {
 }
