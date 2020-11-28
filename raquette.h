@@ -6,7 +6,7 @@
 class raquette : public brique
 {
     public:
-        raquette(geom::point& p,surface* type);
+        raquette(geom::point& basGauche, geom::point& hautDroite,surface* type);
         virtual ~raquette();
         virtual void affiche() override ;
 

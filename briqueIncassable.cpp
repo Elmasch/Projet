@@ -1,6 +1,6 @@
 #include "briqueIncassable.h"
 
-briqueIncassable::briqueIncassable(geom::point& p, surface* surface) : brique {p,surface} {
+briqueIncassable::briqueIncassable(geom::point& basGauche, geom::point& hautDroite, surface* surface) : brique {basGauche, hautDroite, surface} {
 }
 
 briqueIncassable::~briqueIncassable(){
@@ -8,6 +8,6 @@ briqueIncassable::~briqueIncassable(){
 
 void briqueIncassable::affiche() {
     setcolor(GREEN);
-    rectangle(getPosition().x()-50,getPosition().y()-5,getPosition().x()+50, getPosition().y()+5);
+    rectangle(getBasGauche().x(),getBasGauche().y(),getHautDroite().x(), getHautDroite().y());
 }
 

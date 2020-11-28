@@ -6,7 +6,7 @@
 class briqueCassable : public brique
 {
     public:
-        briqueCassable(geom::point& p, surface* surface, int nombre);
+        briqueCassable(geom::point& basGauche, geom::point& hautDroite, surface* surface, int nombre);
         virtual ~briqueCassable();
         virtual void affiche() override;
         int getNombre() const;

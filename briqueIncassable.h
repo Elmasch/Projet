@@ -5,7 +5,7 @@
 class briqueIncassable : public brique
 {
     public:
-        briqueIncassable(geom::point& p, surface* surface);
+        briqueIncassable(geom::point& basGauche, geom::point& hautDroite, surface* surface);
         virtual ~briqueIncassable();
         virtual void affiche() override;
 };

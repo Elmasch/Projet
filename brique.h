@@ -8,13 +8,14 @@
 class brique
 {
     public:
-        brique(geom::point& p, surface* surface);
+        brique(geom::point& basGauche, geom::point& hautDroite, surface* surface);
         virtual ~brique();
-        geom::point getPosition() const;
+        geom::point getBasGauche() const;
+        geom::point getHautDroite() const;
         surface* getSurface() const;
         virtual void affiche() =0;
     private:
-        geom::point d_position;
+        geom::point d_basGauche, d_hautDroite;
         surface* d_surface;
 };
 

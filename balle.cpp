@@ -40,9 +40,8 @@ void balle::setVitesse(const geom::vector& v){
 }
 
 void balle::collision(const brique& b){
-    std::cout << d_position.distance(b.getPosition()) << std::endl;
-    if(d_position.distance(b.getPosition()) < 40){
-        d_vitesse = -d_vitesse;
+    if(d_position.x() > b.getBasGauche().x() && d_position.x() < b.getHautDroite().x() && d_position.y() > b.getBasGauche().y() && d_position.y() < b.getHautDroite().y()){
+            d_vitesse = -d_vitesse;
     }
     avance();
 }
