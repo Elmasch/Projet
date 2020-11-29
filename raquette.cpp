@@ -14,3 +14,11 @@ void raquette::affiche(){
 }
 
 
+bool raquette::casse(){
+    return false;
+}
+
+void raquette::efface(){
+    setcolor(BLACK);
+    rectangle(getBasGauche().x(),getBasGauche().y(),getHautDroite().x(), getHautDroite().y());
+}

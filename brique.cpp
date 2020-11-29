@@ -7,11 +7,11 @@ brique::brique(geom::point& basGauche, geom::point& hautDroite, surface* surface
 brique::~brique() {
 }
 
-geom::point brique::getBasGauche() const{
+geom::point brique::getBasGauche(){
     return d_basGauche;
 }
 
-geom::point brique::getHautDroite() const{
+geom::point brique::getHautDroite(){
     return d_hautDroite;
 }
 

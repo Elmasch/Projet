@@ -10,6 +10,8 @@ class briqueCassable : public brique
         virtual ~briqueCassable();
         virtual void affiche() override;
         int getNombre() const;
+        virtual bool casse() override;
+        void efface();
     private:
         int d_nombre;
 };

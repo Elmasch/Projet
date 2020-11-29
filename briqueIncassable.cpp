@@ -11,3 +11,11 @@ void briqueIncassable::affiche() {
     rectangle(getBasGauche().x(),getBasGauche().y(),getHautDroite().x(), getHautDroite().y());
 }
 
+bool briqueIncassable::casse(){
+    return false;
+}
+
+void briqueIncassable::efface(){
+    setcolor(BLACK);
+    rectangle(getBasGauche().x(),getBasGauche().y(),getHautDroite().x(), getHautDroite().y());
+}
