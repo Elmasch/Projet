@@ -16,6 +16,7 @@ class balle
 
         geom::vector getVitesse() const;
         geom::point getPosition() const;
+        bool morte() const;
 
         void setPosition(const geom::point& p);
         void setVitesse(const geom::vector& v);
@@ -28,6 +29,7 @@ class balle
     private:
         geom::vector d_vitesse;
         geom::point d_position;
+        bool d_morte;
 };
 
 #endif // BALLE_H

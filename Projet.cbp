@@ -46,6 +46,8 @@
 		<Unit filename="briqueIncassable.h" />
 		<Unit filename="graphics.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="partie.cpp" />
+		<Unit filename="partie.h" />
 		<Unit filename="point.cpp" />
 		<Unit filename="point.h" />
 		<Unit filename="raquette.cpp" />

@@ -1,7 +1,7 @@
 #include "balle.h"
 #include <iostream>
 
-balle::balle(geom::vector& vitesse, geom::point& p) : d_vitesse{vitesse}, d_position{p}{
+balle::balle(geom::vector& vitesse, geom::point& p) : d_vitesse{vitesse}, d_position{p}, d_morte{false}{
 }
 
 balle::~balle(){
@@ -15,11 +15,18 @@ geom::point balle::getPosition() const{
     return d_position;
 }
 
+bool balle::morte() const{
+    return d_morte;
+}
+
+
 void balle::avance(){
     if(d_position.x() < 0 || d_position.x() > 800){
         d_vitesse.change(-d_vitesse.x(),d_vitesse.y());
     }else if(d_position.y() < 0){
         d_vitesse.change(d_vitesse.x(),-d_vitesse.y());
+    }else if(d_position.y() > 800){
+        d_morte = true;
     }
     efface();
     d_position += d_vitesse;
