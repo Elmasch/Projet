@@ -21,8 +21,8 @@ using namespace std;
 
 void test1(){
 
-    geom::vector v{2,5};
-    geom::point p{150,40};
+    geom::vector v{5,5};
+    geom::point p{0,7};
 
     geom::point p1{200,150};
     geom::point p2{400,160};
@@ -34,12 +34,12 @@ void test1(){
 
     balle b{v,p};
     surfaceNormale sn{};
-    surfaceDure sm{};
+    surfaceMolle sm{};
 
     briques.push_back(make_unique<briqueCassable>(p1,p2,&sn,1));
     briques.push_back(make_unique<raquette>(p3,p4,&sm));
 
-    partie jeu{briques, b, 1800, 800};
+    partie jeu{briques, b, 800, 800};
 
     jeu.jouer();
 

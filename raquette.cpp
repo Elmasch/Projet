@@ -10,7 +10,7 @@ raquette::~raquette()
 
 void raquette::affiche(){
     setcolor(YELLOW);
-    rectangle(getBasGauche().x(),getBasGauche().y(),getHautDroite().x(), getHautDroite().y());
+    bar(getBasGauche().x(),getBasGauche().y(),getHautDroite().x(), getHautDroite().y());
 }
 
 
@@ -20,5 +20,5 @@ bool raquette::casse(){
 
 void raquette::efface(){
     setcolor(BLACK);
-    rectangle(getBasGauche().x(),getBasGauche().y(),getHautDroite().x(), getHautDroite().y());
+    bar(getBasGauche().x(),getBasGauche().y(),getHautDroite().x(), getHautDroite().y());
 }

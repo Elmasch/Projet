@@ -24,8 +24,6 @@ class balle
         void collision(std::vector<std::unique_ptr<brique>> &b, int hauteur, int largeur);
         void affiche();
         void efface();
-
-
     private:
         geom::vector d_vitesse;
         geom::point d_position;

@@ -55,6 +55,8 @@ void balle::collision(std::vector<std::unique_ptr<brique>> &b, int hauteur, int 
     for(int i = 0; i < b.size(); ++i){
         if(d_position.x() > b[i]->getBasGauche().x() && d_position.x() < b[i]->getHautDroite().x() && d_position.y() > b[i]->getBasGauche().y() && d_position.y() < b[i]->getHautDroite().y()){
             d_morte = b[i]->getSurface()->getMorte();
+            efface();
+            d_position = {d_position.x() - d_vitesse.x(),d_position.y() - d_vitesse.y()};
             d_vitesse.change(d_vitesse.x()*b[i]->getSurface()->getVitesse(),-d_vitesse.y()*b[i]->getSurface()->getVitesse());
             if(b[i]->casse()){
                 b[i]->efface();

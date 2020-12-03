@@ -11,7 +11,7 @@ surfaceMolle::~surfaceMolle()
 }
 
 double surfaceMolle::getVitesse() const{
-    return 0.9 ;
+    return 0.5 ;
 }
 
 bool surfaceMolle::getMorte() const {

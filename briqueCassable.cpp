@@ -8,7 +8,7 @@ briqueCassable::~briqueCassable(){
 
 void briqueCassable::affiche() {
     setcolor(BLUE);
-    rectangle(getBasGauche().x(),getBasGauche().y(),getHautDroite().x(), getHautDroite().y());
+    bar(getBasGauche().x(),getBasGauche().y(),getHautDroite().x(), getHautDroite().y());
 }
 
 bool briqueCassable::casse(){
@@ -18,5 +18,5 @@ bool briqueCassable::casse(){
 
 void briqueCassable::efface(){
     setcolor(BLACK);
-    rectangle(getBasGauche().x(),getBasGauche().y(),getHautDroite().x(), getHautDroite().y());
+    bar(getBasGauche().x(),getBasGauche().y(),getHautDroite().x(), getHautDroite().y());
 }

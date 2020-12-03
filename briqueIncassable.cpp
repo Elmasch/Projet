@@ -8,7 +8,7 @@ briqueIncassable::~briqueIncassable(){
 
 void briqueIncassable::affiche() {
     setcolor(GREEN);
-    rectangle(getBasGauche().x(),getBasGauche().y(),getHautDroite().x(), getHautDroite().y());
+    bar(getBasGauche().x(),getBasGauche().y(),getHautDroite().x(), getHautDroite().y());
 }
 
 bool briqueIncassable::casse(){
@@ -17,5 +17,5 @@ bool briqueIncassable::casse(){
 
 void briqueIncassable::efface(){
     setcolor(BLACK);
-    rectangle(getBasGauche().x(),getBasGauche().y(),getHautDroite().x(), getHautDroite().y());
+    bar(getBasGauche().x(),getBasGauche().y(),getHautDroite().x(), getHautDroite().y());
 }
