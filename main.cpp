@@ -39,7 +39,7 @@ void test1(){
     briques.push_back(make_unique<briqueCassable>(p1,p2,&sn,1));
     briques.push_back(make_unique<raquette>(p3,p4,&sm));
 
-    partie jeu{briques, b};
+    partie jeu{briques, b, 1800, 800};
 
     jeu.jouer();
 

@@ -20,12 +20,12 @@ bool balle::morte() const{
 }
 
 
-void balle::avance(){
-    if(d_position.x() < 0 || d_position.x() > 800){
+void balle::avance(int hauteur, int largeur){
+    if(d_position.x() < 0 || d_position.x() > hauteur){
         d_vitesse.change(-d_vitesse.x(),d_vitesse.y());
     }else if(d_position.y() < 0){
         d_vitesse.change(d_vitesse.x(),-d_vitesse.y());
-    }else if(d_position.y() > 800){
+    }else if(d_position.y() > largeur){
         d_morte = true;
     }
     efface();
@@ -51,7 +51,7 @@ void balle::setVitesse(const geom::vector& v){
     d_vitesse = v;
 }
 
-void balle::collision(std::vector<std::unique_ptr<brique>> &b){
+void balle::collision(std::vector<std::unique_ptr<brique>> &b, int hauteur, int largeur){
     for(int i = 0; i < b.size(); ++i){
         if(d_position.x() > b[i]->getBasGauche().x() && d_position.x() < b[i]->getHautDroite().x() && d_position.y() > b[i]->getBasGauche().y() && d_position.y() < b[i]->getHautDroite().y()){
             d_morte = b[i]->getSurface()->getMorte();
@@ -63,5 +63,5 @@ void balle::collision(std::vector<std::unique_ptr<brique>> &b){
         }
         b[i]->affiche();
     }
-    avance();
+    avance(hauteur, largeur);
 }

@@ -20,8 +20,8 @@ class balle
 
         void setPosition(const geom::point& p);
         void setVitesse(const geom::vector& v);
-        void avance();
-        void collision(std::vector<std::unique_ptr<brique>> &b);
+        void avance(int hauteur, int largeur);
+        void collision(std::vector<std::unique_ptr<brique>> &b, int hauteur, int largeur);
         void affiche();
         void efface();
 

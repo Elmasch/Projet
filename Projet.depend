@@ -247,11 +247,11 @@
 	<math.h>
 	"graphics.h"
 
-1606646253 source:c:\users\norma\documents\codeblocks\projet\balle.cpp
+1606990021 source:c:\users\norma\documents\codeblocks\projet\balle.cpp
 	"balle.h"
 	<iostream>
 
-1606646095 c:\users\norma\documents\codeblocks\projet\balle.h
+1606990050 c:\users\norma\documents\codeblocks\projet\balle.h
 	"graphics.h"
 	<cmath>
 	"brique.h"
@@ -267,7 +267,7 @@
 	"surface.h"
 	"point.h"
 
-1606580241 c:\users\norma\documents\codeblocks\projet\surface.h
+1606986241 c:\users\norma\documents\codeblocks\projet\surface.h
 
 1606643787 source:c:\users\norma\documents\codeblocks\projet\brique.cpp
 	"brique.h"
@@ -285,7 +285,7 @@
 1606643787 c:\users\norma\documents\codeblocks\projet\briqueincassable.h
 	"brique.h"
 
-1606646827 source:c:\users\norma\documents\codeblocks\projet\main.cpp
+1606990065 source:c:\users\norma\documents\codeblocks\projet\main.cpp
 	<iostream>
 	"graphics.h"
 	"balle.h"
@@ -297,6 +297,9 @@
 	"brique.h"
 	"briqueCassable.h"
 	"surfaceNormale.h"
+	"surfaceMolle.h"
+	"surfaceDure.h"
+	"surfaceTueuse.h"
 	<memory>
 	"raquette.h"
 	"partie.h"
@@ -308,7 +311,7 @@
 	"brique.h"
 	"balle.h"
 
-1606580163 source:c:\users\norma\documents\codeblocks\projet\surface.cpp
+1606986241 source:c:\users\norma\documents\codeblocks\projet\surface.cpp
 	"surface.h"
 
 1606579866 source:c:\users\norma\documents\codeblocks\projet\terrain.cpp
@@ -323,10 +326,10 @@
 	<math.h>
 	"graphics.h"
 
-1606580209 source:c:\users\norma\documents\codeblocks\projet\surfacenormale.cpp
+1606986241 source:c:\users\norma\documents\codeblocks\projet\surfacenormale.cpp
 	"surfaceNormale.h"
 
-1606580233 c:\users\norma\documents\codeblocks\projet\surfacenormale.h
+1606986241 c:\users\norma\documents\codeblocks\projet\surfacenormale.h
 	"surface.h"
 
 1601192718 c:\users\norma\documents\codeblocks\projet\point.h
@@ -446,10 +449,10 @@
 	<math.h>
 	"graphics.h"
 
-1606646845 source:c:\users\norma\documents\codeblocks\projet\partie.cpp
+1606989929 source:c:\users\norma\documents\codeblocks\projet\partie.cpp
 	"partie.h"
 
-1606646838 c:\users\norma\documents\codeblocks\projet\partie.h
+1606989838 c:\users\norma\documents\codeblocks\projet\partie.h
 	<vector>
 	<memory>
 	"brique.h"
@@ -507,4 +510,22 @@
 
 1606984938 c:\users\elmas\documents\cours\l3\poo\projet2\surfacemolle.h
 	"surface.h"
+
+1606986241 c:\users\norma\documents\codeblocks\projet\surfacemolle.h
+	"surface.h"
+
+1606986241 c:\users\norma\documents\codeblocks\projet\surfacedure.h
+	"surface.h"
+
+1606986241 c:\users\norma\documents\codeblocks\projet\surfacetueuse.h
+	"surface.h"
+
+1606986241 source:c:\users\norma\documents\codeblocks\projet\surfacedure.cpp
+	"surfaceDure.h"
+
+1606986241 source:c:\users\norma\documents\codeblocks\projet\surfacemolle.cpp
+	"surfaceMolle.h"
+
+1606986241 source:c:\users\norma\documents\codeblocks\projet\surfacetueuse.cpp
+	"surfaceTueuse.h"
 
