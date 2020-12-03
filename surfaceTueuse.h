@@ -2,14 +2,15 @@
 #define SURFACETUEUSE_H
 
 
-class surfaceTueuse
+#include "surface.h"
+
+class surfaceTueuse : public surface
 {
     public:
         surfaceTueuse();
         virtual ~surfaceTueuse();
-
-    protected:
-
+        virtual double getVitesse() const override;
+        virtual bool getMorte() const override;
     private:
 };
 

@@ -9,6 +9,9 @@
 #include "brique.h"
 #include "briqueCassable.h"
 #include "surfaceNormale.h"
+#include "surfaceMolle.h"
+#include "surfaceDure.h"
+#include "surfaceTueuse.h"
 #include <memory>
 #include "raquette.h"
 #include "partie.h"
@@ -30,10 +33,11 @@ void test1(){
     vector<unique_ptr<brique>> briques;
 
     balle b{v,p};
-    surfaceNormale s{};
+    surfaceNormale sn{};
+    surfaceDure sm{};
 
-    briques.push_back(make_unique<briqueCassable>(p1,p2,&s,1));
-    briques.push_back(make_unique<raquette>(p3,p4,&s));
+    briques.push_back(make_unique<briqueCassable>(p1,p2,&sn,1));
+    briques.push_back(make_unique<raquette>(p3,p4,&sm));
 
     partie jeu{briques, b};
 

@@ -2,14 +2,15 @@
 #define SURFACEMOLLE_H
 
 
-class surfaceMolle
+#include "surface.h"
+
+class surfaceMolle : public surface
 {
     public:
         surfaceMolle();
         virtual ~surfaceMolle();
-
-    protected:
-
+        virtual double getVitesse() const override;
+        virtual bool getMorte() const override;
     private:
 };
 

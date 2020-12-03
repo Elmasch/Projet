@@ -54,7 +54,8 @@ void balle::setVitesse(const geom::vector& v){
 void balle::collision(std::vector<std::unique_ptr<brique>> &b){
     for(int i = 0; i < b.size(); ++i){
         if(d_position.x() > b[i]->getBasGauche().x() && d_position.x() < b[i]->getHautDroite().x() && d_position.y() > b[i]->getBasGauche().y() && d_position.y() < b[i]->getHautDroite().y()){
-            d_vitesse.change(d_vitesse.x(),-d_vitesse.y());
+            d_morte = b[i]->getSurface()->getMorte();
+            d_vitesse.change(d_vitesse.x()*b[i]->getSurface()->getVitesse(),-d_vitesse.y()*b[i]->getSurface()->getVitesse());
             if(b[i]->casse()){
                 b[i]->efface();
                 b.erase(b.begin() + i);

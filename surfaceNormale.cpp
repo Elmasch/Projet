@@ -10,11 +10,11 @@ surfaceNormale::~surfaceNormale()
     //dtor
 }
 
-int surfaceNormale::getVitesse() const{
-
+double surfaceNormale::getVitesse() const{
+    return 1;
 }
 
 bool surfaceNormale::getMorte() const {
-
+        return false;
 }
 

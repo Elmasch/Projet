@@ -7,11 +7,9 @@ class surface
     public:
         surface();
         virtual ~surface();
-        virtual int getVitesse() const ;
-        virtual bool getMorte() const ;
+        virtual double getVitesse() const =0;
+        virtual bool getMorte() const =0;
     private:
-        int d_vitesse;
-        bool d_estMorte;
 };
 
 #endif // SURFACE_H

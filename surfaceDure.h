@@ -2,14 +2,15 @@
 #define SURFACEDURE_H
 
 
-class surfaceDure
+#include "surface.h"
+
+class surfaceDure : public surface
 {
     public:
         surfaceDure();
         virtual ~surfaceDure();
-
-    protected:
-
+        virtual double getVitesse() const override;
+        virtual bool getMorte() const override;
     private:
 };
 

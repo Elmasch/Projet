@@ -98,7 +98,7 @@
 	"brique.h"
 	"balle.h"
 
-1606983247 source:c:\users\elmas\documents\cours\l3\poo\projet2\balle.cpp
+1606985830 source:c:\users\elmas\documents\cours\l3\poo\projet2\balle.cpp
 	"balle.h"
 	<iostream>
 
@@ -128,7 +128,7 @@
 	"brique.h"
 	"balle.h"
 
-1606906385 source:c:\users\elmas\documents\cours\l3\poo\projet2\main.cpp
+1606985430 source:c:\users\elmas\documents\cours\l3\poo\projet2\main.cpp
 	<iostream>
 	"graphics.h"
 	"balle.h"
@@ -140,6 +140,9 @@
 	"brique.h"
 	"briqueCassable.h"
 	"surfaceNormale.h"
+	"surfaceMolle.h"
+	"surfaceDure.h"
+	"surfaceTueuse.h"
 	<memory>
 	"raquette.h"
 	"partie.h"
@@ -178,10 +181,10 @@
 	<math.h>
 	"graphics.h"
 
-1606983052 source:c:\users\elmas\documents\cours\l3\poo\projet2\surface.cpp
+1606985880 source:c:\users\elmas\documents\cours\l3\poo\projet2\surface.cpp
 	"surface.h"
 
-1606983052 c:\users\elmas\documents\cours\l3\poo\projet2\surface.h
+1606985898 c:\users\elmas\documents\cours\l3\poo\projet2\surface.h
 
 1606906385 source:c:\users\elmas\documents\cours\l3\poo\projet2\briquecassable.cpp
 	"briqueCassable.h"
@@ -459,7 +462,7 @@
 1606906385 c:\users\elmas\documents\cours\l3\poo\projet2\vector.h
 	<iosfwd>
 
-1606982613 c:\users\elmas\documents\cours\l3\poo\projet2\surfacenormale.h
+1606984938 c:\users\elmas\documents\cours\l3\poo\projet2\surfacenormale.h
 	"surface.h"
 
 1606906385 c:\users\elmas\documents\cours\l3\poo\projet2\partie.h
@@ -478,7 +481,7 @@
 	"point.h"
 	"vector.h"
 
-1606983242 source:c:\users\elmas\documents\cours\l3\poo\projet2\surfacenormale.cpp
+1606985261 source:c:\users\elmas\documents\cours\l3\poo\projet2\surfacenormale.cpp
 	"surfaceNormale.h"
 
 1606906385 source:c:\users\elmas\documents\cours\l3\poo\projet2\vector.cpp
@@ -487,18 +490,21 @@
 	"vector.h"
 	"point.h"
 
-1606906442 source:c:\users\elmas\documents\cours\l3\poo\projet2\surfacetueuse.cpp
+1606985272 source:c:\users\elmas\documents\cours\l3\poo\projet2\surfacetueuse.cpp
 	"surfaceTueuse.h"
 
-1606906442 c:\users\elmas\documents\cours\l3\poo\projet2\surfacetueuse.h
+1606984938 c:\users\elmas\documents\cours\l3\poo\projet2\surfacetueuse.h
+	"surface.h"
 
-1606907490 source:c:\users\elmas\documents\cours\l3\poo\projet2\surfacedure.cpp
+1606985261 source:c:\users\elmas\documents\cours\l3\poo\projet2\surfacedure.cpp
 	"surfaceDure.h"
 
-1606907070 c:\users\elmas\documents\cours\l3\poo\projet2\surfacedure.h
+1606984938 c:\users\elmas\documents\cours\l3\poo\projet2\surfacedure.h
+	"surface.h"
 
-1606907055 source:c:\users\elmas\documents\cours\l3\poo\projet2\surfacemolle.cpp
+1606985393 source:c:\users\elmas\documents\cours\l3\poo\projet2\surfacemolle.cpp
 	"surfaceMolle.h"
 
-1606907055 c:\users\elmas\documents\cours\l3\poo\projet2\surfacemolle.h
+1606984938 c:\users\elmas\documents\cours\l3\poo\projet2\surfacemolle.h
+	"surface.h"
 
