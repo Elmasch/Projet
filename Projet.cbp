@@ -54,8 +54,14 @@
 		<Unit filename="raquette.h" />
 		<Unit filename="surface.cpp" />
 		<Unit filename="surface.h" />
+		<Unit filename="surfaceDure.cpp" />
+		<Unit filename="surfaceDure.h" />
+		<Unit filename="surfaceMolle.cpp" />
+		<Unit filename="surfaceMolle.h" />
 		<Unit filename="surfaceNormale.cpp" />
 		<Unit filename="surfaceNormale.h" />
+		<Unit filename="surfaceTueuse.cpp" />
+		<Unit filename="surfaceTueuse.h" />
 		<Unit filename="terrain.cpp" />
 		<Unit filename="terrain.h" />
 		<Unit filename="vector.cpp" />
@@ -63,6 +69,9 @@
 		<Unit filename="winbgi.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
+			<code_completion />
+			<envvars />
+			<debugger />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>
