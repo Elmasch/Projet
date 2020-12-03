@@ -11,9 +11,13 @@ surfaceMolle::~surfaceMolle()
 }
 
 double surfaceMolle::getVitesse() const{
-    return 0.5 ;
+    return 0.8 ;
 }
 
 bool surfaceMolle::getMorte() const {
         return false;
+}
+
+int surfaceMolle::getCouleur() const{
+    return 8;
 }

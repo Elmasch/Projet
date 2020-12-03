@@ -17,3 +17,7 @@ double surfaceTueuse::getVitesse() const{
 bool surfaceTueuse::getMorte() const {
         return true;
 }
+
+int surfaceTueuse::getCouleur() const{
+    return 6;
+}

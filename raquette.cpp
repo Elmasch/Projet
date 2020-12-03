@@ -9,7 +9,7 @@ raquette::~raquette()
 }
 
 void raquette::affiche(){
-    setcolor(YELLOW);
+    setcolor(9);
     bar(getBasGauche().x(),getBasGauche().y(),getHautDroite().x(), getHautDroite().y());
 }
 

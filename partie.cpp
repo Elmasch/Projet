@@ -11,10 +11,13 @@ partie::partie(std::vector<std::unique_ptr<brique>> &b, balle &ba, int hauteur, 
 void partie::jouer(){
     opengraphsize(d_hauteur,d_largeur);
     setbkcolor(BLACK);
-    setcolor(BLUE);
     cleardevice();
     while(!d_balle.morte()){
         d_balle.collision(d_briques, d_hauteur, d_largeur);
+        setcolor(9);
+        bar(0,0,5, d_hauteur);
+        bar(0,0,d_largeur, 5);
+        bar(d_largeur-13,0,d_largeur, d_hauteur);
         Sleep(10);
     }
     closegraph();

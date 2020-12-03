@@ -11,6 +11,8 @@ class surfaceTueuse : public surface
         virtual ~surfaceTueuse();
         virtual double getVitesse() const override;
         virtual bool getMorte() const override;
+        virtual int getCouleur() const override;
+
     private:
 };
 

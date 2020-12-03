@@ -7,7 +7,7 @@ briqueCassable::~briqueCassable(){
 }
 
 void briqueCassable::affiche() {
-    setcolor(BLUE);
+    setcolor(getSurface()->getCouleur());
     bar(getBasGauche().x(),getBasGauche().y(),getHautDroite().x(), getHautDroite().y());
 }
 

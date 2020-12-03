@@ -11,6 +11,7 @@ class surfaceMolle : public surface
         virtual ~surfaceMolle();
         virtual double getVitesse() const override;
         virtual bool getMorte() const override;
+        virtual int getCouleur() const override;
     private:
 };
 

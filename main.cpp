@@ -8,6 +8,7 @@
 #include <vector>
 #include "brique.h"
 #include "briqueCassable.h"
+#include "briqueIncassable.h"
 #include "surfaceNormale.h"
 #include "surfaceMolle.h"
 #include "surfaceDure.h"
@@ -15,31 +16,59 @@
 #include <memory>
 #include "raquette.h"
 #include "partie.h"
+#include <time.h>
 
 using namespace std;
 
+const int HAUTEUR = 800;
+const int LARGEUR = 800;
 
 void test1(){
-
+    srand(time(NULL));
     geom::vector v{5,5};
-    geom::point p{0,7};
+    geom::point p{400,400};
 
-    geom::point p1{200,150};
-    geom::point p2{400,160};
+    geom::point p1;
+    geom::point p2;
 
-    geom::point p3{300,510};
-    geom::point p4{780,520};
+    geom::point p3{0,760};
+    geom::point p4{800,780};
 
     vector<unique_ptr<brique>> briques;
 
-    balle b{v,p};
+    balle b{v,p,7};
     surfaceNormale sn{};
+    surfaceTueuse st{};
+    surfaceDure sd{};
     surfaceMolle sm{};
 
-    briques.push_back(make_unique<briqueCassable>(p1,p2,&sn,1));
-    briques.push_back(make_unique<raquette>(p3,p4,&sm));
+    for(int i = 0; i < 1; ++i){
+        int l = rand()%(LARGEUR-400);
+        int h = rand()%(HAUTEUR-400);
+        p1 = {l,h};
+        p2 = {l+200,h+20};
+        briques.push_back(make_unique<briqueCassable>(p1,p2,&sn,3));
+    }
 
-    partie jeu{briques, b, 800, 800};
+    for(int i = 0; i < 1; ++i){
+        int l = rand()%(LARGEUR-400);
+        int h = rand()%(HAUTEUR-400);
+        p1 = {l,h};
+        p2 = {l+200,h+20};
+        briques.push_back(make_unique<briqueIncassable>(p1,p2,&st));
+    }
+
+    for(int i = 0; i < 1; ++i){
+        int l = rand()%(LARGEUR-400);
+        int h = rand()%(HAUTEUR-400);
+        p1 = {l,h};
+        p2 = {l+200,h+20};
+        briques.push_back(make_unique<briqueCassable>(p1,p2,&sm, 1));
+    }
+
+    briques.push_back(make_unique<raquette>(p3,p4,&sd));
+
+    partie jeu{briques, b, HAUTEUR, LARGEUR};
 
     jeu.jouer();
 

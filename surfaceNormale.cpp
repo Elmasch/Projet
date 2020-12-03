@@ -18,3 +18,6 @@ bool surfaceNormale::getMorte() const {
         return false;
 }
 
+int surfaceNormale::getCouleur() const{
+    return 7;
+}

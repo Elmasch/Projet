@@ -7,7 +7,7 @@ briqueIncassable::~briqueIncassable(){
 }
 
 void briqueIncassable::affiche() {
-    setcolor(GREEN);
+    setcolor(getSurface()->getCouleur());
     bar(getBasGauche().x(),getBasGauche().y(),getHautDroite().x(), getHautDroite().y());
 }
 

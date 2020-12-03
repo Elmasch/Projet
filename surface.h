@@ -9,6 +9,7 @@ class surface
         virtual ~surface();
         virtual double getVitesse() const =0;
         virtual bool getMorte() const =0;
+        virtual int getCouleur() const = 0;
     private:
 };
 

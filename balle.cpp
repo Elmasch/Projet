@@ -1,7 +1,7 @@
 #include "balle.h"
 #include <iostream>
 
-balle::balle(geom::vector& vitesse, geom::point& p) : d_vitesse{vitesse}, d_position{p}, d_morte{false}{
+balle::balle(geom::vector& vitesse, geom::point& p, double rayon) : d_vitesse{vitesse}, d_position{p}, d_morte{false}, d_rayon{rayon}{
 }
 
 balle::~balle(){
@@ -21,11 +21,13 @@ bool balle::morte() const{
 
 
 void balle::avance(int hauteur, int largeur){
-    if(d_position.x() < 0 || d_position.x() > hauteur){
-        d_vitesse.change(-d_vitesse.x(),d_vitesse.y());
-    }else if(d_position.y() < 0){
+    if ( d_position.y() - d_rayon <= 0 && d_position.x() - d_rayon <= 0 || d_position.y() - d_rayon <= 0 && d_position.x() +d_rayon >= largeur){
+            d_vitesse.change(-d_vitesse.x(),-d_vitesse.y());
+    }else if(d_position.y() - d_rayon <= 0){
         d_vitesse.change(d_vitesse.x(),-d_vitesse.y());
-    }else if(d_position.y() > largeur){
+    }else if (d_position.x() - d_rayon <= 0 || d_position.x() +d_rayon >= largeur){
+        d_vitesse.change(-d_vitesse.x(),d_vitesse.y());
+    }else if(d_position.y() + d_rayon >= hauteur){
         d_morte = true;
     }
     efface();
@@ -35,12 +37,12 @@ void balle::avance(int hauteur, int largeur){
 
 void balle::affiche(){
     setcolor(WHITE);
-    circle(d_position.x(),d_position.y(),5);
+    circle(d_position.x(),d_position.y(),d_rayon);
 }
 
 void balle::efface(){
     setcolor(BLACK);
-    circle(d_position.x(),d_position.y(),5);
+    circle(d_position.x(),d_position.y(),d_rayon);
 }
 
 void balle::setPosition(const geom::point& p){

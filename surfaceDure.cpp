@@ -12,9 +12,13 @@ surfaceDure::~surfaceDure()
 }
 
 double surfaceDure::getVitesse() const{
-    return 2;
+    return 1.2;
 }
 
 bool surfaceDure::getMorte() const {
         return false;
+}
+
+int surfaceDure::getCouleur() const{
+    return 10;
 }
