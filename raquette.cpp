@@ -8,6 +8,12 @@ raquette::~raquette()
     //dtor
 }
 
+void raquette::bouge(const char& direction){
+    efface();
+    deplace(direction);
+    affiche();
+}
+
 void raquette::affiche(){
     setcolor(9);
     bar(getBasGauche().x(),getBasGauche().y(),getHautDroite().x(), getHautDroite().y());

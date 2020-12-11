@@ -31,8 +31,8 @@ void test1(){
     geom::point p1;
     geom::point p2;
 
-    geom::point p3{0,760};
-    geom::point p4{800,780};
+    geom::point p3{480,760};
+    geom::point p4{780,780};
 
     vector<unique_ptr<brique>> briques;
 
@@ -66,9 +66,9 @@ void test1(){
         briques.push_back(make_unique<briqueCassable>(p1,p2,&sm, 1));
     }
 
-    briques.push_back(make_unique<raquette>(p3,p4,&sd));
+    raquette r(p3,p4,&sd);
 
-    partie jeu{briques, b, HAUTEUR, LARGEUR};
+    partie jeu{briques, b, HAUTEUR, LARGEUR, r};
 
     jeu.jouer();
 
@@ -76,7 +76,17 @@ void test1(){
 
 int main()
 {
-    test1();
+    int chx;
+    do{
+        chx=0;
+        cout<<"Que voulez-vous faire ?"<<endl;
+        cout<<"1-Jouer"<<endl;
+        cout<<"2-Quitter"<<endl;
+        cin>>chx;
+        if(chx == 1)
+            test1();
+    }while(chx == 1);
+
 }
 
 

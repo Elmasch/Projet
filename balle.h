@@ -3,10 +3,14 @@
 #include "graphics.h"
 #include <cmath>
 #include "brique.h"
+#include "raquette.h"
 #include "point.h"
 #include "vector.h"
 #include <vector>
 #include <memory>
+
+class raquette;
+
 class balle
 {
     public:
@@ -21,7 +25,7 @@ class balle
         void setPosition(const geom::point& p);
         void setVitesse(const geom::vector& v);
         void avance(int hauteur, int largeur);
-        void collision(std::vector<std::unique_ptr<brique>> &b, int hauteur, int largeur);
+        void collision(std::vector<std::unique_ptr<brique>> &b, raquette &r, int hauteur, int largeur);
         void affiche();
         void efface();
     private:
