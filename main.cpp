@@ -26,13 +26,13 @@ const int LARGEUR = 1000;
 void test1(){
     srand(time(NULL));
     geom::vector v{5,5};
-    geom::point p{400,400};
+    geom::point p{LARGEUR - LARGEUR/2 ,HAUTEUR - 120};
 
     geom::point p1;
     geom::point p2;
 
-    geom::point p3{480,HAUTEUR - 100};
-    geom::point p4{780,HAUTEUR - 80};
+    geom::point p3{LARGEUR - LARGEUR/2 - 150 ,HAUTEUR - 100};
+    geom::point p4{LARGEUR - LARGEUR/2 + 150,HAUTEUR - 80};
 
     vector<unique_ptr<brique>> briques;
 
@@ -43,24 +43,24 @@ void test1(){
     surfaceMolle sm{};
 
     for(int i = 0; i < 1; ++i){
-        double l = rand()%(LARGEUR-400);
-        double h = rand()%(HAUTEUR-400);
+        int l = rand()%(LARGEUR-400);
+        int h = rand()%(HAUTEUR-400);
         p1 = {l,h};
         p2 = {l+200,h+20};
         briques.push_back(make_unique<briqueCassable>(p1,p2,&sn,3));
     }
 
     for(int i = 0; i < 2; ++i){
-        double l = rand()%(LARGEUR-400);
-        double h = rand()%(HAUTEUR-400);
+        int l = rand()%(LARGEUR-400);
+        int h = rand()%(HAUTEUR-400);
         p1 = {l,h};
         p2 = {l+200,h+20};
         briques.push_back(make_unique<briqueIncassable>(p1,p2,&sd));
     }
 
     for(int i = 0; i < 2; ++i){
-        double l = rand()%(LARGEUR-400);
-        double h = rand()%(HAUTEUR-400);
+        int l = rand()%(LARGEUR-400);
+        int h = rand()%(HAUTEUR-400);
         p1 = {l,h};
         p2 = {l+200,h+20};
         briques.push_back(make_unique<briqueCassable>(p1,p2,&sm, 1));

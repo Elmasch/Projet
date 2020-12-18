@@ -15,7 +15,7 @@ class balle
 {
     public:
         balle();
-        balle(geom::vector& vitesse, geom::point& p, double rayon);
+        balle(geom::vector& vitesse, geom::point& p, int rayon);
         ~balle();
 
         geom::vector getVitesse() const;
@@ -31,7 +31,7 @@ class balle
     private:
         geom::vector d_vitesse;
         geom::point d_position;
-        double d_rayon;
+        int d_rayon;
         bool d_morte;
 };
 
