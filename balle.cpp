@@ -67,13 +67,10 @@ void balle::collision(std::vector<std::unique_ptr<brique>> &b, raquette &r, int 
                 std::cout << "tructruc" << std::endl;
             }
         }
-        if(b[i]){
+        if(b[i])
             b[i]->affiche();
-        }
     }
-
     if(d_position.x() > r.getBasGauche().x() && d_position.x() < r.getHautDroite().x() && d_position.y() > r.getBasGauche().y() && d_position.y() < r.getHautDroite().y()){
-            d_morte = r.getSurface()->getMorte();
             efface();
             d_position = {d_position.x() - d_vitesse.x(),d_position.y() - d_vitesse.y()};
             d_vitesse.change(d_vitesse.x()*r.getSurface()->getVitesse(),-d_vitesse.y()*r.getSurface()->getVitesse());
