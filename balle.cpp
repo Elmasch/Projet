@@ -1,7 +1,7 @@
 #include "balle.h"
 #include <iostream>
 
-balle::balle(geom::vector& vitesse, geom::point& p, double rayon) : d_vitesse{vitesse}, d_position{p}, d_morte{false}, d_rayon{rayon}{
+balle::balle(geom::vector& vitesse, geom::point& p, int rayon) : d_vitesse{vitesse}, d_position{p}, d_morte{false}, d_rayon{rayon}{
 }
 
 balle::~balle(){
@@ -64,7 +64,6 @@ void balle::collision(std::vector<std::unique_ptr<brique>> &b, raquette &r, int 
             if(b[i]->casse()){
                 b[i]->efface();
                 b.erase(b.begin() + i);
-                std::cout << "tructruc" << std::endl;
             }
         }
         if(b[i])

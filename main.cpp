@@ -26,13 +26,13 @@ const int LARGEUR = 1000;
 void test1(){
     srand(time(NULL));
     geom::vector v{5,5};
-    geom::point p{400,400};
+    geom::point p{LARGEUR - LARGEUR/2 ,HAUTEUR - 120};
 
     geom::point p1;
     geom::point p2;
 
-    geom::point p3{480,HAUTEUR - 100};
-    geom::point p4{780,HAUTEUR - 80};
+    geom::point p3{LARGEUR - LARGEUR/2 - 150 ,HAUTEUR - 100};
+    geom::point p4{LARGEUR - LARGEUR/2 + 150,HAUTEUR - 80};
 
     vector<unique_ptr<brique>> briques;
 
