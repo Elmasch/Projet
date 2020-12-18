@@ -12,7 +12,6 @@ class surfaceDure : public surface
         virtual double getVitesse() const override;
         virtual bool getMorte() const override;
         virtual int getCouleur() const override;
-    private:
 };
 
 #endif // SURFACEDURE_H

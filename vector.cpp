@@ -26,80 +26,9 @@ double vector::y() const
   return d_y;
 }
 
-double vector::length() const
-{
-  return std::sqrt(d_x*d_x + d_y*d_y);
-}
-
 void vector::change(double x, double y)
 {
   d_x = x;  d_y = y;
-}
-
-vector vector::operator-() const
-{
-  return {-d_x,-d_y};
-}
-
-vector& vector::operator+=(const vector& v)
-{
-  d_x += v.d_x;
-  d_y += v.d_y;
-  return *this;
-}
-
-vector vector::operator+(const vector& v) const
-{
-  vector res{*this};
-  res += v;
-  return res;
-}
-
-vector& vector::operator-=(const vector& v)
-{
-  d_x -= v.d_x;
-  d_y -= v.d_y;
-  return *this;
-}
-
-vector vector::operator-(const vector& v) const
-{
-  vector res{*this};
-  res -= v;
-  return res;
-}
-
-vector& vector::operator*=(double l)
-{
-  d_x *= l;
-  d_y *= l;
-  return *this;
-}
-
-vector vector::operator*(double l) const
-{
-  vector res{*this};
-  res *= l;
-  return res;
-}
-
-vector operator*(double l, const vector& v)
-{
-  return v*l;
-}
-
-vector& vector::operator/=(double l)
-{
-  d_x /= l;
-  d_y /= l;
-  return *this;
-}
-
-vector vector::operator/(double l) const
-{
-  vector res{*this};
-  res /= l;
-  return res;
 }
 
 void vector::print(std::ostream& ost) const

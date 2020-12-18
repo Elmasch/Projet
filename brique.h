@@ -12,6 +12,7 @@ class brique
         virtual ~brique();
         geom::point getBasGauche();
         geom::point getHautDroite();
+        void deplace(const char& direction, int hauteur, int largeur);
         surface* getSurface() const;
         virtual void affiche() =0;
         virtual void efface() = 0;

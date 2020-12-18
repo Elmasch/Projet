@@ -53,8 +53,9 @@ void balle::setVitesse(const geom::vector& v){
     d_vitesse = v;
 }
 
-void balle::collision(std::vector<std::unique_ptr<brique>> &b, int hauteur, int largeur){
+void balle::collision(std::vector<std::unique_ptr<brique>> &b, raquette &r, int hauteur, int largeur){
     for(int i = 0; i < b.size(); ++i){
+
         if(d_position.x() > b[i]->getBasGauche().x() && d_position.x() < b[i]->getHautDroite().x() && d_position.y() > b[i]->getBasGauche().y() && d_position.y() < b[i]->getHautDroite().y()){
             d_morte = b[i]->getSurface()->getMorte();
             efface();
@@ -63,9 +64,19 @@ void balle::collision(std::vector<std::unique_ptr<brique>> &b, int hauteur, int 
             if(b[i]->casse()){
                 b[i]->efface();
                 b.erase(b.begin() + i);
+                std::cout << "tructruc" << std::endl;
             }
         }
-        b[i]->affiche();
+        if(b[i]){
+            b[i]->affiche();
+        }
     }
+
+    if(d_position.x() > r.getBasGauche().x() && d_position.x() < r.getHautDroite().x() && d_position.y() > r.getBasGauche().y() && d_position.y() < r.getHautDroite().y()){
+            d_morte = r.getSurface()->getMorte();
+            efface();
+            d_position = {d_position.x() - d_vitesse.x(),d_position.y() - d_vitesse.y()};
+            d_vitesse.change(d_vitesse.x()*r.getSurface()->getVitesse(),-d_vitesse.y()*r.getSurface()->getVitesse());
+        }
     avance(hauteur, largeur);
 }
