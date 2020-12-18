@@ -14,11 +14,11 @@ geom::point brique::getHautDroite(){
 }
 
 void brique::deplace(const char& direction){
-    if(direction == 'q' && getBasGauche().x()>0){
+    if(direction == 'q' || direction == 'Q' && getBasGauche().x()>0){
         d_basGauche.moveTo(getBasGauche().x()-20, getBasGauche().y());
         d_hautDroite.moveTo(getHautDroite().x()-20, getHautDroite().y());
     }
-    else if (direction == 'd' && getHautDroite().x()< 800){
+    else if (direction == 'd' || direction == 'D' && getHautDroite().x()< 800){
         d_basGauche.moveTo(getBasGauche().x()+20, getBasGauche().y());
         d_hautDroite.moveTo(getHautDroite().x()+20, getHautDroite().y());
     }

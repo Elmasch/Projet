@@ -42,14 +42,16 @@ void test1(){
     surfaceDure sd{};
     surfaceMolle sm{};
 
+    //BRIQUE BLANCHE CASSABLE EN n FOIS
     for(int i = 0; i < 1; ++i){
         int l = rand()%(LARGEUR-400);
         int h = rand()%(HAUTEUR-400);
         p1 = {l,h};
         p2 = {l+200,h+20};
-        briques.push_back(make_unique<briqueCassable>(p1,p2,&sn,3));
+        briques.push_back(make_unique<briqueCassable>(p1,p2,&sn,2));
     }
 
+    //BRIQUE ROUGE QUI MET FIN A LA PARTIE
     for(int i = 0; i < 1; ++i){
         int l = rand()%(LARGEUR-400);
         int h = rand()%(HAUTEUR-400);
@@ -58,12 +60,13 @@ void test1(){
         briques.push_back(make_unique<briqueIncassable>(p1,p2,&st));
     }
 
+    //BRIQUE BLANCHE CASSABLE EN 1 FOIS
     for(int i = 0; i < 1; ++i){
         int l = rand()%(LARGEUR-400);
         int h = rand()%(HAUTEUR-400);
         p1 = {l,h};
         p2 = {l+200,h+20};
-        briques.push_back(make_unique<briqueCassable>(p1,p2,&sm, 1));
+        briques.push_back(make_unique<briqueCassable>(p1,p2,&sm,1));
     }
 
     raquette r(p3,p4,&sd);
@@ -84,6 +87,12 @@ int main()
         cout<<"2-Quitter"<<endl;
         cin>>chx;
         if(chx == 1)
+            cout<<"Vous pourrez deplacer la raquette avec les touches Q et D !"<<endl;
+            Sleep(4000);
+            cout<<"Vous etes prets ??"<<endl;
+            Sleep(2000);
+            cout<<"Alors ze partiiiiiiiiiiiii"<<endl;
+            Sleep(2000);
             test1();
     }while(chx == 1);
 
