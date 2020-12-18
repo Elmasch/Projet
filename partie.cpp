@@ -27,7 +27,7 @@ void partie::jouer(){
             if(kbhit()){
                 direction = getch();
                 if(direction == 'q' || direction == 'd' || direction == 'Q' || direction == 'D')
-                    d_raquette.bouge(direction);
+                    d_raquette.bouge(direction, d_hauteur,  d_largeur);
             }
             Sleep(10);
         }else{

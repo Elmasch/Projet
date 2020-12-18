@@ -247,7 +247,7 @@
 	<math.h>
 	"graphics.h"
 
-1608281484 source:c:\users\norma\documents\codeblocks\projet\balle.cpp
+1608282386 source:c:\users\norma\documents\codeblocks\projet\balle.cpp
 	"balle.h"
 	<iostream>
 
@@ -270,7 +270,7 @@
 
 1607706529 c:\users\norma\documents\codeblocks\projet\surface.h
 
-1608279979 source:c:\users\norma\documents\codeblocks\projet\brique.cpp
+1608282386 source:c:\users\norma\documents\codeblocks\projet\brique.cpp
 	"brique.h"
 
 1607706529 source:c:\users\norma\documents\codeblocks\projet\briquecassable.cpp
@@ -286,7 +286,7 @@
 1607706529 c:\users\norma\documents\codeblocks\projet\briqueincassable.h
 	"brique.h"
 
-1608281460 source:c:\users\norma\documents\codeblocks\projet\main.cpp
+1608282386 source:c:\users\norma\documents\codeblocks\projet\main.cpp
 	<iostream>
 	"graphics.h"
 	"balle.h"
@@ -452,7 +452,8 @@
 	<math.h>
 	"graphics.h"
 
-1608280088 source:c:\users\norma\documents\codeblocks\projet\partie.cpp
+1608282478 source:c:\users\norma\documents\codeblocks\projet\partie.cpp
+	<iostream>
 	"partie.h"
 
 1608278825 c:\users\norma\documents\codeblocks\projet\partie.h
