@@ -7,10 +7,6 @@ class terrain
     public:
         terrain();
         virtual ~terrain();
-
-    protected:
-
-    private:
 };
 
 #endif // TERRAIN_H

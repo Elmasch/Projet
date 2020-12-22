@@ -13,7 +13,7 @@ geom::point brique::getHautDroite(){
     return d_hautDroite;
 }
 
-void brique::deplace(const char& direction, int hauteur, int largeur){
+void brique::deplace(const char& direction, int largeur){
     if((direction == 'q' || direction == 'Q') && getBasGauche().x()>0){
         d_basGauche.moveTo(getBasGauche().x()-30, getBasGauche().y());
         d_hautDroite.moveTo(getHautDroite().x()-30, getHautDroite().y());

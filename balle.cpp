@@ -1,11 +1,11 @@
 #include "balle.h"
 #include <iostream>
 
-balle::balle(geom::vector& vitesse, geom::point& p, int rayon) : d_vitesse{vitesse}, d_position{p}, d_morte{false}, d_rayon{rayon}{
-}
+balle::balle(geom::vector& vitesse, geom::point& p, int rayon) : d_vitesse{vitesse}, d_position{p}, d_morte{false}, d_rayon{rayon}
+{}
 
-balle::~balle(){
-}
+balle::~balle()
+{}
 
 geom::vector balle::getVitesse() const{
     return d_vitesse;

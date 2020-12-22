@@ -23,7 +23,7 @@ using namespace std;
 const int HAUTEUR = 1000;
 const int LARGEUR = 1000;
 
-void test1(){
+void play(){
     srand(time(NULL));
     geom::vector v{5,5};
     geom::point p{LARGEUR - LARGEUR/2 ,HAUTEUR - 120};
@@ -42,7 +42,7 @@ void test1(){
     surfaceDure sd{};
     surfaceMolle sm{};
 
-    //BRIQUE BLANCHE CASSABLE EN n FOIS
+    //BRIQUES BLANCHES CASSABLES EN n FOIS
     for(int i = 0; i < 1; ++i){
         int l = rand()%(LARGEUR-400);
         int h = rand()%(HAUTEUR-400);
@@ -51,7 +51,7 @@ void test1(){
         briques.push_back(make_unique<briqueCassable>(p1,p2,&sn,2));
     }
 
-    //BRIQUE ROUGE QUI MET FIN A LA PARTIE
+    //BRIQUES CYANS INCASSABLES
     for(int i = 0; i < 2; ++i){
         int l = rand()%(LARGEUR-400);
         int h = rand()%(HAUTEUR-400);
@@ -60,7 +60,7 @@ void test1(){
         briques.push_back(make_unique<briqueIncassable>(p1,p2,&sd));
     }
 
-    //BRIQUE BLANCHE CASSABLE EN 1 FOIS
+    //BRIQUES VERTES CASSABLES EN 1 FOIS
     for(int i = 0; i < 2; ++i){
         int l = rand()%(LARGEUR-400);
         int h = rand()%(HAUTEUR-400);
@@ -77,7 +77,7 @@ void test1(){
 
 }
 
-int main()
+/*int main()
 {
     int chx;
     do{
@@ -93,10 +93,10 @@ int main()
             Sleep(2000);
             cout<<"Alors ze partiiiiiiiiiiiii"<<endl;
             Sleep(2000);
-            test1();
+            play();
     }while(chx == 1);
 
-}
+}*/
 
 
 

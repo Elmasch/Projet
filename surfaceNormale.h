@@ -11,7 +11,6 @@ class surfaceNormale : public surface
         virtual double getVitesse() const override;
         virtual bool getMorte() const override;
         virtual int getCouleur() const override;
-    private:
 };
 
 #endif // SURFACENORMALE_H

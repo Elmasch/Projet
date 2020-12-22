@@ -3,66 +3,47 @@
 #include"vector.h"
 #include"point.h"
 
-namespace geom
-{
+namespace geom{
 
-vector::vector() : vector {0.0,0.0}
+vector::vector() : vector {0,0}
 {}
 
-vector::vector(double x,double y) : d_x{x}, d_y{y}
+vector::vector(int x, int y) : d_x{x}, d_y{y}
 {}
 
-vector::vector(const point& p,const point& q) :
-        d_x{q.x()-p.x()}, d_y{q.y()-p.y()}
+vector::vector(const point& p1,const point& p2) :d_x{p2.x()-p1.x()}, d_y{p2.y()-p1.y()}
 {}
 
-double vector::x() const
-{
+int vector::x() const{
   return d_x;
 }
 
-double vector::y() const
-{
+int vector::y() const{
   return d_y;
 }
 
-void vector::change(double x, double y)
-{
+void vector::change(int x, int y){
   d_x = x;  d_y = y;
 }
 
-void vector::print(std::ostream& ost) const
-{
+void vector::print(std::ostream& ost) const{
   ost<<'('<<d_x<<','<<d_y<<')';
 }
 
-void vector::read(std::istream& ist)
-{
+void vector::read(std::istream& ist){
   char c;
   ist>>c;
   if (c == '(')
   {
-    double x;
+    int x;
     ist>>x>>c;
     if (c == ',')
     {
-      double y;
+      int y;
       ist>>y>>c;
       if (c == ')') { d_x = x; d_y = y; }
     }
   }
-}
-
-std::ostream& operator<<(std::ostream& ost, const vector& v)
-{
-  v.print(ost);
-  return ost;
-}
-
-std::istream& operator>>(std::istream& ist, vector& v)
-{
-  v.read(ist);
-  return ist;
 }
 
 }

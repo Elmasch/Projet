@@ -14,18 +14,20 @@ class raquette;
 class balle
 {
     public:
-        balle();
         balle(geom::vector& vitesse, geom::point& p, int rayon);
+        balle();
         ~balle();
 
         geom::vector getVitesse() const;
         geom::point getPosition() const;
         bool morte() const;
 
-        void setPosition(const geom::point& p);
         void setVitesse(const geom::vector& v);
+        void setPosition(const geom::point& p);
+
         void avance(int hauteur, int largeur);
         void collision(std::vector<std::unique_ptr<brique>> &b, raquette &r, int hauteur, int largeur);
+
         void affiche();
         void efface();
     private:

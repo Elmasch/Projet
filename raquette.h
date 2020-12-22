@@ -8,7 +8,9 @@ class raquette : public brique
     public:
         raquette(geom::point& basGauche, geom::point& hautDroite,surface* surface);
         virtual ~raquette();
-        void bouge(const char& direction, int hauteur, int largeur);
+
+        void bouge(const char& direction, int largeur);
+
         virtual void affiche() override;
         virtual void efface() override;
         virtual bool casse() override;
