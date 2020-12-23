@@ -26,6 +26,7 @@ class partie
 {
     public:
         partie(const int hauteur, const int largeur);
+        bool superposition(std::unique_ptr<brique>);
         void jouer();
         bool checkfin();
     private:

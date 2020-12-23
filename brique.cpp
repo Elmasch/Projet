@@ -33,7 +33,6 @@ void brique::deplace(const char& direction, int largeur){
     }
 }
 
-
 surface* brique::getSurface() const{
     return d_surface;
 }

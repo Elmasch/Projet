@@ -36,6 +36,12 @@ point& point::operator+=(const vector& v) {
   return *this;
 }
 
+/*bool point::operator > (const point &p) {
+  if(this->x()> p.x() && this->y() > p.y())
+    return true;
+  return false;
+}*/
+
 void point::print(std::ostream& ost) const {
   ost<<'('<<d_x<<','<<d_y<<')';
 }

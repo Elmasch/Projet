@@ -18,6 +18,7 @@ public:
   void moveTo(int x, int y);
   void move(int dx, int dy);
   void move(const vector& v);
+  //bool operator > (const point &p);
   point& operator+=(const vector& v);
 
   void print(std::ostream& ost) const;

@@ -1,3 +1,4 @@
+#include <iostream>
 #include "partie.h"
 
 partie::partie(const int hauteur, const int largeur) : d_hauteur{hauteur} , d_largeur{largeur}
@@ -20,28 +21,34 @@ partie::partie(const int hauteur, const int largeur) : d_hauteur{hauteur} , d_la
     //BRIQUES BLANCHES CASSABLES EN n FOIS
     //i sera le nombre de briques
     for(int i = 0; i < 1; ++i){
-        int l = rand()%(d_largeur-400);
-        int h = rand()%(d_hauteur-400);
-        p1 = {l,h};
-        p2 = {l+d_largeur/8,h+20};
+        do{
+            int l = rand()%(d_largeur-400);
+            int h = rand()%(d_hauteur-400);
+            p1 = {l,h};
+            p2 = {l+d_largeur/8,h+20};
+        }while(superposition(std::make_unique<briqueCassable>(p1,p2,&sn,2)));
         d_briques.push_back(std::make_unique<briqueCassable>(p1,p2,&sn,2));
     }
 
     //BRIQUES CYANS INCASSABLES
     for(int i = 0; i < 2; ++i){
-        int l = rand()%(d_largeur-400);
-        int h = rand()%(d_hauteur-400);
-        p1 = {l,h};
-        p2 = {l+d_largeur/8,h+20};
+        do{
+            int l = rand()%(d_largeur-400);
+            int h = rand()%(d_hauteur-400);
+            p1 = {l,h};
+            p2 = {l+d_largeur/8,h+20};
+        }while(superposition(std::make_unique<briqueIncassable>(p1,p2,&sd)));
         d_briques.push_back(std::make_unique<briqueIncassable>(p1,p2,&sd));
     }
 
     //BRIQUES VERTES CASSABLES EN 1 FOIS
     for(int i = 0; i < 2; ++i){
-        int l = rand()%(d_largeur-400);
-        int h = rand()%(d_hauteur-400);
-        p1 = {l,h};
-        p2 = {l+d_largeur/8,h+20};
+        do{
+            int l = rand()%(d_largeur-400);
+            int h = rand()%(d_hauteur-400);
+            p1 = {l,h};
+            p2 = {l+d_largeur/8,h+20};
+        }while(superposition(std::make_unique<briqueCassable>(p1,p2,&sm,1)));
         d_briques.push_back(std::make_unique<briqueCassable>(p1,p2,&sm,1));
     }
 
@@ -50,6 +57,23 @@ partie::partie(const int hauteur, const int largeur) : d_hauteur{hauteur} , d_la
     d_raquette={p3,p4,&sn};
 
     jouer();
+}
+
+bool partie::superposition(std::unique_ptr<brique> b){
+    for(int i=0;i<d_briques.size();i++){
+        //UTILSABLE SI LA METHODE BOOLEENNE OPERATOR > DE LA CLASSE POINT FONCTIONNE
+        /*if((b->getHautDroite() > d_briques[i]->getBasGauche() && d_briques[i]->getHautDroite() > b->getHautDroite()) ||
+           (d_briques[i]->getHautDroite() > b->getBasGauche() && b->getHautDroite() > d_briques[i]->getHautDroite())){
+            return true;
+        }*/
+        if((b->getHautDroite().y() > d_briques[i]->getBasGauche().y() && d_briques[i]->getHautDroite().y() > b->getHautDroite().y()) ||
+           (d_briques[i]->getHautDroite().y() > b->getBasGauche().y() && b->getHautDroite().y() > d_briques[i]->getHautDroite().y())){
+            if((b->getHautDroite().x() > d_briques[i]->getBasGauche().x() && d_briques[i]->getHautDroite().x() > b->getHautDroite().x()) ||
+           (d_briques[i]->getHautDroite().x() > b->getBasGauche().x() && b->getHautDroite().x() > d_briques[i]->getHautDroite().x()))
+            return true;
+        }
+    }
+    return false;
 }
 
 void partie::jouer(){
