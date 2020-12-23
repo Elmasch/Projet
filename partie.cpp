@@ -2,7 +2,6 @@
 #include "partie.h"
 
 partie::partie(std::vector<std::unique_ptr<brique>> &b, balle &ba, int hauteur, int largeur, raquette &r): d_balle{ba}, d_hauteur{hauteur}, d_largeur{largeur}, d_raquette{r}
-
 {
     for(int i = 0; i < b.size(); ++i)
         d_briques.push_back(std::move(b[i]));
