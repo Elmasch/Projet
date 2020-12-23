@@ -68,6 +68,7 @@
 		<Unit filename="testballe.cpp" />
 		<Unit filename="testbrique.cpp" />
 		<Unit filename="testmain.cpp" />
+		<Unit filename="testpartie.cpp" />
 		<Unit filename="testpoint.cpp" />
 		<Unit filename="testsurface.cpp" />
 		<Unit filename="testvector.cpp" />
