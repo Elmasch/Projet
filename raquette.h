@@ -7,6 +7,7 @@ class raquette : public brique
 {
     public:
         raquette(geom::point& basGauche, geom::point& hautDroite,surface* surface);
+        raquette();
         virtual ~raquette();
 
         void bouge(const char& direction, int largeur);

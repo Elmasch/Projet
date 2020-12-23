@@ -1,10 +1,54 @@
-#include <iostream>
 #include "partie.h"
 
-partie::partie(std::vector<std::unique_ptr<brique>> &b, balle &ba, int hauteur, int largeur, raquette &r): d_balle{ba}, d_hauteur{hauteur}, d_largeur{largeur}, d_raquette{r}
+partie::partie(const int hauteur, const int largeur) : d_hauteur{hauteur} , d_largeur{largeur}
 {
-    for(int i = 0; i < b.size(); ++i)
-        d_briques.push_back(std::move(b[i]));
+    srand(time(NULL));
+
+    //Initialisation de la balle
+    geom::vector v{5,5};
+    geom::point p{d_largeur - d_largeur/2 ,d_hauteur - 120};
+    d_balle = {v,p,7};
+
+    geom::point p1;
+    geom::point p2;
+    geom::point p3{d_largeur - d_largeur/2 - 150 ,d_hauteur - 100};
+    geom::point p4{d_largeur - d_largeur/2 + 150,d_hauteur - 80};
+
+    surfaceNormale sn{};
+    surfaceTueuse st{};
+    surfaceDure sd{};
+    surfaceMolle sm{};
+
+    //BRIQUES BLANCHES CASSABLES EN n FOIS
+    for(int i = 0; i < 1; ++i){
+        int l = rand()%(d_largeur-400);
+        int h = rand()%(d_hauteur-400);
+        p1 = {l,h};
+        p2 = {l+200,h+20};
+        d_briques.push_back(std::make_unique<briqueCassable>(p1,p2,&sn,2));
+    }
+
+    //BRIQUES CYANS INCASSABLES
+    for(int i = 0; i < 2; ++i){
+        int l = rand()%(d_largeur-400);
+        int h = rand()%(d_hauteur-400);
+        p1 = {l,h};
+        p2 = {l+200,h+20};
+        d_briques.push_back(std::make_unique<briqueIncassable>(p1,p2,&sd));
+    }
+
+    //BRIQUES VERTES CASSABLES EN 1 FOIS
+    for(int i = 0; i < 2; ++i){
+        int l = rand()%(d_largeur-400);
+        int h = rand()%(d_hauteur-400);
+        p1 = {l,h};
+        p2 = {l+200,h+20};
+        d_briques.push_back(std::make_unique<briqueCassable>(p1,p2,&sm,1));
+    }
+
+    d_raquette={p3,p4,&sn};
+
+    jouer();
 }
 
 void partie::jouer(){
@@ -30,7 +74,6 @@ void partie::jouer(){
             }
             Sleep(10);
         }else{
-            std::cout<<"FIN"<<std::endl<<std::endl<<std::endl;
             end=true;
         }
     }

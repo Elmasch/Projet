@@ -1,9 +1,13 @@
 #include "brique.h"
 
-brique::brique(geom::point& basGauche, geom::point& hautDroite, surface* surface) : d_basGauche{basGauche}, d_hautDroite{hautDroite}, d_surface{surface} {
-}
-brique::~brique() {
-}
+brique::brique(geom::point& basGauche, geom::point& hautDroite, surface* surface) : d_basGauche{basGauche}, d_hautDroite{hautDroite}, d_surface{surface}
+{}
+
+brique::brique()
+{}
+
+brique::~brique()
+{}
 
 geom::point brique::getBasGauche(){
     return d_basGauche;

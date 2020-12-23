@@ -23,7 +23,7 @@ TEST_CASE("{partie} La partie est cree correctement"){
 
     raquette r{p1,p2,&s};
 
-    partie(b,ba,hauteur,largeur,r);
+    partie(hauteur,largeur);
     //Necessite des getters pour pouvoir verifier si les valuers sont bien initialises
 }
 

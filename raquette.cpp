@@ -1,7 +1,10 @@
 #include "raquette.h"
 
-raquette::raquette(geom::point& basGauche, geom::point& hautDroite, surface* surface) : brique{basGauche, hautDroite, surface}{
-}
+raquette::raquette(geom::point& basGauche, geom::point& hautDroite, surface* surface) : brique{basGauche, hautDroite, surface}
+{}
+
+raquette::raquette()
+{}
 
 raquette::~raquette()
 {

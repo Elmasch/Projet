@@ -9,6 +9,7 @@ class brique
 {
     public:
         brique(geom::point& basGauche, geom::point& hautDroite, surface* surface);
+        brique();
         virtual ~brique();
 
         geom::point getBasGauche();
