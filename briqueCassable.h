@@ -12,6 +12,7 @@ class briqueCassable : public brique
         int getNombre() const;
 
         virtual bool casse() override;
+        virtual bool cassable() override;
 
         virtual void efface() override;
         virtual void affiche() override;

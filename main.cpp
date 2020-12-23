@@ -6,7 +6,7 @@ using namespace std;
 int main()
 {
     const int hauteur=1000;
-    const int largeur=1000;
+    const int largeur=1900;
 
     int chx;
     do{

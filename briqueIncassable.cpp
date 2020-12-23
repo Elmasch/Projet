@@ -15,6 +15,10 @@ bool briqueIncassable::casse(){
     return false;
 }
 
+bool briqueIncassable::cassable(){
+    return false;
+}
+
 void briqueIncassable::efface(){
     setcolor(BLACK);
     bar(getBasGauche().x(),getBasGauche().y(),getHautDroite().x(), getHautDroite().y());

@@ -27,6 +27,7 @@ class partie
     public:
         partie(const int hauteur, const int largeur);
         void jouer();
+        bool checkfin();
     private:
         balle d_balle;
         std::vector<std::unique_ptr<brique>> d_briques;

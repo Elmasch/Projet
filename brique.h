@@ -19,6 +19,7 @@ class brique
         void deplace(const char& direction, int largeur);
 
         virtual bool casse() = 0;
+        virtual bool cassable() = 0;
 
         virtual void affiche() =0;
         virtual void efface() = 0;

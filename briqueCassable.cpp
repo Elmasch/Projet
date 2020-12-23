@@ -20,6 +20,10 @@ bool briqueCassable::casse(){
     return d_nombre <1 ;
 }
 
+bool briqueCassable::cassable(){
+    return true;
+}
+
 void briqueCassable::efface(){
     setcolor(BLACK);
     bar(getBasGauche().x(),getBasGauche().y(),getHautDroite().x(), getHautDroite().y());

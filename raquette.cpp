@@ -30,3 +30,7 @@ void raquette::efface(){
 bool raquette::casse(){
     return false ;
 }
+
+bool raquette::cassable(){
+    return false ;
+}

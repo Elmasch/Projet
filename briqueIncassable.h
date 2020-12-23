@@ -9,6 +9,7 @@ class briqueIncassable : public brique
         virtual ~briqueIncassable();
 
         virtual bool casse() override;
+        virtual bool cassable() override;
 
         virtual void affiche() override;
         virtual void efface() override;

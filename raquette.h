@@ -12,9 +12,11 @@ class raquette : public brique
 
         void bouge(const char& direction, int largeur);
 
+        virtual bool casse() override;
+        virtual bool cassable() override;
+
         virtual void affiche() override;
         virtual void efface() override;
-        virtual bool casse() override;
 
 };
 
