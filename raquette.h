@@ -10,6 +10,8 @@ class raquette : public brique
         raquette();
         virtual ~raquette();
 
+        virtual int getNombre() const override;
+
         void bouge(const char& direction, int largeur);
 
         virtual bool casse() override;

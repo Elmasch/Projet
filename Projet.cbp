@@ -45,6 +45,8 @@
 		<Unit filename="briqueIncassable.cpp" />
 		<Unit filename="briqueIncassable.h" />
 		<Unit filename="doctest.h" />
+		<Unit filename="fluxFichier.cpp" />
+		<Unit filename="fluxFichier.h" />
 		<Unit filename="graphics.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="partie.cpp" />

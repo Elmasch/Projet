@@ -1,6 +1,9 @@
 #include <iostream>
 #include "partie.h"
 
+partie::partie() : d_hauteur{0}, d_largeur{0}
+{}
+
 partie::partie(const int hauteur, const int largeur) : d_hauteur{hauteur} , d_largeur{largeur}
 {
     srand(time(NULL));
@@ -55,7 +58,14 @@ partie::partie(const int hauteur, const int largeur) : d_hauteur{hauteur} , d_la
     geom::point p3{(d_largeur/2)-(d_largeur/6) ,d_hauteur - 100};
     geom::point p4{(d_largeur/2)+(d_largeur/6),d_hauteur - 80};
     d_raquette={p3,p4,&sn};
+    jouer();
+}
 
+partie::partie(balle ba, std::vector<std::unique_ptr<brique>>& br,int hauteur, int largeur,raquette r) : d_balle{ba}, d_hauteur{hauteur}, d_largeur{largeur}, d_raquette{r}
+{
+    for(int i=0;i<br.size();i++){
+        d_briques.push_back(move(br[i]));
+    }
     jouer();
 }
 
@@ -86,7 +96,6 @@ void partie::jouer(){
 
     while(!d_balle.morte() && end == false){
         d_balle.collision(d_briques, d_raquette, d_hauteur, d_largeur);
-
         if(d_briques.size()>0 && !d_balle.morte()){
             setcolor(9);
             bar(0,0,5, d_hauteur);
@@ -109,7 +118,6 @@ void partie::jouer(){
 
 bool partie::checkfin(){
     //renverra vrai s'il ne reste plus que des briques incassables ou avec des surfaces tueuses
-    bool fin=true;
     for(int i=0;i<d_briques.size();i++){
         if(d_briques[i]->cassable()){
             if(!d_briques[i]->getSurface()->getMorte())
@@ -117,4 +125,24 @@ bool partie::checkfin(){
         }
     }
     return true;
+}
+
+int partie ::getHauteur() const{
+    return d_hauteur;
+}
+
+int partie ::getLargeur() const{
+    return d_largeur;
+}
+
+balle partie::getBalle() const{
+    return d_balle;
+}
+
+const std::vector<std::unique_ptr<brique>>& partie::getBriques() const{
+    return d_briques;
+}
+
+raquette partie::getRaquette() const{
+    return d_raquette;
 }

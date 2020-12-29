@@ -11,6 +11,10 @@ raquette::~raquette()
     //dtor
 }
 
+int raquette::getNombre() const{
+    return 0;
+}
+
 void raquette::bouge(const char& direction, int largeur){
     efface();
     deplace(direction,largeur);

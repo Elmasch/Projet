@@ -1,3 +1,4 @@
+#include <iostream>
 #include "briqueCassable.h"
 
 briqueCassable::briqueCassable(geom::point& basGauche, geom::point& hautDroite, surface* surface, int nombre) : brique{basGauche, hautDroite, surface}, d_nombre{nombre}{

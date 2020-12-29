@@ -15,6 +15,7 @@ class brique
         geom::point getBasGauche();
         geom::point getHautDroite();
         surface* getSurface() const;
+        virtual int getNombre() const = 0;
 
         void deplace(const char& direction, int largeur);
 

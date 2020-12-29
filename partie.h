@@ -25,10 +25,18 @@
 class partie
 {
     public:
+        partie();
         partie(const int hauteur, const int largeur);
+        partie(balle ba,std::vector<std::unique_ptr<brique>>& br,int hauteur, int largeur,raquette r);
         bool superposition(std::unique_ptr<brique>);
         void jouer();
         bool checkfin();
+        int getHauteur() const;
+        int getLargeur() const;
+        balle getBalle() const;
+        const std::vector<std::unique_ptr<brique>>& getBriques() const;
+        raquette getRaquette() const;
+
     private:
         balle d_balle;
         std::vector<std::unique_ptr<brique>> d_briques;
