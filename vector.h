@@ -8,20 +8,22 @@ namespace geom{
 class point;
 
 class vector {
+    const double Max =20.0;
+    const double Min = 1.5;
 public:
   vector();
-  vector(int x,int y);
+  vector(double x,double y);
   vector(const point& p,const point& q);
 
-  int x() const;
-  int y() const;
+  double x() const;
+  double y() const;
 
-  void change(int x, int y);
+  void change(double x, double y);
 
   void print(std::ostream& ost) const;
   void read(std::istream& ist);
 private:
-  int d_x,d_y;
+  double d_x,d_y;
 };
 
 }

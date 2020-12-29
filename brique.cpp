@@ -15,12 +15,12 @@ geom::point brique::getHautDroite(){
 
 void brique::deplace(const char& direction, int largeur){
     if((direction == 'q' || direction == 'Q') && getBasGauche().x()>0){
-        d_basGauche.moveTo(getBasGauche().x()-30, getBasGauche().y());
-        d_hautDroite.moveTo(getHautDroite().x()-30, getHautDroite().y());
+        d_basGauche.moveTo(getBasGauche().x()-10, getBasGauche().y());
+        d_hautDroite.moveTo(getHautDroite().x()-10, getHautDroite().y());
     }
     else if ((direction == 'd' || direction == 'D') && getHautDroite().x()< largeur){
-        d_basGauche.moveTo(getBasGauche().x()+30, getBasGauche().y());
-        d_hautDroite.moveTo(getHautDroite().x()+30, getHautDroite().y());
+        d_basGauche.moveTo(getBasGauche().x()+10, getBasGauche().y());
+        d_hautDroite.moveTo(getHautDroite().x()+10, getHautDroite().y());
     }
 }
 

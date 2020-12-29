@@ -1,53 +1,67 @@
 # depslib dependency file v1.0
-1606570086 source:c:\users\elmas\documents\cours\l3\poo\projet\brique.cpp
+1609246412 source:c:\users\elmas\documents\cours\l3\poo\projet\brique.cpp
 	"brique.h"
 
-1606572136 c:\users\elmas\documents\cours\l3\poo\projet\brique.h
+1609239807 c:\users\elmas\documents\cours\l3\poo\projet\brique.h
 	"graphics.h"
-	"balle.h"
+	"surface.h"
+	"point.h"
 
-1606572675 source:c:\users\elmas\documents\cours\l3\poo\projet\main.cpp
+1609246632 source:c:\users\elmas\documents\cours\l3\poo\projet\main.cpp
 	<iostream>
 	"graphics.h"
 	"balle.h"
-	"point.h"
 	<windows.h>
 	<stddef.h>
 	<stdio.h>
 	<math.h>
 	<vector>
 	"brique.h"
-	"normale.h"
-	"dure.h"
-	"tueuse.h"
+	"briqueCassable.h"
+	"briqueIncassable.h"
+	"surfaceNormale.h"
+	"surfaceMolle.h"
+	"surfaceDure.h"
+	"surfaceTueuse.h"
+	<memory>
+	"raquette.h"
+	"partie.h"
+	<time.h>
 
-1477727462 source:c:\users\elmas\documents\cours\l3\poo\projet\point.cpp
+1609239808 source:c:\users\elmas\documents\cours\l3\poo\projet\point.cpp
 	<iostream>
 	<cmath>
 	"point.h"
+	"vector.h"
 
-1478595024 c:\users\elmas\documents\cours\l3\poo\projet\point.h
+1609239808 c:\users\elmas\documents\cours\l3\poo\projet\point.h
 	<iosfwd>
 
-1606572136 source:c:\users\elmas\documents\cours\l3\poo\projet\raquette.cpp
+1609239808 source:c:\users\elmas\documents\cours\l3\poo\projet\raquette.cpp
 	"raquette.h"
 
-1606572136 c:\users\elmas\documents\cours\l3\poo\projet\raquette.h
+1609239808 c:\users\elmas\documents\cours\l3\poo\projet\raquette.h
 	"brique.h"
 	"balle.h"
 
-1606557707 source:c:\users\elmas\documents\cours\l3\poo\projet\terrain.cpp
+1609239808 source:c:\users\elmas\documents\cours\l3\poo\projet\terrain.cpp
 	"terrain.h"
 
-1606557707 c:\users\elmas\documents\cours\l3\poo\projet\terrain.h
+1609239808 c:\users\elmas\documents\cours\l3\poo\projet\terrain.h
 
-1606572675 source:c:\users\elmas\documents\cours\l3\poo\projet\balle.cpp
+1609246476 source:c:\users\elmas\documents\cours\l3\poo\projet\balle.cpp
 	"balle.h"
 	<iostream>
 
-1606572716 c:\users\elmas\documents\cours\l3\poo\projet\balle.h
+1609244653 c:\users\elmas\documents\cours\l3\poo\projet\balle.h
 	"graphics.h"
 	<cmath>
+	"brique.h"
+	"raquette.h"
+	"point.h"
+	"vector.h"
+	<vector>
+	<memory>
 
 1606558330 source:c:\users\elmas\documents\cours\l3\poo\projet\rectangle.cpp
 	<iostream>
@@ -57,9 +71,9 @@
 	<memory>
 	"point.h"
 
-1586079705 c:\users\elmas\documents\cours\l3\poo\projet\graphics.h
+1609239807 c:\users\elmas\documents\cours\l3\poo\projet\graphics.h
 
-1586079705 source:c:\users\elmas\documents\cours\l3\poo\projet\winbgi.cpp
+1609239808 source:c:\users\elmas\documents\cours\l3\poo\projet\winbgi.cpp
 	<windows.h>
 	<stddef.h>
 	<stdio.h>
@@ -879,4 +893,66 @@
 	"doctest.h"
 	"vector.h"
 	"point.h"
+
+1609239808 c:\users\elmas\documents\cours\l3\poo\projet\surface.h
+
+1609244195 c:\users\elmas\documents\cours\l3\poo\projet\vector.h
+	<iosfwd>
+
+1609239807 source:c:\users\elmas\documents\cours\l3\poo\projet\briquecassable.cpp
+	"briqueCassable.h"
+
+1609239807 c:\users\elmas\documents\cours\l3\poo\projet\briquecassable.h
+	"brique.h"
+
+1609239807 source:c:\users\elmas\documents\cours\l3\poo\projet\briqueincassable.cpp
+	"briqueIncassable.h"
+
+1609239807 c:\users\elmas\documents\cours\l3\poo\projet\briqueincassable.h
+	"brique.h"
+
+1609239808 c:\users\elmas\documents\cours\l3\poo\projet\surfacenormale.h
+	"surface.h"
+
+1609239808 c:\users\elmas\documents\cours\l3\poo\projet\surfacemolle.h
+	"surface.h"
+
+1609239808 c:\users\elmas\documents\cours\l3\poo\projet\surfacedure.h
+	"surface.h"
+
+1609239808 c:\users\elmas\documents\cours\l3\poo\projet\surfacetueuse.h
+	"surface.h"
+
+1609244653 c:\users\elmas\documents\cours\l3\poo\projet\partie.h
+	<vector>
+	<memory>
+	"brique.h"
+	"balle.h"
+	"raquette.h"
+	<windows.h>
+
+1609244145 source:c:\users\elmas\documents\cours\l3\poo\projet\vector.cpp
+	<iostream>
+	<cmath>
+	"vector.h"
+	"point.h"
+
+1609244617 source:c:\users\elmas\documents\cours\l3\poo\projet\partie.cpp
+	<iostream>
+	"partie.h"
+
+1609239808 source:c:\users\elmas\documents\cours\l3\poo\projet\surface.cpp
+	"surface.h"
+
+1609240036 source:c:\users\elmas\documents\cours\l3\poo\projet\surfacedure.cpp
+	"surfaceDure.h"
+
+1609239808 source:c:\users\elmas\documents\cours\l3\poo\projet\surfacemolle.cpp
+	"surfaceMolle.h"
+
+1609239808 source:c:\users\elmas\documents\cours\l3\poo\projet\surfacenormale.cpp
+	"surfaceNormale.h"
+
+1609239808 source:c:\users\elmas\documents\cours\l3\poo\projet\surfacetueuse.cpp
+	"surfaceTueuse.h"
 

@@ -13,6 +13,7 @@ class partie
     public:
         partie(std::vector<std::unique_ptr<brique>> &b, balle &ba, int hauteur, int largeur, raquette &r);
         void jouer();
+        std::vector<std::unique_ptr<brique>> &getBrique();
     private:
         balle d_balle;
         std::vector<std::unique_ptr<brique>> d_briques;

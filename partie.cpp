@@ -7,6 +7,10 @@ partie::partie(std::vector<std::unique_ptr<brique>> &b, balle &ba, int hauteur, 
         d_briques.push_back(std::move(b[i]));
 }
 
+std::vector<std::unique_ptr<brique>> &partie::getBrique() {
+    return d_briques;
+}
+
 void partie::jouer(){
     opengraphsize(d_hauteur,d_largeur);
     setbkcolor(BLACK);

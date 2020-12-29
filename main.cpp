@@ -20,8 +20,8 @@
 
 using namespace std;
 
-const int HAUTEUR = 1000;
-const int LARGEUR = 1000;
+const int HAUTEUR = 800;
+const int LARGEUR = 800;
 
 void play(){
     srand(time(NULL));
@@ -36,14 +36,16 @@ void play(){
 
     vector<unique_ptr<brique>> briques;
 
-    balle b{v,p,7};
+    balle b{v,p};
     surfaceNormale sn{};
     surfaceTueuse st{};
     surfaceDure sd{};
     surfaceMolle sm{};
 
+
+
     //BRIQUES BLANCHES CASSABLES EN n FOIS
-    for(int i = 0; i < 1; ++i){
+    for(int i = 0; i < 2; ++i){
         int l = rand()%(LARGEUR-400);
         int h = rand()%(HAUTEUR-400);
         p1 = {l,h};
@@ -77,7 +79,7 @@ void play(){
 
 }
 
-/*int main()
+int main()
 {
     int chx;
     do{
@@ -88,15 +90,15 @@ void play(){
         cin>>chx;
         if(chx == 1)
             cout<<"Vous pourrez deplacer la raquette avec les touches Q et D !"<<endl;
-            Sleep(4000);
+            Sleep(40);
             cout<<"Vous etes prets ??"<<endl;
-            Sleep(2000);
+            Sleep(20);
             cout<<"Alors ze partiiiiiiiiiiiii"<<endl;
-            Sleep(2000);
+            Sleep(20);
             play();
     }while(chx == 1);
 
-}*/
+}
 
 
 
