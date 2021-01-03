@@ -1,10 +1,11 @@
 #include "balle.h"
+#include "terrain.h"
 #include <iostream>
 
 balle::balle(geom::vector& vitesse, geom::point& p) : d_vitesse{vitesse}, d_position{p}, d_morte{false}, d_rayon{7}
 {}
 
-balle::balle()
+balle::balle(): d_morte{false}, d_rayon{7}, d_vitesse{5,5} , d_position{500 ,500}
 {}
 
 balle::~balle()

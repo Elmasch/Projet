@@ -7,7 +7,7 @@ TEST_CASE("{balle} La balle avec parametres est cree correctement"){
     //Teste si la fonction morte() fonctionne
     geom::vector v{2,1};
     geom::point p{2,1};
-    balle b{v,p,4};
+    balle b{v,p};
     SUBCASE("Le vecteur vitesse est cree correctement"){
         REQUIRE_EQ(v.x(), b.getVitesse().x());
         REQUIRE_EQ(v.y(), b.getVitesse().y());
@@ -23,14 +23,14 @@ TEST_CASE("{balle} La balle avec parametres est cree correctement"){
     //Actuellement on ne peut pas tester la valeur d_rayon car elle n'a pas de Getter ni de Setter
 }
 
-TEST_CASE("{balle} Modification des valeurs de la balle"){
+/*TEST_CASE("{balle} Modification des valeurs de la balle"){
     //Teste si les fonctions Setters fonctionnent
     //Important de tester d'abord si les fonctions Getters fonctionnent
     geom::vector v1{2,1};
     geom::vector v2{1,2};
     geom::point p1{2,1};
     geom::point p2{1,2};
-    balle b{v1,p1,4};
+    balle b{v1,p1};
     SUBCASE("Modification de la vitesse de la balle"){
         b.setVitesse(v2);
         REQUIRE_EQ(v2.x(), b.getVitesse().x());
@@ -41,12 +41,12 @@ TEST_CASE("{balle} Modification des valeurs de la balle"){
         REQUIRE_EQ(p2.x(), b.getPosition().x());
         REQUIRE_EQ(p2.y(), b.getPosition().y());
     }
-}
+}*/
 
 TEST_CASE("{balle} Déplacements de la balle en jeu"){
     geom::vector v{2,1};
     geom::point p{2,1};
-    balle b{v,p,4};
+    balle b{v,p};
     SUBCASE("Avancement de la balle en jeu"){
         //Test de la fonction avance(hauteur,largeur)
         int hauteur = 2;

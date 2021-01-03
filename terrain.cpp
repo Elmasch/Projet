@@ -11,7 +11,7 @@ terrain::terrain(const int hauteur, const int largeur) : d_hauteur{hauteur} , d_
     //Initialisation de la balle
     geom::vector v{5,5};
     geom::point p{d_largeur/2 ,d_hauteur/8};
-    d_balle = {v,p,7};
+    balle d_balle{v,p};
 
     geom::point p1;
     geom::point p2;
@@ -65,7 +65,7 @@ terrain::terrain(std::vector<std::unique_ptr<brique>>& br,int hauteur, int large
 {
     geom::vector v{5,5};
     geom::point p{d_largeur/2 ,d_hauteur/8};
-    d_balle = {v,p,7};
+    balle d_balle{v,p};
 
     for(int i=0;i<br.size();i++){
         d_briques.push_back(move(br[i]));

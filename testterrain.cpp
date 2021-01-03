@@ -16,7 +16,7 @@ TEST_CASE("{terrain} Le terrain est cree correctement"){
     b.push_back(std::make_unique<briqueIncassable>(p2,p1,&s));
 
     geom::vector v{2,1};
-    balle ba{v,p1,4};
+    balle ba{v,p1};
 
     int hauteur=1000;
     int largeur=1000;

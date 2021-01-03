@@ -38,9 +38,9 @@ int main()
             cout<<"Alors ze partiiiiiiiiiiiii"<<endl<<endl<<endl;
             //Sleep(2000);
             if(f.fichierExiste(nomFichier))
-                t = f.fluxLecture(nomFichier);
+                f.fluxLecture(nomFichier);
             else
-                t = terrain{hauteur,largeur};
+                terrain{hauteur,largeur};
             /*if(c != 'o'){
                 do{
                     cout<<"Voulez-vous sauvegarder le terrain de la partie precedente ? (o/n) : ";
