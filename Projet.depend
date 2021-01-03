@@ -548,11 +548,11 @@
 1607706529 source:c:\users\norma\documents\codeblocks\projet\surfacetueuse.cpp
 	"surfaceTueuse.h"
 
-1608646810 source:d:\documents\cours\l3\qualite de programmation\projet\balle.cpp
+1609683201 source:d:\documents\cours\l3\qualite de programmation\projet\balle.cpp
 	"balle.h"
 	<iostream>
 
-1608648678 d:\documents\cours\l3\qualite de programmation\projet\balle.h
+1609676350 d:\documents\cours\l3\qualite de programmation\projet\balle.h
 	"graphics.h"
 	<cmath>
 	"brique.h"
@@ -564,56 +564,42 @@
 
 1606983592 d:\documents\cours\l3\qualite de programmation\projet\graphics.h
 
-1608659121 d:\documents\cours\l3\qualite de programmation\projet\brique.h
+1609676350 d:\documents\cours\l3\qualite de programmation\projet\brique.h
 	"graphics.h"
 	"surface.h"
 	"point.h"
 
 1608275200 d:\documents\cours\l3\qualite de programmation\projet\surface.h
 
-1608660680 d:\documents\cours\l3\qualite de programmation\projet\point.h
+1609676350 d:\documents\cours\l3\qualite de programmation\projet\point.h
 	<iosfwd>
 
-1608665787 d:\documents\cours\l3\qualite de programmation\projet\vector.h
+1609685662 d:\documents\cours\l3\qualite de programmation\projet\vector.h
 	<iosfwd>
 
-1608656555 source:d:\documents\cours\l3\qualite de programmation\projet\brique.cpp
-	"brique.h"
-
-1608655565 source:d:\documents\cours\l3\qualite de programmation\projet\briquecassable.cpp
-	"briqueCassable.h"
-
-1608659088 d:\documents\cours\l3\qualite de programmation\projet\briquecassable.h
-	"brique.h"
-
-1607010633 source:d:\documents\cours\l3\qualite de programmation\projet\briqueincassable.cpp
-	"briqueIncassable.h"
-
-1608659107 d:\documents\cours\l3\qualite de programmation\projet\briqueincassable.h
-	"brique.h"
-
-1608665697 source:d:\documents\cours\l3\qualite de programmation\projet\main.cpp
+1609676350 source:d:\documents\cours\l3\qualite de programmation\projet\brique.cpp
 	<iostream>
-	"graphics.h"
-	"balle.h"
-	<windows.h>
-	<stddef.h>
-	<stdio.h>
-	<math.h>
-	<vector>
 	"brique.h"
-	"briqueCassable.h"
-	"briqueIncassable.h"
-	"surfaceNormale.h"
-	"surfaceMolle.h"
-	"surfaceDure.h"
-	"surfaceTueuse.h"
-	<memory>
-	"raquette.h"
-	"partie.h"
-	<time.h>
 
-1608661464 d:\documents\cours\l3\qualite de programmation\projet\surfacenormale.h
+1609676350 source:d:\documents\cours\l3\qualite de programmation\projet\briquecassable.cpp
+	<iostream>
+	"briqueCassable.h"
+
+1609680098 d:\documents\cours\l3\qualite de programmation\projet\briquecassable.h
+	"brique.h"
+
+1609676350 source:d:\documents\cours\l3\qualite de programmation\projet\briqueincassable.cpp
+	"briqueIncassable.h"
+
+1609676350 d:\documents\cours\l3\qualite de programmation\projet\briqueincassable.h
+	"brique.h"
+
+1609685387 source:d:\documents\cours\l3\qualite de programmation\projet\main.cpp
+	<iostream>
+	"terrain.h"
+	"fluxFichier.h"
+
+1608719766 d:\documents\cours\l3\qualite de programmation\projet\surfacenormale.h
 	"surface.h"
 
 1608275200 d:\documents\cours\l3\qualite de programmation\projet\surfacemolle.h
@@ -625,29 +611,41 @@
 1608275200 d:\documents\cours\l3\qualite de programmation\projet\surfacetueuse.h
 	"surface.h"
 
-1608658384 d:\documents\cours\l3\qualite de programmation\projet\raquette.h
+1609676350 d:\documents\cours\l3\qualite de programmation\projet\raquette.h
 	"brique.h"
 	"balle.h"
 
-1608281938 d:\documents\cours\l3\qualite de programmation\projet\partie.h
+1609684974 d:\documents\cours\l3\qualite de programmation\projet\partie.h
 	<vector>
 	<memory>
+	<windows.h>
+	<stddef.h>
+	<stdio.h>
+	<math.h>
+	<vector>
+	<time.h>
+	"graphics.h"
 	"brique.h"
 	"balle.h"
 	"raquette.h"
-	<windows.h>
+	"briqueCassable.h"
+	"briqueIncassable.h"
+	"surfaceNormale.h"
+	"surfaceMolle.h"
+	"surfaceDure.h"
+	"surfaceTueuse.h"
 
-1608717990 source:d:\documents\cours\l3\qualite de programmation\projet\partie.cpp
+1609684961 source:d:\documents\cours\l3\qualite de programmation\projet\partie.cpp
 	<iostream>
 	"partie.h"
 
-1608660478 source:d:\documents\cours\l3\qualite de programmation\projet\point.cpp
+1609676350 source:d:\documents\cours\l3\qualite de programmation\projet\point.cpp
 	<iostream>
 	<cmath>
 	"point.h"
 	"vector.h"
 
-1608658448 source:d:\documents\cours\l3\qualite de programmation\projet\raquette.cpp
+1609676350 source:d:\documents\cours\l3\qualite de programmation\projet\raquette.cpp
 	"raquette.h"
 
 1607010633 source:d:\documents\cours\l3\qualite de programmation\projet\surface.cpp
@@ -665,12 +663,31 @@
 1607010633 source:d:\documents\cours\l3\qualite de programmation\projet\surfacetueuse.cpp
 	"surfaceTueuse.h"
 
-1606983592 source:d:\documents\cours\l3\qualite de programmation\projet\terrain.cpp
+1609685279 source:d:\documents\cours\l3\qualite de programmation\projet\terrain.cpp
+	<iostream>
 	"terrain.h"
 
-1608662565 d:\documents\cours\l3\qualite de programmation\projet\terrain.h
+1609685224 d:\documents\cours\l3\qualite de programmation\projet\terrain.h
+	<vector>
+	<memory>
+	<windows.h>
+	<stddef.h>
+	<stdio.h>
+	<math.h>
+	<vector>
+	<time.h>
+	"graphics.h"
+	"brique.h"
+	"balle.h"
+	"raquette.h"
+	"briqueCassable.h"
+	"briqueIncassable.h"
+	"surfaceNormale.h"
+	"surfaceMolle.h"
+	"surfaceDure.h"
+	"surfaceTueuse.h"
 
-1608665795 source:d:\documents\cours\l3\qualite de programmation\projet\vector.cpp
+1609685682 source:d:\documents\cours\l3\qualite de programmation\projet\vector.cpp
 	<iostream>
 	<cmath>
 	"vector.h"
@@ -818,14 +835,14 @@
 	<math.h>
 	"graphics.h"
 
-1608659202 source:d:\documents\cours\l3\qualite de programmation\projet\testbrique.cpp
+1608719766 source:d:\documents\cours\l3\qualite de programmation\projet\testbrique.cpp
 	"briqueCassable.h"
 	"briqueIncassable.h"
 	"raquette.h"
 	"surfaceNormale.h"
 	"doctest.h"
 
-1608647990 d:\documents\cours\l3\qualite de programmation\projet\doctest.h
+1609676350 d:\documents\cours\l3\qualite de programmation\projet\doctest.h
 	<signal.h>
 	<iosfwd>
 	<cstddef>
@@ -869,19 +886,19 @@
 	<sys/time.h>
 	<unistd.h>
 
-1608645007 source:d:\documents\cours\l3\qualite de programmation\projet\testmain.cpp
+1608719766 source:d:\documents\cours\l3\qualite de programmation\projet\testmain.cpp
 	"doctest.h"
 
-1608659186 source:d:\documents\cours\l3\qualite de programmation\projet\testballe.cpp
+1609676347 source:d:\documents\cours\l3\qualite de programmation\projet\testballe.cpp
 	"balle.h"
 	"doctest.h"
 
-1608661085 source:d:\documents\cours\l3\qualite de programmation\projet\testpoint.cpp
+1608719766 source:d:\documents\cours\l3\qualite de programmation\projet\testpoint.cpp
 	"doctest.h"
 	"point.h"
 	"vector.h"
 
-1608662446 source:d:\documents\cours\l3\qualite de programmation\projet\testsurface.cpp
+1608719766 source:d:\documents\cours\l3\qualite de programmation\projet\testsurface.cpp
 	"surface.h"
 	"surfaceNormale.h"
 	"surfaceDure.h"
@@ -889,7 +906,7 @@
 	"surfaceTueuse.h"
 	"doctest.h"
 
-1608665669 source:d:\documents\cours\l3\qualite de programmation\projet\testvector.cpp
+1608719766 source:d:\documents\cours\l3\qualite de programmation\projet\testvector.cpp
 	"doctest.h"
 	"vector.h"
 	"point.h"

@@ -6,12 +6,20 @@ briqueIncassable::briqueIncassable(geom::point& basGauche, geom::point& hautDroi
 briqueIncassable::~briqueIncassable(){
 }
 
+int briqueIncassable::getNombre() const{
+    return 0;
+}
+
 void briqueIncassable::affiche() {
     setcolor(getSurface()->getCouleur());
     bar(getBasGauche().x(),getBasGauche().y(),getHautDroite().x(), getHautDroite().y());
 }
 
 bool briqueIncassable::casse(){
+    return false;
+}
+
+bool briqueIncassable::cassable(){
     return false;
 }
 

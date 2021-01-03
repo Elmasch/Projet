@@ -1,86 +1,17 @@
 #include <iostream>
-#include "graphics.h"
-#include "balle.h"
-#include <windows.h>
-#include <stddef.h>
-#include <stdio.h>
-#include <math.h>
-#include <vector>
-#include "brique.h"
-#include "briqueCassable.h"
-#include "briqueIncassable.h"
-#include "surfaceNormale.h"
-#include "surfaceMolle.h"
-#include "surfaceDure.h"
-#include "surfaceTueuse.h"
-#include <memory>
-#include "raquette.h"
-#include "partie.h"
-#include <time.h>
+#include "terrain.h"
+#include "fluxFichier.h"
 
 using namespace std;
 
-const int HAUTEUR = 800;
-const int LARGEUR = 800;
-
-void play(){
-    srand(time(NULL));
-    geom::vector v{5,5};
-    geom::point p{LARGEUR - LARGEUR/2 ,HAUTEUR - 120};
-
-    geom::point p1;
-    geom::point p2;
-
-    geom::point p3{LARGEUR - LARGEUR/2 - 150 ,HAUTEUR - 100};
-    geom::point p4{LARGEUR - LARGEUR/2 + 150,HAUTEUR - 80};
-
-    vector<unique_ptr<brique>> briques;
-
-    balle b{v,p};
-    surfaceNormale sn{};
-    surfaceTueuse st{};
-    surfaceDure sd{};
-    surfaceMolle sm{};
-
-
-
-    //BRIQUES BLANCHES CASSABLES EN n FOIS
-    for(int i = 0; i < 2; ++i){
-        int l = rand()%(LARGEUR-400);
-        int h = rand()%(HAUTEUR-400);
-        p1 = {l,h};
-        p2 = {l+200,h+20};
-        briques.push_back(make_unique<briqueCassable>(p1,p2,&sn,2));
-    }
-
-    //BRIQUES CYANS INCASSABLES
-    for(int i = 0; i < 2; ++i){
-        int l = rand()%(LARGEUR-400);
-        int h = rand()%(HAUTEUR-400);
-        p1 = {l,h};
-        p2 = {l+200,h+20};
-        briques.push_back(make_unique<briqueIncassable>(p1,p2,&sd));
-    }
-
-    //BRIQUES VERTES CASSABLES EN 1 FOIS
-    for(int i = 0; i < 2; ++i){
-        int l = rand()%(LARGEUR-400);
-        int h = rand()%(HAUTEUR-400);
-        p1 = {l,h};
-        p2 = {l+200,h+20};
-        briques.push_back(make_unique<briqueCassable>(p1,p2,&sm,1));
-    }
-
-    raquette r(p3,p4,&sn);
-
-    partie jeu{briques, b, HAUTEUR, LARGEUR, r};
-
-    jeu.jouer();
-
-}
-
 int main()
 {
+    const int hauteur=1000;
+    const int largeur=1900;
+    terrain t{};
+    fluxFichier f;
+    string nomFichier="";
+
     int chx;
     do{
         chx=0;
@@ -88,16 +19,46 @@ int main()
         cout<<"1-Jouer"<<endl;
         cout<<"2-Quitter"<<endl;
         cin>>chx;
-        if(chx == 1)
+        if(chx == 1){
+            char c;
+            do{
+                cout<<"Voulez-vous charger un terrain sauvegarde ? (o/n) : ";
+                cin>>c;
+            }while(c != 'o' && c != 'n');
+            if(c == 'o'){
+                do{
+                    cout<<"Nom du fichier a charger (sans l'extension) : ";
+                    cin>>nomFichier;
+                }while(!f.fichierExiste(nomFichier));
+            }
             cout<<"Vous pourrez deplacer la raquette avec les touches Q et D !"<<endl;
-            Sleep(40);
+            //Sleep(4000);
             cout<<"Vous etes prets ??"<<endl;
-            Sleep(20);
-            cout<<"Alors ze partiiiiiiiiiiiii"<<endl;
-            Sleep(20);
-            play();
-    }while(chx == 1);
+            //Sleep(2000);
+            cout<<"Alors ze partiiiiiiiiiiiii"<<endl<<endl<<endl;
+            //Sleep(2000);
+            if(f.fichierExiste(nomFichier))
+                t = f.fluxLecture(nomFichier);
+            else
+                t = terrain{hauteur,largeur};
+            /*if(c != 'o'){
+                do{
+                    cout<<"Voulez-vous sauvegarder le terrain de la partie precedente ? (o/n) : ";
+                    cin>>c;
+                }while(c != 'o' && c != 'n');
+                bool fine=false;
+                while(c == 'o' && !fine){
+                    string nomFichier="save";
+                    cout<<"Entrez le nom de fichier souhaite : ";
+                    cin>>nomFichier;
+                    fluxFichier f;
+                    fine=f.fluxEcriture(nomFichier,t);
+                }
+            }*/
 
+            cout<<"FIN"<<endl<<endl<<endl;
+        }
+    }while(chx == 1);
 }
 
 

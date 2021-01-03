@@ -4,6 +4,9 @@
 balle::balle(geom::vector& vitesse, geom::point& p) : d_vitesse{vitesse}, d_position{p}, d_morte{false}, d_rayon{7}
 {}
 
+balle::balle()
+{}
+
 balle::~balle()
 {}
 
@@ -75,4 +78,5 @@ void balle::collision(std::vector<std::unique_ptr<brique>> &b, raquette &r, int 
             d_vitesse.change(d_vitesse.x()*r.getSurface()->getVitesse(),-d_vitesse.y()*r.getSurface()->getVitesse());
         }
     avance(hauteur, largeur);
+
 }

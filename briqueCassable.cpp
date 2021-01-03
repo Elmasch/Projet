@@ -1,3 +1,4 @@
+#include <iostream>
 #include "briqueCassable.h"
 
 briqueCassable::briqueCassable(geom::point& basGauche, geom::point& hautDroite, surface* surface, int nombre) : brique{basGauche, hautDroite, surface}, d_nombre{nombre}{
@@ -18,6 +19,10 @@ void briqueCassable::affiche() {
 bool briqueCassable::casse(){
     d_nombre--;
     return d_nombre <1 ;
+}
+
+bool briqueCassable::cassable(){
+    return true;
 }
 
 void briqueCassable::efface(){

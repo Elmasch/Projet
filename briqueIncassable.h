@@ -8,7 +8,10 @@ class briqueIncassable : public brique
         briqueIncassable(geom::point& basGauche, geom::point& hautDroite, surface* surface);
         virtual ~briqueIncassable();
 
+        virtual int getNombre() const override;
+
         virtual bool casse() override;
+        virtual bool cassable() override;
 
         virtual void affiche() override;
         virtual void efface() override;
