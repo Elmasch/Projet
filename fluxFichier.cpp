@@ -8,9 +8,9 @@ partie fluxFichier::fluxLecture(const string &nom){
             string poubelle;
             int hauteur, largeur;
             int x1, x2, y1, y2;
-            /*double vitesse;
-            bool tueuse;
-            int couleur;*/
+            double vitesse;
+            int tueuse;
+            int couleur;
             int nombreCasse;
             std::vector<std::unique_ptr<brique>> briques;
 
@@ -26,9 +26,9 @@ partie fluxFichier::fluxLecture(const string &nom){
             geom::point position{x1,y1};
             //Initialisation vitesse balle
             fichierLecture>>poubelle>>x2>>poubelle>>y2>>poubelle;
-            geom::vector vitesse{x2,y2};
+            geom::vector v{x2,y2};
             //Initialisation balle
-            balle ba{vitesse,position,7};
+            balle ba{v,position,7};
 
             //Initialisation point basGauche raquette
             fichierLecture>>poubelle>>x1>>poubelle>>y1;
@@ -41,17 +41,32 @@ partie fluxFichier::fluxLecture(const string &nom){
             raquette r{rBG,rHD,&s};
 
             //Initialisation des briques
-            while(fichierLecture>>poubelle>>x1>>poubelle>>y1>>poubelle>>x2>>poubelle>>y2>>poubelle>>/*vitesse>>poubelle>>tueuse>>poubelle>>couleur>>poubelle>>*/nombreCasse>>poubelle){
+            char type='';
+            while(fichierLecture>>poubelle>>x1>>poubelle>>y1>>poubelle>>x2>>poubelle>>y2>>poubelle>>vitesse>>poubelle>>tueuse>>poubelle>>nombreCasse>>poubelle){
                 //Initialisation point basGauche brique
                 rBG = geom::point{x1,y1};
                 //Initialisation point hautDroite brique
                 rHD = geom::point{x2,y2};
-                //Initialisation surface A MODIFIER
-                surfaceNormale s{};
+                //Initialisation surface
+                if(vitesse == 1){
+                    if(tueuse == 1)
+                        type='t';
+                    else
+                        type='n';
+                }else{
+                    if(vitesse = 0.8)
+                        type='m'
+                    else
+                        type='d'
+                }
 
                 //Initialisation brique
-                if(nombreCasse == 0)
+                if(nombreCasse == 0){
                     briques.push_back(std::make_unique<briqueIncassable>(rBG,rHD,&s));
+                    std::cout<<briques[briques.size()-1]->getSurface()->getMorte()<<" ";
+                    std::cout<<briques[briques.size()-1]->getSurface()->getVitesse()<<std::endl;
+                }
+
                 else
                     briques.push_back(std::make_unique<briqueCassable>(rBG,rHD,&s,nombreCasse));
             }

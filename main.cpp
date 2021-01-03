@@ -36,7 +36,7 @@ int main()
             //Sleep(2000);
             cout<<"Alors ze partiiiiiiiiiiiii"<<endl<<endl<<endl;
             //Sleep(2000);
-            /*if(p.getHauteur() == 0 && p.getLargeur() == 0)
+            if(p.getHauteur() == 0 && p.getLargeur() == 0)
                 p = partie{hauteur,largeur};
             else
                 p.jouer();
@@ -54,7 +54,7 @@ int main()
                     fine=f.fluxEcriture(nomFichier,p);
 
                 }
-            }*/
+            }
 
             cout<<"FIN"<<endl<<endl<<endl;
         }

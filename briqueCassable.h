@@ -9,7 +9,7 @@ class briqueCassable : public brique
         briqueCassable(geom::point& basGauche, geom::point& hautDroite, surface* surface, int nombre);
         virtual ~briqueCassable();
 
-        int getNombre() const;
+        virtual int getNombre() const override;
 
         virtual bool casse() override;
         virtual bool cassable() override;

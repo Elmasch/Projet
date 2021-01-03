@@ -65,6 +65,8 @@ partie::partie(balle ba, std::vector<std::unique_ptr<brique>>& br,int hauteur, i
 {
     for(int i=0;i<br.size();i++){
         d_briques.push_back(move(br[i]));
+        /*std::cout<<d_briques[i]->getSurface()->getMorte()<<" ";
+        std::cout<<d_briques[i]->getSurface()->getVitesse()<<std::endl;*/
     }
     jouer();
 }
