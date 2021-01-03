@@ -560,7 +560,7 @@
 1609676350 d:\documents\cours\l3\qualite de programmation\projet\point.h
 	<iosfwd>
 
-1609676350 d:\documents\cours\l3\qualite de programmation\projet\vector.h
+1609685662 d:\documents\cours\l3\qualite de programmation\projet\vector.h
 	<iosfwd>
 
 1609676350 source:d:\documents\cours\l3\qualite de programmation\projet\brique.cpp
@@ -580,9 +580,9 @@
 1609676350 d:\documents\cours\l3\qualite de programmation\projet\briqueincassable.h
 	"brique.h"
 
-1609683674 source:d:\documents\cours\l3\qualite de programmation\projet\main.cpp
+1609685387 source:d:\documents\cours\l3\qualite de programmation\projet\main.cpp
 	<iostream>
-	"partie.h"
+	"terrain.h"
 	"fluxFichier.h"
 
 1608719766 d:\documents\cours\l3\qualite de programmation\projet\surfacenormale.h
@@ -601,7 +601,7 @@
 	"brique.h"
 	"balle.h"
 
-1609676350 d:\documents\cours\l3\qualite de programmation\projet\partie.h
+1609684974 d:\documents\cours\l3\qualite de programmation\projet\partie.h
 	<vector>
 	<memory>
 	<windows.h>
@@ -621,7 +621,7 @@
 	"surfaceDure.h"
 	"surfaceTueuse.h"
 
-1609683211 source:d:\documents\cours\l3\qualite de programmation\projet\partie.cpp
+1609684961 source:d:\documents\cours\l3\qualite de programmation\projet\partie.cpp
 	<iostream>
 	"partie.h"
 
@@ -649,12 +649,31 @@
 1607010633 source:d:\documents\cours\l3\qualite de programmation\projet\surfacetueuse.cpp
 	"surfaceTueuse.h"
 
-1609001850 source:d:\documents\cours\l3\qualite de programmation\projet\terrain.cpp
+1609685279 source:d:\documents\cours\l3\qualite de programmation\projet\terrain.cpp
+	<iostream>
 	"terrain.h"
 
-1609002573 d:\documents\cours\l3\qualite de programmation\projet\terrain.h
+1609685224 d:\documents\cours\l3\qualite de programmation\projet\terrain.h
+	<vector>
+	<memory>
+	<windows.h>
+	<stddef.h>
+	<stdio.h>
+	<math.h>
+	<vector>
+	<time.h>
+	"graphics.h"
+	"brique.h"
+	"balle.h"
+	"raquette.h"
+	"briqueCassable.h"
+	"briqueIncassable.h"
+	"surfaceNormale.h"
+	"surfaceMolle.h"
+	"surfaceDure.h"
+	"surfaceTueuse.h"
 
-1609676350 source:d:\documents\cours\l3\qualite de programmation\projet\vector.cpp
+1609685682 source:d:\documents\cours\l3\qualite de programmation\projet\vector.cpp
 	<iostream>
 	<cmath>
 	"vector.h"
@@ -885,11 +904,18 @@
 	"briqueIncassable.h"
 	"raquette.h"
 
-1609684105 source:d:\documents\cours\l3\qualite de programmation\projet\fluxfichier.cpp
+1609685428 source:d:\documents\cours\l3\qualite de programmation\projet\fluxfichier.cpp
 	"fluxFichier.h"
 
-1609676350 d:\documents\cours\l3\qualite de programmation\projet\fluxfichier.h
+1609685333 d:\documents\cours\l3\qualite de programmation\projet\fluxfichier.h
 	<iostream>
 	<fstream>
-	"partie.h"
+	"terrain.h"
+
+1609685467 source:d:\documents\cours\l3\qualite de programmation\projet\testterrain.cpp
+	"doctest.h"
+	"terrain.h"
+	"surfaceNormale.h"
+	"briqueIncassable.h"
+	"raquette.h"
 

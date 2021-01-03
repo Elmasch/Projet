@@ -3,15 +3,15 @@
 
 #include <iostream>
 #include <fstream>
-#include "partie.h"
+#include "terrain.h"
 
 using namespace std;
 
 class fluxFichier
 {
 public:
-    partie fluxLecture(const string &nom);
-    bool fluxEcriture(const string &nom, const partie &p);
+    terrain fluxLecture(const string &nom);
+    bool fluxEcriture(const string &nom, const terrain &t);
     bool fichierExiste(const string &nom);
 };
 

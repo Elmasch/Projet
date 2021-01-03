@@ -1,5 +1,5 @@
 #include <iostream>
-#include "partie.h"
+#include "terrain.h"
 #include "fluxFichier.h"
 
 using namespace std;
@@ -8,7 +8,7 @@ int main()
 {
     const int hauteur=1000;
     const int largeur=1900;
-    partie p{};
+    terrain t{};
     fluxFichier f;
     string nomFichier="";
 
@@ -38,10 +38,10 @@ int main()
             cout<<"Alors ze partiiiiiiiiiiiii"<<endl<<endl<<endl;
             //Sleep(2000);
             if(f.fichierExiste(nomFichier))
-                p = f.fluxLecture(nomFichier);
+                t = f.fluxLecture(nomFichier);
             else
-                p = partie{hauteur,largeur};
-            if(c != 'o'){
+                t = terrain{hauteur,largeur};
+            /*if(c != 'o'){
                 do{
                     cout<<"Voulez-vous sauvegarder le terrain de la partie precedente ? (o/n) : ";
                     cin>>c;
@@ -52,10 +52,9 @@ int main()
                     cout<<"Entrez le nom de fichier souhaite : ";
                     cin>>nomFichier;
                     fluxFichier f;
-                    fine=f.fluxEcriture(nomFichier,p);
-
+                    fine=f.fluxEcriture(nomFichier,t);
                 }
-            }
+            }*/
 
             cout<<"FIN"<<endl<<endl<<endl;
         }

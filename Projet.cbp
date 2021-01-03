@@ -49,8 +49,6 @@
 		<Unit filename="fluxFichier.h" />
 		<Unit filename="graphics.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="partie.cpp" />
-		<Unit filename="partie.h" />
 		<Unit filename="point.cpp" />
 		<Unit filename="point.h" />
 		<Unit filename="raquette.cpp" />
@@ -70,9 +68,9 @@
 		<Unit filename="testballe.cpp" />
 		<Unit filename="testbrique.cpp" />
 		<Unit filename="testmain.cpp" />
-		<Unit filename="testpartie.cpp" />
 		<Unit filename="testpoint.cpp" />
 		<Unit filename="testsurface.cpp" />
+		<Unit filename="testterrain.cpp" />
 		<Unit filename="testvector.cpp" />
 		<Unit filename="vector.cpp" />
 		<Unit filename="vector.h" />
