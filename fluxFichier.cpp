@@ -10,7 +10,6 @@ partie fluxFichier::fluxLecture(const string &nom){
             int x1, x2, y1, y2;
             double vitesse;
             int tueuse;
-            int couleur;
             int nombreCasse;
             std::vector<std::unique_ptr<brique>> briques;
 
@@ -30,6 +29,12 @@ partie fluxFichier::fluxLecture(const string &nom){
             //Initialisation balle
             balle ba{v,position,7};
 
+            //Initialisations surfaces
+            surfaceNormale sn{};
+            surfaceTueuse st{};
+            surfaceMolle sm{};
+            surfaceDure sd{};
+
             //Initialisation point basGauche raquette
             fichierLecture>>poubelle>>x1>>poubelle>>y1;
             geom::point rBG{x1,y1};
@@ -37,11 +42,10 @@ partie fluxFichier::fluxLecture(const string &nom){
             fichierLecture>>poubelle>>x2>>poubelle>>y2>>poubelle;
             geom::point rHD{x2,y2};
             //Initialisation raquette
-            surfaceNormale s{};
-            raquette r{rBG,rHD,&s};
+            raquette r{rBG,rHD,&sn};
 
             //Initialisation des briques
-            char type='';
+            char type;
             while(fichierLecture>>poubelle>>x1>>poubelle>>y1>>poubelle>>x2>>poubelle>>y2>>poubelle>>vitesse>>poubelle>>tueuse>>poubelle>>nombreCasse>>poubelle){
                 //Initialisation point basGauche brique
                 rBG = geom::point{x1,y1};
@@ -54,21 +58,35 @@ partie fluxFichier::fluxLecture(const string &nom){
                     else
                         type='n';
                 }else{
-                    if(vitesse = 0.8)
-                        type='m'
+                    if(vitesse == 0.8)
+                        type='m';
                     else
-                        type='d'
+                        type='d';
                 }
 
                 //Initialisation brique
                 if(nombreCasse == 0){
-                    briques.push_back(std::make_unique<briqueIncassable>(rBG,rHD,&s));
-                    std::cout<<briques[briques.size()-1]->getSurface()->getMorte()<<" ";
-                    std::cout<<briques[briques.size()-1]->getSurface()->getVitesse()<<std::endl;
-                }
+                    if(type == 't'){
+                        briques.push_back(std::make_unique<briqueIncassable>(rBG,rHD,&st));
+                    }else if(type == 'n'){
+                        briques.push_back(std::make_unique<briqueIncassable>(rBG,rHD,&sn));
+                    }else if(type == 'm'){
+                        briques.push_back(std::make_unique<briqueIncassable>(rBG,rHD,&sm));
+                    }else if(type == 'd'){
+                        briques.push_back(std::make_unique<briqueIncassable>(rBG,rHD,&sd));
+                    }
 
-                else
-                    briques.push_back(std::make_unique<briqueCassable>(rBG,rHD,&s,nombreCasse));
+                }else{
+                    if(type == 't'){
+                        briques.push_back(std::make_unique<briqueCassable>(rBG,rHD,&st,nombreCasse));
+                    }else if(type == 'n'){
+                        briques.push_back(std::make_unique<briqueCassable>(rBG,rHD,&sn,nombreCasse));
+                    }else if(type == 'm'){
+                        briques.push_back(std::make_unique<briqueCassable>(rBG,rHD,&sm,nombreCasse));
+                    }else if(type == 'd'){
+                        briques.push_back(std::make_unique<briqueCassable>(rBG,rHD,&sd,nombreCasse));
+                    }
+                }
             }
             partie p{ba,briques,hauteur,largeur,r};
         }
@@ -97,7 +115,7 @@ bool fluxFichier::fluxEcriture(const string &nom, const partie & p){
         fichierEcriture<<"Raquette:dimensions[( "<<p.getRaquette().getBasGauche().x()<<" , "<<p.getRaquette().getBasGauche().y()<<" ),( "<<p.getRaquette().getHautDroite().x()<<" , "<<p.getRaquette().getHautDroite().y()<<" )]"<<endl;
         for(int i=0;i<p.getBriques().size();i++){
             fichierEcriture<<"Brique"<<i+1<<":dimensions[( "<<p.getBriques()[i]->getBasGauche().x()<<" , "<<p.getBriques()[i]->getBasGauche().y()<<" ),( "<<p.getBriques()[i]->getHautDroite().x()<<" , "<<p.getBriques()[i]->getHautDroite().y()<<" )]";
-            //fichierEcriture<<",surface:VITESSE( "<<p.getBriques()[i}->getSurface()->getVitesse()<<" ),TUEUSE( "<<p.getBriques()[i}->getSurface()->getMorte()<<" ),COULEUR( "<<p.getBriques()[i}->getSurface()->getCouleur()<<" )";
+            //fichierEcriture<<",surface:VITESSE( "<<p.getBriques()[i]->getSurface()->getVitesse()<<" ),TUEUSE( "<<p.getBriques()[i]->getSurface()->getMorte()<<" )";
             if(p.getBriques()[i]->cassable())
                 fichierEcriture<<",CASSABLE( "<<p.getBriques()[i]->getNombre()<<" )";
             else

@@ -9,6 +9,8 @@ int main()
     const int hauteur=1000;
     const int largeur=1900;
     partie p{};
+    fluxFichier f;
+    string nomFichier="";
 
     int chx;
     do{
@@ -24,11 +26,10 @@ int main()
                 cin>>c;
             }while(c != 'o' && c != 'n');
             if(c == 'o'){
-                string nomFichier="";
-                cout<<"Nom du fichier a charger (sans l'extension) : ";
-                cin>>nomFichier;
-                fluxFichier f;
-                p = f.fluxLecture(nomFichier);
+                do{
+                    cout<<"Nom du fichier a charger (sans l'extension) : ";
+                    cin>>nomFichier;
+                }while(!f.fichierExiste(nomFichier));
             }
             cout<<"Vous pourrez deplacer la raquette avec les touches Q et D !"<<endl;
             //Sleep(4000);
@@ -36,10 +37,10 @@ int main()
             //Sleep(2000);
             cout<<"Alors ze partiiiiiiiiiiiii"<<endl<<endl<<endl;
             //Sleep(2000);
-            if(p.getHauteur() == 0 && p.getLargeur() == 0)
-                p = partie{hauteur,largeur};
+            if(f.fichierExiste(nomFichier))
+                p = f.fluxLecture(nomFichier);
             else
-                p.jouer();
+                p = partie{hauteur,largeur};
             if(c != 'o'){
                 do{
                     cout<<"Voulez-vous sauvegarder le terrain de la partie precedente ? (o/n) : ";
