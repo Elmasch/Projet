@@ -4,14 +4,9 @@
 terrain::terrain() : d_hauteur{0}, d_largeur{0}
 {}
 
-terrain::terrain(const int hauteur, const int largeur) : d_hauteur{hauteur} , d_largeur{largeur}
+terrain::terrain(const int hauteur, const int largeur) : d_hauteur{hauteur} , d_largeur{largeur} , d_balle{}
 {
     srand(time(NULL));
-
-    //Initialisation de la balle
-    geom::vector v{5,5};
-    geom::point p{d_largeur/2 ,d_hauteur/8};
-    balle d_balle{v,p};
 
     geom::point p1;
     geom::point p2;
@@ -61,12 +56,8 @@ terrain::terrain(const int hauteur, const int largeur) : d_hauteur{hauteur} , d_
     jouer();
 }
 
-terrain::terrain(std::vector<std::unique_ptr<brique>>& br,int hauteur, int largeur,raquette r) : d_hauteur{hauteur}, d_largeur{largeur}, d_raquette{r}
+terrain::terrain(std::vector<std::unique_ptr<brique>>& br,int hauteur, int largeur,raquette r) : d_hauteur{hauteur}, d_largeur{largeur}, d_raquette{r}, d_balle{}
 {
-    geom::vector v{5,5};
-    geom::point p{d_largeur/2 ,d_hauteur/8};
-    balle d_balle{v,p};
-
     for(int i=0;i<br.size();i++){
         d_briques.push_back(move(br[i]));
     }
@@ -96,11 +87,10 @@ void terrain::jouer(){
     cleardevice();
 
     char direction;
-    bool end=false;
 
-    while(!d_balle.morte() && end == false){
+    while(!checkfin()){
         d_balle.collision(d_briques, d_raquette, d_hauteur, d_largeur);
-        if(d_briques.size()>0 && !d_balle.morte()){
+        if(!checkfin()){
             setcolor(9);
             bar(0,0,5, d_hauteur);
             bar(0,0,d_largeur, 5);
@@ -111,16 +101,15 @@ void terrain::jouer(){
                 if(direction == 'q' || direction == 'd' || direction == 'Q' || direction == 'D')
                     d_raquette.bouge(direction, d_largeur);
             }
-            end=checkfin();
             Sleep(10);
-        }else{
-            end=true;
         }
     }
     closegraph();
 }
 
 bool terrain::checkfin(){
+    if(d_briques.size()==0 || d_balle.morte())
+        return true;
     //renverra vrai s'il ne reste plus que des briques incassables ou avec des surfaces tueuses
     for(int i=0;i<d_briques.size();i++){
         if(d_briques[i]->cassable()){

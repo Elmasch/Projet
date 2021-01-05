@@ -2,7 +2,6 @@
 
 terrain fluxFichier::fluxLecture(const string &nom){
     terrain t{};
-    if(fichierExiste(nom)){
         ifstream fichierLecture("sauvegardes/"+nom+".txt");
         if(fichierLecture){
             string poubelle;
@@ -81,8 +80,6 @@ terrain fluxFichier::fluxLecture(const string &nom){
             }
             terrain t{briques,hauteur,largeur,r};
         }
-    }else
-        cout<<"Le fichier ne peut etre lu car il est inexistant"<<endl;
     return t;
 }
 

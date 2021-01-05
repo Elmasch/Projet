@@ -35,7 +35,7 @@ int main()
             //Sleep(4000);
             cout<<"Vous etes prets ??"<<endl;
             //Sleep(2000);
-            cout<<"Alors ze partiiiiiiiiiiiii"<<endl<<endl<<endl;
+            cout<<"Alors c'est parti !"<<endl<<endl<<endl;
             //Sleep(2000);
             if(f.fichierExiste(nomFichier))
                 f.fluxLecture(nomFichier);
