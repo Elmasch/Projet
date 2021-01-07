@@ -48,13 +48,13 @@ void terrain::creationBrique(){
     auto sm = new surfaceMolle{};
 
     int nbTueuse, nbNormal, nbMolle, nbDure;
-    std::cout<<"Combien de brique tueuse?"<<std::endl;
+    std::cout<<"Combien de brique tueuse? ";
     std::cin>>nbTueuse;
-    std::cout<<"Combien de brique normal?"<<std::endl;
+    std::cout<<"Combien de brique normal? ";
     std::cin>>nbNormal;
-    std::cout<<"Combien de brique molle?"<<std::endl;
+    std::cout<<"Combien de brique molle? ";
     std::cin>>nbMolle;
-    std::cout<<"Combien de brique dure?"<<std::endl;
+    std::cout<<"Combien de brique dure? ";
     std::cin>>nbDure;
 
     for(int i=0; i< nbTueuse; i++){
