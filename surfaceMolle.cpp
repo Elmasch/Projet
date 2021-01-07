@@ -1,6 +1,6 @@
 #include "surfaceMolle.h"
 
-surfaceMolle::surfaceMolle()
+surfaceMolle::surfaceMolle() : d_vitesse{0.8}, d_couleur{8}
 {
     //ctor
 }
@@ -11,7 +11,7 @@ surfaceMolle::~surfaceMolle()
 }
 
 double surfaceMolle::getVitesse() const{
-    return 0.8 ;
+    return d_vitesse ;
 }
 
 bool surfaceMolle::getMorte() const {
@@ -19,5 +19,5 @@ bool surfaceMolle::getMorte() const {
 }
 
 int surfaceMolle::getCouleur() const{
-    return 8;
+    return d_couleur;
 }

@@ -1,6 +1,6 @@
 #include "surfaceTueuse.h"
 
-surfaceTueuse::surfaceTueuse()
+surfaceTueuse::surfaceTueuse() : d_vitesse{1} , d_couleur{6}
 {
     //ctor
 }
@@ -11,7 +11,7 @@ surfaceTueuse::~surfaceTueuse()
 }
 
 double surfaceTueuse::getVitesse() const{
-    return 1;
+    return d_vitesse;
 }
 
 bool surfaceTueuse::getMorte() const {
@@ -19,5 +19,5 @@ bool surfaceTueuse::getMorte() const {
 }
 
 int surfaceTueuse::getCouleur() const{
-    return 6;
+    return d_couleur;
 }

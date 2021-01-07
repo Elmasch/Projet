@@ -1,7 +1,7 @@
 #include "fluxFichier.h"
 
-terrain fluxFichier::fluxLecture(const string &nom){
-    terrain t{};
+terrain* fluxFichier::fluxLecture(const string &nom){
+        auto t = new terrain{};
         ifstream fichierLecture("sauvegardes/"+nom+".txt");
         if(fichierLecture){
             string poubelle;
@@ -78,9 +78,10 @@ terrain fluxFichier::fluxLecture(const string &nom){
                     }
                 }
             }
-            terrain t{briques,hauteur,largeur,r};
+            t = new terrain{briques,hauteur,largeur,r};
+            return t;
         }
-    return t;
+        return t;
 }
 
 bool fluxFichier::fluxEcriture(const string &nom, const terrain & t){
@@ -93,18 +94,20 @@ bool fluxFichier::fluxEcriture(const string &nom, const terrain & t){
         if(c == 'n')
             return false;
     }
+    cout<<nom;
     ofstream fichierEcriture("sauvegardes/"+nom+".txt");
     if(fichierEcriture){
+        const std::vector<std::unique_ptr<brique>>* inter = t.getBriques();
         time_t tmm = time(0);
         char* dt = ctime(&tmm);
         fichierEcriture<<"Date sauvegarde : "<<dt<<endl;
         fichierEcriture<<"Fenetre: "<<t.getHauteur()<<" / "<<t.getLargeur()<<endl;
         fichierEcriture<<"Raquette:dimensions[( "<<t.getRaquette().getBasGauche().x()<<" , "<<t.getRaquette().getBasGauche().y()<<" ),( "<<t.getRaquette().getHautDroite().x()<<" , "<<t.getRaquette().getHautDroite().y()<<" )]"<<endl;
-        for(int i=0;i<t.getBriques().size();i++){
-            fichierEcriture<<"Brique"<<i+1<<":dimensions[( "<<t.getBriques()[i]->getBasGauche().x()<<" , "<<t.getBriques()[i]->getBasGauche().y()<<" ),( "<<t.getBriques()[i]->getHautDroite().x()<<" , "<<t.getBriques()[i]->getHautDroite().y()<<" )]";
-            //fichierEcriture<<",surface:VITESSE( "<<p.getBriques()[i]->getSurface()->getVitesse()<<" ),TUEUSE( "<<p.getBriques()[i]->getSurface()->getMorte()<<" )";
-            if(t.getBriques()[i]->cassable())
-                fichierEcriture<<",CASSABLE( "<<t.getBriques()[i]->getNombre()<<" )";
+        for(int i=0;i<inter->size();i++){
+            fichierEcriture<<"Brique"<<i+1<<":dimensions[( "<<inter->at(i)->getBasGauche().x()<<" , "<<inter->at(i)->getBasGauche().y()<<" ),( "<<inter->at(i)->getHautDroite().x()<<" , "<<inter->at(i)->getHautDroite().y()<<" )]";
+            std::cout <<",surface:VITESSE( "<<inter->at(i)->getSurface()<<" ),TUEUSE( "<<inter->at(i)->getSurface()<<" )" << std::endl;
+            if(inter->at(i)->cassable())
+                fichierEcriture<<",CASSABLE( "<<inter->at(i)->getNombre()<<" )";
             else
                 fichierEcriture<<",CASSABLE( 0 )";
             fichierEcriture<<endl;

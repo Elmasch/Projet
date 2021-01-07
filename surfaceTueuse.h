@@ -12,6 +12,9 @@ class surfaceTueuse : public surface
         virtual double getVitesse() const override;
         virtual bool getMorte() const override;
         virtual int getCouleur() const override;
+    private:
+        double d_vitesse;
+        int d_couleur;
 };
 
 #endif // SURFACETUEUSE_H

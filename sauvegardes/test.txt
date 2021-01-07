@@ -1,9 +1,9 @@
 Date sauvegarde : Tue Dec 29 15:21:13 2020
 
-Fenetre: 1000 / 1900
-Raquette:dimensions[( 634 , 900 ),( 1266 , 920 )]
-Brique1:dimensions[( 680 , 569 ),( 917 , 589 )],surface:VITESSE( 1 ),TUEUSE( 1 ),CASSABLE( 1 )
-Brique2:dimensions[( 947 , 105 ),( 1184 , 125 )],surface:VITESSE( 1.2 ),TUEUSE( 0 ),CASSABLE( 0 )
+Fenetre: 800 / 800
+Raquette:dimensions[( 634 , 700),( 750, 720)]
+Brique1:dimensions[( 680 , 569 ),( 917 , 589 )],surface:VITESSE( 1 ),TUEUSE( 0 ),CASSABLE( 1 )
+Brique2:dimensions[( 947 , 105 ),( 600, 125 )],surface:VITESSE( 1.2 ),TUEUSE( 0 ),CASSABLE( 0 )
 Brique3:dimensions[( 563 , 180 ),( 800 , 200 )],surface:VITESSE( 1 ),TUEUSE( 0 ),CASSABLE( 2 )
-Brique4:dimensions[( 1437 , 277 ),( 1674 , 297 )],surface:VITESSE( 1 ),TUEUSE( 0 ),CASSABLE( 1 )
+Brique4:dimensions[( 1437 , 277 ),( 500, 297 )],surface:VITESSE( 1 ),TUEUSE( 1 ),CASSABLE( 1 )
 Brique5:dimensions[( 71 , 555 ),( 308 , 575 )],surface:VITESSE( 0.8 ),TUEUSE( 0 ),CASSABLE( 1 )

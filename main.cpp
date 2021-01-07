@@ -6,9 +6,9 @@ using namespace std;
 
 int main()
 {
-    const int hauteur=1000;
-    const int largeur=1900;
-    terrain t{};
+    const int hauteur=800;
+    const int largeur=800;
+    terrain* t;
     fluxFichier f;
     string nomFichier="";
 
@@ -37,11 +37,14 @@ int main()
             //Sleep(2000);
             cout<<"Alors c'est parti !"<<endl<<endl<<endl;
             //Sleep(2000);
-            if(f.fichierExiste(nomFichier))
-                f.fluxLecture(nomFichier);
-            else
-                terrain{hauteur,largeur};
-            /*if(c != 'o'){
+            if(f.fichierExiste(nomFichier)){
+                t = f.fluxLecture(nomFichier);
+            }
+            else{
+                t = new terrain{hauteur, largeur};
+                t->initialisation();
+            }
+            t->jouer();
                 do{
                     cout<<"Voulez-vous sauvegarder le terrain de la partie precedente ? (o/n) : ";
                     cin>>c;
@@ -52,9 +55,8 @@ int main()
                     cout<<"Entrez le nom de fichier souhaite : ";
                     cin>>nomFichier;
                     fluxFichier f;
-                    fine=f.fluxEcriture(nomFichier,t);
+                    fine=f.fluxEcriture(nomFichier,*t);
                 }
-            }*/
 
             cout<<"FIN"<<endl<<endl<<endl;
         }

@@ -1,11 +1,13 @@
 #include <iostream>
 #include "terrain.h"
 
-terrain::terrain() : d_hauteur{0}, d_largeur{0}
+terrain::terrain() : d_hauteur{0}, d_largeur{0}, d_balle{}
 {}
 
 terrain::terrain(const int hauteur, const int largeur) : d_hauteur{hauteur} , d_largeur{largeur} , d_balle{}
-{
+{}
+
+void terrain::initialisation(){
     srand(time(NULL));
 
     geom::point p1;
@@ -18,7 +20,7 @@ terrain::terrain(const int hauteur, const int largeur) : d_hauteur{hauteur} , d_
 
     //BRIQUES BLANCHES CASSABLES EN n FOIS
     //i sera le nombre de briques
-    for(int i = 0; i < 1; ++i){
+    for(int i = 0; i < 3; ++i){
         do{
             int l = rand()%(d_largeur-400);
             int h = rand()%(d_hauteur-400);
@@ -29,7 +31,7 @@ terrain::terrain(const int hauteur, const int largeur) : d_hauteur{hauteur} , d_
     }
 
     //BRIQUES CYANS INCASSABLES
-    for(int i = 0; i < 2; ++i){
+    for(int i = 0; i < 3; ++i){
         do{
             int l = rand()%(d_largeur-400);
             int h = rand()%(d_hauteur-400);
@@ -40,7 +42,7 @@ terrain::terrain(const int hauteur, const int largeur) : d_hauteur{hauteur} , d_
     }
 
     //BRIQUES VERTES CASSABLES EN 1 FOIS
-    for(int i = 0; i < 2; ++i){
+    for(int i = 0; i < 3; ++i){
         do{
             int l = rand()%(d_largeur-400);
             int h = rand()%(d_hauteur-400);
@@ -53,15 +55,14 @@ terrain::terrain(const int hauteur, const int largeur) : d_hauteur{hauteur} , d_
     geom::point p3{(d_largeur/2)-(d_largeur/6) ,d_hauteur - 100};
     geom::point p4{(d_largeur/2)+(d_largeur/6),d_hauteur - 80};
     d_raquette={p3,p4,&sn};
-    jouer();
+    geom::point p5{d_largeur/2,d_hauteur - 100 - d_balle.getRayon()};
+    d_balle.setPosition(p5);
 }
-
 terrain::terrain(std::vector<std::unique_ptr<brique>>& br,int hauteur, int largeur,raquette r) : d_hauteur{hauteur}, d_largeur{largeur}, d_raquette{r}, d_balle{}
 {
     for(int i=0;i<br.size();i++){
         d_briques.push_back(move(br[i]));
     }
-    jouer();
 }
 
 bool terrain::superposition(std::unique_ptr<brique> b){
@@ -132,8 +133,15 @@ balle terrain::getBalle() const{
     return d_balle;
 }
 
-const std::vector<std::unique_ptr<brique>>& terrain::getBriques() const{
-    return d_briques;
+void terrain::setHauteur(int hauteur){
+    d_hauteur = hauteur;
+}
+void terrain::setLargeur(int largeur){
+    d_largeur=largeur;
+}
+
+const std::vector<std::unique_ptr<brique>>* terrain::getBriques() const{
+    return &d_briques;
 }
 
 raquette terrain::getRaquette() const{

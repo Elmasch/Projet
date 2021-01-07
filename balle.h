@@ -20,6 +20,10 @@ class balle
 
         geom::vector getVitesse() const;
         geom::point getPosition() const;
+        int getRayon() const;
+
+        void setPosition(geom::point& newPoisiton);
+        void setMorte(bool newValeur);
         bool morte() const;
 
         void avance(int hauteur, int largeur);

@@ -1,6 +1,6 @@
 #include "surfaceDure.h"
 
-surfaceDure::surfaceDure()
+surfaceDure::surfaceDure() : d_vitesse{1.2}, d_couleur{10}
 {
     //ctor
 }
@@ -12,7 +12,7 @@ surfaceDure::~surfaceDure()
 }
 
 double surfaceDure::getVitesse() const{
-    return 1.2;
+    return d_vitesse;
 }
 
 bool surfaceDure::getMorte() const {
@@ -20,5 +20,5 @@ bool surfaceDure::getMorte() const {
 }
 
 int surfaceDure::getCouleur() const{
-    return 10;
+    return d_couleur;
 }

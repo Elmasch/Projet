@@ -1,6 +1,7 @@
 #ifndef BRIQUE_H
 #define BRIQUE_H
 
+#include <memory>
 #include "graphics.h"
 #include "surface.h"
 #include "point.h"

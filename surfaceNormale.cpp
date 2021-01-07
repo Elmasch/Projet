@@ -1,6 +1,6 @@
 #include "surfaceNormale.h"
 
-surfaceNormale::surfaceNormale()
+surfaceNormale::surfaceNormale() : d_vitesse{1}, d_couleur{7}
 {
     //ctor
 }
@@ -11,7 +11,7 @@ surfaceNormale::~surfaceNormale()
 }
 
 double surfaceNormale::getVitesse() const{
-    return 1;
+    return d_vitesse;
 }
 
 bool surfaceNormale::getMorte() const {
@@ -19,5 +19,5 @@ bool surfaceNormale::getMorte() const {
 }
 
 int surfaceNormale::getCouleur() const{
-    return 7;
+    return d_couleur;
 }

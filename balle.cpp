@@ -19,11 +19,22 @@ geom::point balle::getPosition() const{
     return d_position;
 }
 
-bool balle::morte() const{
-    return d_morte;
+void balle::setMorte(bool newValeur){
+    d_morte = newValeur;
+}
+
+int balle::getRayon() const{
+    return d_rayon;
+}
+
+void balle::setPosition(geom::point& newPosition){
+    d_position = newPosition;
 }
 
 
+bool balle::morte() const{
+    return d_morte;
+}
 
 void balle::avance(int hauteur, int largeur){
     if ( d_position.y() - d_rayon <= 0 && d_position.x() - d_rayon <= 0 || d_position.y() - d_rayon <= 0 && d_position.x() +d_rayon >= largeur){
