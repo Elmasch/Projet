@@ -31,12 +31,7 @@ int main()
                     cin>>nomFichier;
                 }while(!f.fichierExiste(nomFichier));
             }
-            cout<<"Vous pourrez deplacer la raquette avec les touches Q et D !"<<endl;
-            //Sleep(4000);
-            cout<<"Vous etes prets ??"<<endl;
-            //Sleep(2000);
-            cout<<"Alors c'est parti !"<<endl<<endl<<endl;
-            //Sleep(2000);
+
             if(f.fichierExiste(nomFichier)){
                 f.fluxLecture(nomFichier, t);
                 cout<< t->getBalle().getPosition().x() << " " << t->getBalle().getPosition().y()<<endl;
@@ -45,6 +40,12 @@ int main()
                 t = new terrain{hauteur, largeur};
                 t->initialisation();
             }
+            cout<<"Vous pourrez deplacer la raquette avec les touches Q et D !"<<endl;
+            //Sleep(4000);
+            cout<<"Vous etes prets ??"<<endl;
+            //Sleep(2000);
+            cout<<"Alors c'est parti !"<<endl<<endl<<endl;
+            //Sleep(2000);
             if(t){
                 t->jouer();
             }

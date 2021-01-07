@@ -25,20 +25,48 @@ terrain::terrain(std::vector<std::unique_ptr<brique>>& br,int hauteur, int large
 void terrain::initialisation(){
     srand(time(NULL));
 
-    geom::point p1;
-    geom::point p2;
     geom::point p3{(d_largeur/2)-(d_largeur/6) ,d_hauteur - 100};
     geom::point p4{(d_largeur/2)+(d_largeur/6),d_hauteur - 80};
     geom::point p5;
+
+    auto sn = new surfaceNormale{};
+
+    creationBrique();
+
+    d_raquette = {p3,p4,sn};
+    p5 = {d_largeur/2,d_hauteur - 100 - d_balle.getRayon()};
+    d_balle.setPosition(p5);
+}
+
+void terrain::creationBrique(){
+    geom::point p1;
+    geom::point p2;
 
     auto sn = new surfaceNormale{};
     auto st = new surfaceTueuse{};
     auto sd = new surfaceDure{};
     auto sm = new surfaceMolle{};
 
-    //BRIQUES BLANCHES CASSABLES EN n FOIS
-    //i sera le nombre de briques
-    for(int i = 0; i < 3; ++i){
+    int nbTueuse, nbNormal, nbMolle, nbDure;
+    std::cout<<"Combien de brique tueuse?"<<std::endl;
+    std::cin>>nbTueuse;
+    std::cout<<"Combien de brique normal?"<<std::endl;
+    std::cin>>nbNormal;
+    std::cout<<"Combien de brique molle?"<<std::endl;
+    std::cin>>nbMolle;
+    std::cout<<"Combien de brique dure?"<<std::endl;
+    std::cin>>nbDure;
+
+    for(int i=0; i< nbTueuse; i++){
+        do{
+            int l = rand()%(d_largeur-400);
+            int h = rand()%(d_hauteur-400);
+            p1 = {l,h};
+            p2 = {l+d_largeur/8,h+20};
+        }while(superposition(std::make_unique<briqueCassable>(p1,p2,st,1)));
+        d_briques.push_back(std::make_unique<briqueCassable>(p1,p2,st,1));
+    }
+    for(int i=0; i< nbNormal; i++){
         do{
             int l = rand()%(d_largeur-400);
             int h = rand()%(d_hauteur-400);
@@ -47,9 +75,16 @@ void terrain::initialisation(){
         }while(superposition(std::make_unique<briqueCassable>(p1,p2,sn,2)));
         d_briques.push_back(std::make_unique<briqueCassable>(p1,p2,sn,2));
     }
-
-    //BRIQUES CYANS INCASSABLES
-    for(int i = 0; i < 3; ++i){
+    for(int i=0; i< nbMolle; i++){
+        do{
+            int l = rand()%(d_largeur-400);
+            int h = rand()%(d_hauteur-400);
+            p1 = {l,h};
+            p2 = {l+d_largeur/8,h+20};
+        }while(superposition(std::make_unique<briqueIncassable>(p1,p2,sm)));
+        d_briques.push_back(std::make_unique<briqueIncassable>(p1,p2,sm));
+    }
+    for(int i=0; i< nbDure; i++){
         do{
             int l = rand()%(d_largeur-400);
             int h = rand()%(d_hauteur-400);
@@ -58,23 +93,7 @@ void terrain::initialisation(){
         }while(superposition(std::make_unique<briqueIncassable>(p1,p2,sd)));
         d_briques.push_back(std::make_unique<briqueIncassable>(p1,p2,sd));
     }
-
-    //BRIQUES VERTES CASSABLES EN 1 FOIS
-    for(int i = 0; i < 3; ++i){
-       do{
-            int l = rand()%(d_largeur-400);
-            int h = rand()%(d_hauteur-400);
-            p1 = {l,h};
-            p2 = {l+d_largeur/8,h+20};
-        }while(superposition(std::make_unique<briqueCassable>(p1,p2,sm,1)));
-        d_briques.push_back(std::make_unique<briqueCassable>(p1,p2,sm,1));
-    }
-
-    d_raquette = {p3,p4,sn};
-    p5 = {(d_raquette.getHautDroite().x()-d_raquette.getBasGauche().x())/2 + d_raquette.getBasGauche().x(),d_raquette.getHautDroite().y() - d_balle.getRayon()*2};
-    d_balle.setPosition(p5);
 }
-
 
 bool terrain::superposition(std::unique_ptr<brique> b){
     for(int i=0;i<d_briques.size();i++){

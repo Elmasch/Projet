@@ -30,11 +30,11 @@ class terrain
         terrain(std::vector<std::unique_ptr<brique>>& br,int hauteur, int largeur,raquette r);
         terrain(std::vector<std::unique_ptr<brique>>& br,int hauteur, int largeur,raquette r, balle b);
 
-        void initialisation () ;
+        void initialisation();
+        void creationBrique();
         bool superposition(std::unique_ptr<brique> b);
         void jouer();
         bool checkfin();
-
         int getHauteur() const;
         int getLargeur() const;
 
