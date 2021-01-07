@@ -16,6 +16,8 @@ class balle
     public:
         balle(geom::vector& vitesse, geom::point& p);
         balle();
+        balle(geom::point& p);
+
         ~balle();
 
         geom::vector getVitesse() const;

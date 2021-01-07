@@ -1,6 +1,6 @@
 #include "fluxFichier.h"
 
-void fluxFichier::fluxLecture(const string &nom, terrain* t){
+void fluxFichier::fluxLecture(const string &nom, terrain* &t){
         ifstream fichierLecture("sauvegardes/"+nom+".txt");
         if(fichierLecture){
             string poubelle;
@@ -19,19 +19,19 @@ void fluxFichier::fluxLecture(const string &nom, terrain* t){
             fichierLecture>>poubelle>>hauteur>>poubelle>>largeur;
 
             //Initialisations surfaces
-            surfaceNormale sn{};
-            surfaceTueuse st{};
-            surfaceMolle sm{};
-            surfaceDure sd{};
+            auto sn = new surfaceNormale{};
+            auto st = new surfaceTueuse{};
+            auto sd = new surfaceDure{};
+            auto sm = new surfaceMolle{};
 
             //Initialisation point basGauche raquette
             fichierLecture>>poubelle>>x1>>poubelle>>y1;
-            geom::point rBG{x1,y1};
+            geom::point rBG{(largeur/2)-(largeur/6) ,hauteur - 100};
+            geom::point rHD{(largeur/2)+(largeur/6),hauteur - 80};
             //Initialisation point hautDroite raquette
             fichierLecture>>poubelle>>x2>>poubelle>>y2>>poubelle;
-            geom::point rHD{x2,y2};
             //Initialisation raquette
-            raquette r{rBG,rHD,&sn};
+            raquette r{rBG,rHD,sn};
 
             //Initialisation des briques
             char type;
@@ -56,32 +56,34 @@ void fluxFichier::fluxLecture(const string &nom, terrain* t){
                 //Initialisation brique
                 if(nombreCasse == 0){
                     if(type == 't'){
-                        briques.push_back(std::make_unique<briqueIncassable>(rBG,rHD,&st));
+                        briques.push_back(std::make_unique<briqueIncassable>(rBG,rHD,st));
                     }else if(type == 'n'){
-                        briques.push_back(std::make_unique<briqueIncassable>(rBG,rHD,&sn));
+                        briques.push_back(std::make_unique<briqueIncassable>(rBG,rHD,sn));
                     }else if(type == 'm'){
-                        briques.push_back(std::make_unique<briqueIncassable>(rBG,rHD,&sm));
+                        briques.push_back(std::make_unique<briqueIncassable>(rBG,rHD,sm));
                     }else if(type == 'd'){
-                        briques.push_back(std::make_unique<briqueIncassable>(rBG,rHD,&sd));
+                        briques.push_back(std::make_unique<briqueIncassable>(rBG,rHD,sd));
                     }
 
                 }else{
                     if(type == 't'){
-                        briques.push_back(std::make_unique<briqueCassable>(rBG,rHD,&st,nombreCasse));
+                        briques.push_back(std::make_unique<briqueCassable>(rBG,rHD,st,nombreCasse));
                     }else if(type == 'n'){
-                        briques.push_back(std::make_unique<briqueCassable>(rBG,rHD,&sn,nombreCasse));
+                        briques.push_back(std::make_unique<briqueCassable>(rBG,rHD,sn,nombreCasse));
                     }else if(type == 'm'){
-                        briques.push_back(std::make_unique<briqueCassable>(rBG,rHD,&sm,nombreCasse));
+                        briques.push_back(std::make_unique<briqueCassable>(rBG,rHD,sm,nombreCasse));
                     }else if(type == 'd'){
-                        briques.push_back(std::make_unique<briqueCassable>(rBG,rHD,&sd,nombreCasse));
+                        briques.push_back(std::make_unique<briqueCassable>(rBG,rHD,sd,nombreCasse));
                     }
                 }
             }
-            t = new terrain{briques,hauteur,largeur,r};
+            geom::point p5{(r.getHautDroite().x()-r.getBasGauche().x())/2 + r.getBasGauche().x(),r.getBasGauche().y() - t->getBalle().getRayon()*2};
+            balle b{p5};
+            t = new terrain{briques,hauteur,largeur,r, b};
         }
 }
 
-bool fluxFichier::fluxEcriture(const string &nom, const terrain & t){
+bool fluxFichier::fluxEcriture(const string &nom, const terrain &t){
     if(fichierExiste(nom)){
         char c;
         do{
@@ -91,7 +93,6 @@ bool fluxFichier::fluxEcriture(const string &nom, const terrain & t){
         if(c == 'n')
             return false;
     }
-    cout<<nom;
     ofstream fichierEcriture("sauvegardes/"+nom+".txt");
     if(fichierEcriture){
         const std::vector<std::unique_ptr<brique>>* inter = t.getBriques();

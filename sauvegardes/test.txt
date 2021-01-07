@@ -1,9 +1,12 @@
-Date sauvegarde : Tue Dec 29 15:21:13 2020
+Date sauvegarde : Thu Jan 07 16:58:45 2021
 
 Fenetre: 800 / 800
-Raquette:dimensions[( 634 , 700),( 750, 720)]
-Brique1:dimensions[( 680 , 569 ),( 917 , 589 )],surface:VITESSE( 1 ),TUEUSE( 0 ),CASSABLE( 1 )
-Brique2:dimensions[( 947 , 105 ),( 600, 125 )],surface:VITESSE( 1.2 ),TUEUSE( 0 ),CASSABLE( 0 )
-Brique3:dimensions[( 563 , 180 ),( 800 , 200 )],surface:VITESSE( 1 ),TUEUSE( 0 ),CASSABLE( 2 )
-Brique4:dimensions[( 1437 , 277 ),( 500, 297 )],surface:VITESSE( 1 ),TUEUSE( 1 ),CASSABLE( 1 )
-Brique5:dimensions[( 71 , 555 ),( 308 , 575 )],surface:VITESSE( 0.8 ),TUEUSE( 0 ),CASSABLE( 1 )
+Raquette:dimensions[( 7 , 700 ),( 273 , 720 )]
+Brique1:dimensions[( 113 , 196 ),( 213 , 216 )],surface:VITESSE( 1 ),TUEUSE( 0 ),CASSABLE( 2 )
+Brique2:dimensions[( 341 , 119 ),( 441 , 139 )],surface:VITESSE( 1 ),TUEUSE( 0 ),CASSABLE( 1 )
+Brique3:dimensions[( 194 , 348 ),( 294 , 368 )],surface:VITESSE( 1 ),TUEUSE( 0 ),CASSABLE( 2 )
+Brique4:dimensions[( 62 , 355 ),( 162 , 375 )],surface:VITESSE( 1.2 ),TUEUSE( 0 ),CASSABLE( 0 )
+Brique5:dimensions[( 41 , 277 ),( 141 , 297 )],surface:VITESSE( 1.2 ),TUEUSE( 0 ),CASSABLE( 0 )
+Brique6:dimensions[( 365 , 274 ),( 465 , 294 )],surface:VITESSE( 1.2 ),TUEUSE( 0 ),CASSABLE( 0 )
+Brique7:dimensions[( 10 , 156 ),( 110 , 176 )],surface:VITESSE( 0.8 ),TUEUSE( 0 ),CASSABLE( 1 )
+Brique8:dimensions[( 149 , 260 ),( 249 , 280 )],surface:VITESSE( 0.8 ),TUEUSE( 0 ),CASSABLE( 1 )

@@ -7,6 +7,21 @@ terrain::terrain() : d_hauteur{0}, d_largeur{0}, d_balle{}
 terrain::terrain(const int hauteur, const int largeur) : d_hauteur{hauteur} , d_largeur{largeur}, d_balle{}
 {}
 
+terrain::terrain(std::vector<std::unique_ptr<brique>>& br,int hauteur, int largeur,raquette r, balle b) : d_hauteur{hauteur}, d_largeur{largeur}, d_raquette{r}, d_balle{b}
+{
+    for(int i=0;i<br.size();i++){
+        d_briques.push_back(move(br[i]));
+    }
+}
+
+
+terrain::terrain(std::vector<std::unique_ptr<brique>>& br,int hauteur, int largeur,raquette r) : d_hauteur{hauteur}, d_largeur{largeur}, d_raquette{r}, d_balle{}
+{
+    for(int i=0;i<br.size();i++){
+        d_briques.push_back(move(br[i]));
+    }
+}
+
 void terrain::initialisation(){
     srand(time(NULL));
 
@@ -56,15 +71,10 @@ void terrain::initialisation(){
     }
 
     d_raquette = {p3,p4,sn};
-    p5 = {d_largeur/2,d_hauteur - 100 - d_balle.getRayon()};
+    p5 = {(d_raquette.getHautDroite().x()-d_raquette.getBasGauche().x())/2 + d_raquette.getBasGauche().x(),d_raquette.getHautDroite().y() - d_balle.getRayon()*2};
     d_balle.setPosition(p5);
 }
-terrain::terrain(std::vector<std::unique_ptr<brique>>& br,int hauteur, int largeur,raquette r) : d_hauteur{hauteur}, d_largeur{largeur}, d_raquette{r}, d_balle{}
-{
-    for(int i=0;i<br.size();i++){
-        d_briques.push_back(move(br[i]));
-    }
-}
+
 
 bool terrain::superposition(std::unique_ptr<brique> b){
     for(int i=0;i<d_briques.size();i++){
@@ -88,12 +98,6 @@ void terrain::jouer(){
     setbkcolor(BLACK);
     cleardevice();
     char direction;
-
-    for(int i=0;i<d_briques.size();i++){
-        //std::cout << d_briques[i]->getSurface()->getMorte() << std::endl;
-    }
-
-    //std::cout << checkfin() << std::endl;
     while(!checkfin()){
         d_balle.collision(d_briques, d_raquette, d_hauteur, d_largeur);
         if(!checkfin()){
@@ -137,7 +141,7 @@ int terrain ::getLargeur() const{
     return d_largeur;
 }
 
-balle terrain::getBalle() const{
+balle terrain::getBalle(){
     return d_balle;
 }
 

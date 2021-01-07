@@ -5,7 +5,10 @@
 balle::balle(geom::vector& vitesse, geom::point& p) : d_vitesse{vitesse}, d_position{p}, d_rayon{7} , d_morte{false}
 {}
 
-balle::balle(): d_vitesse{5,5} , d_position{500 ,500} , d_rayon{7} , d_morte{false}
+balle::balle(): d_vitesse{5,5} , d_position{} , d_rayon{7} , d_morte{false}
+{}
+
+balle::balle(geom::point& p): d_vitesse{5,5} , d_position{p} , d_rayon{7} , d_morte{false}
 {}
 
 balle::~balle()

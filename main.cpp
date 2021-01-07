@@ -39,6 +39,7 @@ int main()
             //Sleep(2000);
             if(f.fichierExiste(nomFichier)){
                 f.fluxLecture(nomFichier, t);
+                cout<< t->getBalle().getPosition().x() << " " << t->getBalle().getPosition().y()<<endl;
             }
             else{
                 t = new terrain{hauteur, largeur};

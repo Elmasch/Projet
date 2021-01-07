@@ -10,7 +10,7 @@ using namespace std;
 class fluxFichier
 {
 public:
-    void fluxLecture(const string &nom, terrain* t);
+    void fluxLecture(const string &nom, terrain* &t);
     bool fluxEcriture(const string &nom, const terrain &t);
     bool fichierExiste(const string &nom);
 };
