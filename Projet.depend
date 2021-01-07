@@ -267,11 +267,12 @@
 	<math.h>
 	"graphics.h"
 
-1608282386 source:c:\users\norma\documents\codeblocks\projet\balle.cpp
+1610027829 source:c:\users\norma\documents\codeblocks\projet\balle.cpp
 	"balle.h"
+	"terrain.h"
 	<iostream>
 
-1608281484 c:\users\norma\documents\codeblocks\projet\balle.h
+1610025737 c:\users\norma\documents\codeblocks\projet\balle.h
 	"graphics.h"
 	<cmath>
 	"brique.h"
@@ -283,64 +284,69 @@
 
 1607706529 c:\users\norma\documents\codeblocks\projet\graphics.h
 
-1608279900 c:\users\norma\documents\codeblocks\projet\brique.h
+1610028884 c:\users\norma\documents\codeblocks\projet\brique.h
+	<memory>
 	"graphics.h"
 	"surface.h"
 	"point.h"
 
 1607706529 c:\users\norma\documents\codeblocks\projet\surface.h
 
-1608282386 source:c:\users\norma\documents\codeblocks\projet\brique.cpp
-	"brique.h"
-
-1607706529 source:c:\users\norma\documents\codeblocks\projet\briquecassable.cpp
-	"briqueCassable.h"
+1610028881 source:c:\users\norma\documents\codeblocks\projet\brique.cpp
 	<iostream>
-
-1607706529 c:\users\norma\documents\codeblocks\projet\briquecassable.h
 	"brique.h"
 
-1607706529 source:c:\users\norma\documents\codeblocks\projet\briqueincassable.cpp
+1610028884 source:c:\users\norma\documents\codeblocks\projet\briquecassable.cpp
+	<iostream>
+	"briqueCassable.h"
+
+1610028884 c:\users\norma\documents\codeblocks\projet\briquecassable.h
+	"brique.h"
+
+1610028884 source:c:\users\norma\documents\codeblocks\projet\briqueincassable.cpp
 	"briqueIncassable.h"
 
-1607706529 c:\users\norma\documents\codeblocks\projet\briqueincassable.h
+1610028884 c:\users\norma\documents\codeblocks\projet\briqueincassable.h
 	"brique.h"
 
-1608282386 source:c:\users\norma\documents\codeblocks\projet\main.cpp
+1610029571 source:c:\users\norma\documents\codeblocks\projet\main.cpp
 	<iostream>
-	"graphics.h"
-	"balle.h"
-	<windows.h>
-	<stddef.h>
-	<stdio.h>
-	<math.h>
-	<vector>
-	"brique.h"
-	"briqueCassable.h"
-	"briqueIncassable.h"
-	"surfaceNormale.h"
-	"surfaceMolle.h"
-	"surfaceDure.h"
-	"surfaceTueuse.h"
-	<memory>
-	"raquette.h"
-	"partie.h"
-	<time.h>
+	"terrain.h"
+	"fluxFichier.h"
 
-1608279921 source:c:\users\norma\documents\codeblocks\projet\raquette.cpp
+1609837687 source:c:\users\norma\documents\codeblocks\projet\raquette.cpp
 	"raquette.h"
 
-1608279913 c:\users\norma\documents\codeblocks\projet\raquette.h
+1609837687 c:\users\norma\documents\codeblocks\projet\raquette.h
 	"brique.h"
 	"balle.h"
 
 1607706529 source:c:\users\norma\documents\codeblocks\projet\surface.cpp
 	"surface.h"
 
-1607706529 source:c:\users\norma\documents\codeblocks\projet\terrain.cpp
+1610031919 source:c:\users\norma\documents\codeblocks\projet\terrain.cpp
+	<iostream>
 	"terrain.h"
 
-1607706529 c:\users\norma\documents\codeblocks\projet\terrain.h
+1610031999 c:\users\norma\documents\codeblocks\projet\terrain.h
+	<vector>
+	<memory>
+	<windows.h>
+	<stddef.h>
+	<stdio.h>
+	<math.h>
+	<vector>
+	<time.h>
+	"graphics.h"
+	"brique.h"
+	"balle.h"
+	"raquette.h"
+	"briqueCassable.h"
+	"briqueIncassable.h"
+	"surfaceNormale.h"
+	"surfaceMolle.h"
+	"surfaceDure.h"
+	"surfaceTueuse.h"
 
 1607706529 source:c:\users\norma\documents\codeblocks\projet\winbgi.cpp
 	<windows.h>
@@ -349,25 +355,25 @@
 	<math.h>
 	"graphics.h"
 
-1607706529 source:c:\users\norma\documents\codeblocks\projet\surfacenormale.cpp
+1610025737 source:c:\users\norma\documents\codeblocks\projet\surfacenormale.cpp
 	"surfaceNormale.h"
 
-1607706529 c:\users\norma\documents\codeblocks\projet\surfacenormale.h
+1610025737 c:\users\norma\documents\codeblocks\projet\surfacenormale.h
 	"surface.h"
 
-1608280287 c:\users\norma\documents\codeblocks\projet\point.h
+1609837687 c:\users\norma\documents\codeblocks\projet\point.h
 	<iosfwd>
 
-1608280295 source:c:\users\norma\documents\codeblocks\projet\point.cpp
+1609837687 source:c:\users\norma\documents\codeblocks\projet\point.cpp
 	<iostream>
 	<cmath>
 	"point.h"
 	"vector.h"
 
-1608279579 c:\users\norma\documents\codeblocks\projet\vector.h
+1609837687 c:\users\norma\documents\codeblocks\projet\vector.h
 	<iosfwd>
 
-1608280047 source:c:\users\norma\documents\codeblocks\projet\vector.cpp
+1609837687 source:c:\users\norma\documents\codeblocks\projet\vector.cpp
 	<iostream>
 	<cmath>
 	"vector.h"
@@ -536,22 +542,22 @@
 1606984938 c:\users\elmas\documents\cours\l3\poo\projet2\surfacemolle.h
 	"surface.h"
 
-1607706529 c:\users\norma\documents\codeblocks\projet\surfacemolle.h
+1610025737 c:\users\norma\documents\codeblocks\projet\surfacemolle.h
 	"surface.h"
 
-1607706529 c:\users\norma\documents\codeblocks\projet\surfacedure.h
+1610025737 c:\users\norma\documents\codeblocks\projet\surfacedure.h
 	"surface.h"
 
-1607706529 c:\users\norma\documents\codeblocks\projet\surfacetueuse.h
+1610025737 c:\users\norma\documents\codeblocks\projet\surfacetueuse.h
 	"surface.h"
 
-1607706529 source:c:\users\norma\documents\codeblocks\projet\surfacedure.cpp
+1610025737 source:c:\users\norma\documents\codeblocks\projet\surfacedure.cpp
 	"surfaceDure.h"
 
-1607706529 source:c:\users\norma\documents\codeblocks\projet\surfacemolle.cpp
+1610025737 source:c:\users\norma\documents\codeblocks\projet\surfacemolle.cpp
 	"surfaceMolle.h"
 
-1607706529 source:c:\users\norma\documents\codeblocks\projet\surfacetueuse.cpp
+1610025737 source:c:\users\norma\documents\codeblocks\projet\surfacetueuse.cpp
 	"surfaceTueuse.h"
 
 1609836017 source:d:\documents\cours\l3\qualite de programmation\projet\balle.cpp
@@ -1086,4 +1092,12 @@
 	"doctest.h"
 	"vector.h"
 	"point.h"
+
+1610026347 source:c:\users\norma\documents\codeblocks\projet\fluxfichier.cpp
+	"fluxFichier.h"
+
+1610026308 c:\users\norma\documents\codeblocks\projet\fluxfichier.h
+	<iostream>
+	<fstream>
+	"terrain.h"
 

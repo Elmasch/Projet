@@ -1,0 +1,11 @@
+Date sauvegarde : Thu Jan 07 16:07:00 2021
+
+Fenetre: 800 / 800
+Raquette:dimensions[( 534 , 700 ),( 800 , 720 )]
+Brique1:dimensions[( 329 , 361 ),( 429 , 381 )],CASSABLE( 2 )
+Brique2:dimensions[( 392 , 221 ),( 492 , 241 )],CASSABLE( 1 )
+Brique3:dimensions[( 86 , 241 ),( 186 , 261 )],CASSABLE( 1 )
+Brique4:dimensions[( 12 , 148 ),( 112 , 168 )],CASSABLE( 0 )
+Brique5:dimensions[( 329 , 376 ),( 429 , 396 )],CASSABLE( 0 )
+Brique6:dimensions[( 200 , 306 ),( 300 , 326 )],CASSABLE( 0 )
+Brique7:dimensions[( 67 , 73 ),( 167 , 93 )],CASSABLE( 1 )

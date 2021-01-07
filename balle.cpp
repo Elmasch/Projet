@@ -62,7 +62,6 @@ void balle::efface(){
 }
 
 void balle::collision(std::vector<std::unique_ptr<brique>> &b, raquette &r, int hauteur, int largeur){
-    geom::vector inter;
     for(int i = 0; i < b.size(); ++i){
         if(d_position.x() >= b[i]->getBasGauche().x() && d_position.x() <= b[i]->getHautDroite().x() && d_position.y() >= b[i]->getBasGauche().y() && d_position.y() <= b[i]->getHautDroite().y()){
             d_morte = b[i]->getSurface()->getMorte();

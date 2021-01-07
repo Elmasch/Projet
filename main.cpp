@@ -38,13 +38,15 @@ int main()
             cout<<"Alors c'est parti !"<<endl<<endl<<endl;
             //Sleep(2000);
             if(f.fichierExiste(nomFichier)){
-                t = f.fluxLecture(nomFichier);
+                f.fluxLecture(nomFichier, t);
             }
             else{
                 t = new terrain{hauteur, largeur};
                 t->initialisation();
             }
-            t->jouer();
+            if(t){
+                t->jouer();
+            }
                 do{
                     cout<<"Voulez-vous sauvegarder le terrain de la partie precedente ? (o/n) : ";
                     cin>>c;

@@ -4,7 +4,7 @@
 terrain::terrain() : d_hauteur{0}, d_largeur{0}, d_balle{}
 {}
 
-terrain::terrain(const int hauteur, const int largeur) : d_hauteur{hauteur} , d_largeur{largeur} , d_balle{}
+terrain::terrain(const int hauteur, const int largeur) : d_hauteur{hauteur} , d_largeur{largeur}, d_balle{}
 {}
 
 void terrain::initialisation(){
@@ -12,11 +12,14 @@ void terrain::initialisation(){
 
     geom::point p1;
     geom::point p2;
+    geom::point p3{(d_largeur/2)-(d_largeur/6) ,d_hauteur - 100};
+    geom::point p4{(d_largeur/2)+(d_largeur/6),d_hauteur - 80};
+    geom::point p5;
 
-    surfaceNormale sn{};
-    surfaceTueuse st{};
-    surfaceDure sd{};
-    surfaceMolle sm{};
+    auto sn = new surfaceNormale{};
+    auto st = new surfaceTueuse{};
+    auto sd = new surfaceDure{};
+    auto sm = new surfaceMolle{};
 
     //BRIQUES BLANCHES CASSABLES EN n FOIS
     //i sera le nombre de briques
@@ -26,8 +29,8 @@ void terrain::initialisation(){
             int h = rand()%(d_hauteur-400);
             p1 = {l,h};
             p2 = {l+d_largeur/8,h+20};
-        }while(superposition(std::make_unique<briqueCassable>(p1,p2,&sn,2)));
-        d_briques.push_back(std::make_unique<briqueCassable>(p1,p2,&sn,2));
+        }while(superposition(std::make_unique<briqueCassable>(p1,p2,sn,2)));
+        d_briques.push_back(std::make_unique<briqueCassable>(p1,p2,sn,2));
     }
 
     //BRIQUES CYANS INCASSABLES
@@ -37,25 +40,23 @@ void terrain::initialisation(){
             int h = rand()%(d_hauteur-400);
             p1 = {l,h};
             p2 = {l+d_largeur/8,h+20};
-        }while(superposition(std::make_unique<briqueIncassable>(p1,p2,&sd)));
-        d_briques.push_back(std::make_unique<briqueIncassable>(p1,p2,&sd));
+        }while(superposition(std::make_unique<briqueIncassable>(p1,p2,sd)));
+        d_briques.push_back(std::make_unique<briqueIncassable>(p1,p2,sd));
     }
 
     //BRIQUES VERTES CASSABLES EN 1 FOIS
     for(int i = 0; i < 3; ++i){
-        do{
+       do{
             int l = rand()%(d_largeur-400);
             int h = rand()%(d_hauteur-400);
             p1 = {l,h};
             p2 = {l+d_largeur/8,h+20};
-        }while(superposition(std::make_unique<briqueCassable>(p1,p2,&sm,1)));
-        d_briques.push_back(std::make_unique<briqueCassable>(p1,p2,&sm,1));
+        }while(superposition(std::make_unique<briqueCassable>(p1,p2,sm,1)));
+        d_briques.push_back(std::make_unique<briqueCassable>(p1,p2,sm,1));
     }
 
-    geom::point p3{(d_largeur/2)-(d_largeur/6) ,d_hauteur - 100};
-    geom::point p4{(d_largeur/2)+(d_largeur/6),d_hauteur - 80};
-    d_raquette={p3,p4,&sn};
-    geom::point p5{d_largeur/2,d_hauteur - 100 - d_balle.getRayon()};
+    d_raquette = {p3,p4,sn};
+    p5 = {d_largeur/2,d_hauteur - 100 - d_balle.getRayon()};
     d_balle.setPosition(p5);
 }
 terrain::terrain(std::vector<std::unique_ptr<brique>>& br,int hauteur, int largeur,raquette r) : d_hauteur{hauteur}, d_largeur{largeur}, d_raquette{r}, d_balle{}
@@ -86,9 +87,13 @@ void terrain::jouer(){
     opengraphsize(d_largeur,d_hauteur);
     setbkcolor(BLACK);
     cleardevice();
-
     char direction;
 
+    for(int i=0;i<d_briques.size();i++){
+        //std::cout << d_briques[i]->getSurface()->getMorte() << std::endl;
+    }
+
+    //std::cout << checkfin() << std::endl;
     while(!checkfin()){
         d_balle.collision(d_briques, d_raquette, d_hauteur, d_largeur);
         if(!checkfin()){
@@ -109,16 +114,19 @@ void terrain::jouer(){
 }
 
 bool terrain::checkfin(){
-    if(d_briques.size()==0 || d_balle.morte())
-        return true;
-    //renverra vrai s'il ne reste plus que des briques incassables ou avec des surfaces tueuses
-    for(int i=0;i<d_briques.size();i++){
-        if(d_briques[i]->cassable()){
-            if(!d_briques[i]->getSurface()->getMorte())
-                return false;
+    bool check = false;
+    if(d_briques.size() == 0 || d_balle.morte()){
+        check = true;
+    }else{
+        for(int i=0;i<d_briques.size();i++){
+            if(d_briques[i]->cassable()){
+                if(!d_briques[i]->getSurface()->getMorte())
+                    check = false;
+            }
+
         }
     }
-    return true;
+    return check;
 }
 
 int terrain ::getHauteur() const{

@@ -1,7 +1,6 @@
 #include "fluxFichier.h"
 
-terrain* fluxFichier::fluxLecture(const string &nom){
-        auto t = new terrain{};
+void fluxFichier::fluxLecture(const string &nom, terrain* t){
         ifstream fichierLecture("sauvegardes/"+nom+".txt");
         if(fichierLecture){
             string poubelle;
@@ -79,9 +78,7 @@ terrain* fluxFichier::fluxLecture(const string &nom){
                 }
             }
             t = new terrain{briques,hauteur,largeur,r};
-            return t;
         }
-        return t;
 }
 
 bool fluxFichier::fluxEcriture(const string &nom, const terrain & t){
@@ -105,7 +102,7 @@ bool fluxFichier::fluxEcriture(const string &nom, const terrain & t){
         fichierEcriture<<"Raquette:dimensions[( "<<t.getRaquette().getBasGauche().x()<<" , "<<t.getRaquette().getBasGauche().y()<<" ),( "<<t.getRaquette().getHautDroite().x()<<" , "<<t.getRaquette().getHautDroite().y()<<" )]"<<endl;
         for(int i=0;i<inter->size();i++){
             fichierEcriture<<"Brique"<<i+1<<":dimensions[( "<<inter->at(i)->getBasGauche().x()<<" , "<<inter->at(i)->getBasGauche().y()<<" ),( "<<inter->at(i)->getHautDroite().x()<<" , "<<inter->at(i)->getHautDroite().y()<<" )]";
-            std::cout <<",surface:VITESSE( "<<inter->at(i)->getSurface()<<" ),TUEUSE( "<<inter->at(i)->getSurface()<<" )" << std::endl;
+            fichierEcriture <<",surface:VITESSE( "<<inter->at(i)->getSurface()->getVitesse()<<" ),TUEUSE( "<<inter->at(i)->getSurface()->getMorte()<<" )";
             if(inter->at(i)->cassable())
                 fichierEcriture<<",CASSABLE( "<<inter->at(i)->getNombre()<<" )";
             else

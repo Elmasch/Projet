@@ -30,7 +30,7 @@ class terrain
         terrain(std::vector<std::unique_ptr<brique>>& br,int hauteur, int largeur,raquette r);
 
         void initialisation () ;
-        bool superposition(std::unique_ptr<brique>);
+        bool superposition(std::unique_ptr<brique> b);
         void jouer();
         bool checkfin();
 
