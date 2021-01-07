@@ -3,6 +3,7 @@
 #include "raquette.h"
 #include "surfaceNormale.h"
 #include "doctest.h"
+#include "balle.h"
 
 TEST_CASE("{brique} La brique est cree correctement"){
     //Teste le constructeur de la brique incassable qui a les memes parametres que celui de la classe brique
@@ -22,7 +23,7 @@ TEST_CASE("{brique} La brique est cree correctement"){
         REQUIRE_EQ(p2.y(), b.getHautDroite().y());
     }
     SUBCASE("La surface est cree correctement"){
-        //REQUIRE_EQ(s,b.getSurface());
+        REQUIRE_EQ(s,b.getSurface());
     }
     //Test du destructeur possible/necessaire ?...
 }
@@ -46,8 +47,8 @@ TEST_CASE("{brique} Le deplacement de la brique fonctionne correctement"){
     //Est utilise pour deplacer la raquette (qui est une brique) vers la droite ou la gauche
     //Par defaut, la brique aura une surface normale
     int largeur=1000;
-    geom::point p1{largeur - largeur/2 - 140 ,largeur - 100};
-    geom::point p2{largeur - largeur/2 + 140,largeur - 80};
+    geom::point p1{largeur-largeur/2-140 ,largeur-100};
+    geom::point p2{largeur-largeur/2+140 ,largeur-80};
     surfaceNormale s{};
     raquette r{p1,p2,&s};
     SUBCASE("On peut deplacer la brique(raquette) vers la gauche avec la touche <g>"){
@@ -70,7 +71,7 @@ TEST_CASE("{brique} Le deplacement de la brique fonctionne correctement"){
         REQUIRE_EQ(r.getBasGauche().x(),p1.x()+30);
         REQUIRE_EQ(r.getHautDroite().x(),p2.x()+30);
     }
-    SUBCASE("La brique ne sortira pas de la fenetre lors de ses deplacements"){
+    SUBCASE("La brique(raquette) ne sortira pas de la fenetre lors de ses deplacements"){
         for(int i=0;i<20;i++)
             r.deplace('q',largeur);
         REQUIRE_EQ(r.getBasGauche().x(),0);
@@ -84,18 +85,30 @@ TEST_CASE("{brique} Les briques casseront sauf celles qui sont incassables"){
     //Teste la fonction casse() de la classe brique
     //Renvoie false instantanement pour les briques incassables et la raquette
     //Par defaut, la brique aura une surface normale
-    geom::point p1{1,2};
-    geom::point p2{2,1};
+    geom::point pbg{2,4};
+    geom::point phd{6,5};
     surfaceNormale s{};
     SUBCASE("La raquette et les briques incassables ne casseront jamais"){
-        briqueIncassable b{p1,p2,&s};
+        briqueIncassable b{pbg,phg,&s};
         raquette r{p1,p2,&s};
         REQUIRE_FALSE(b.casse());
         REQUIRE_FALSE(r.casse());
     }
     SUBCASE("Les briques cassables cassent au bon nombre de touches"){
-        briqueCassable b{p1,p2,&s,2};
-        REQUIRE_FALSE(b.casse());
+        int nbtouche=2;
+        briqueCassable b{pbg,phg,&s,nbtouche};
+        geom::vector v{0,1};
+        balle bl{p1,v,1};
+        for(int i=1;i<nbtouche;i++)
+        {
+            while(bl.getPosition().y()>p.y())
+            {
+                 bl.avance(hauteur,largeur);
+            }
+            REQUIRE_FALSE(b.casse());
+            bl.setPosition(p);
+            bl.setVitesse(v);
+        }
         REQUIRE(b.casse());
     }
 }

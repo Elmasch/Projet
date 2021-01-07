@@ -5,6 +5,7 @@
 #include "briqueIncassable.h"
 #include "raquette.h"
 #include "surfaceNormale.h"
+#include "surfaceTueuse.h"
 
 TEST_CASE("{balle} La balle avec parametres est cree correctement"){
     //Teste le constructeur avec parametres de la balle
@@ -49,34 +50,34 @@ TEST_CASE("{balle} Modification des valeurs de la balle"){
 }
 
 TEST_CASE("{balle} Déplacements de la balle en jeu"){
-    geom::vector v{2,1};
+    geom::vector v{0,2};
     geom::point p{2,1};
     balle b{v,p,4};
     SUBCASE("Avancement de la balle en jeu"){
         //Test de la fonction avance(hauteur,largeur)
         int hauteur = 2;
         int largeur = 1;
-        //b.avance(hauteur,largeur);
-        //REQUIRE_EQ(p.x()+hauteur,b.getPosition().x());
+        b.avance(hauteur,largeur);
+        REQUIRE_EQ(p.x()+hauteur,b.getPosition().x());
+        REQUIRE_EQ(p.y()+largeur,b.getPosition().y());
     }
     SUBCASE("Collision de la balle en jeu"){
         //Test de la fonction collision(briques,raquette,hauteur,largeur)
         //Dans cette serie de tests on regarde la position de la balle après un certain temps pour voir si effectivement une collisoin a eu lieu ou pas
         //Necessite de declarer des briques et une raquette, donc d'avoir tester ces classes
-        geom::vector v{0,1};
-        geom::point p{4,1};
+        geom::point p{4,1}; //Point de départ (et donc arrivé avec collision)
         balle b{v,p,1};
-        int hauteur = 2;
-        int largeur = 3;
+        int hauteur = 30;
+        int largeur = 20;
         geom::point arr{4,8}; //Point d'arrivée sans collision de la brique test
-        geom::point pbg{2,4}; //Point Bas gauche de la brique test
+        geom::point pbg{2,4}; //Point Bas Gauche de la brique test
         geom::point phd{6,5}; //Point Haut Droit de la brique test
-        surfaceNormale s{}; //Surface Normale d'une brique
-        surfaceTueuse st{}; //Surface tueuse d'une brique
+        surfaceNormale s{}; //Surface Normale d'une brique test
+        surfaceTueuse st{}; //Surface Tueuse d'une brique test
 
         SUBCASE("Pas de collision xy")
         {
-            while(p.y()<=arr.y()&&p.x()<=arr.x())
+            while(b.getPosition().y()<=arr.y()&&b.getPosition.x()<=arr.x())
             {
                 b.avance(hauteur,largeur);
             }
@@ -86,13 +87,13 @@ TEST_CASE("{balle} Déplacements de la balle en jeu"){
         SUBCASE("Collision avec brique sans destruction de brique")
         {
             briqueIncassable bi{pbg, phd, &s};
-            while(b.getPosition().y()<=arr.y()&& b.getPosition().y()>=p.y())/
+            while(b.getPosition().y()<=arr.y()&& b.getPosition().y()>=p.y())
             {
                  b.avance(hauteur,largeur);
             }
             REQUIRE_EQ(b.getPosition,p); // Possibilité d'ajouter une marge
             REQUIRE_FALSE(b.getPosition(),arr);// Avec cette collision le point doit revenir au départ
-            REQUIRE_EQ(b.casse(),false);
+            REQUIRE_EQ(bi.casse(),false);
         }
 
         SUBCASE("Collision avec brique avec destruction de brique")
@@ -100,17 +101,17 @@ TEST_CASE("{balle} Déplacements de la balle en jeu"){
             briqueCassable bi{pbg, phd, &s, 1};
             while(b.getPosition().y()<=arr.y()&& b.getPosition().y()>=p.y())
             {
-                 b.avance(hauteur,largeur); //A vec cette collision le point doit revenir au départ
+                 b.avance(hauteur,largeur); //Avec cette collision le point doit revenir au départ
             }
             REQUIRE_EQ(b.getPosition,p); //Marge ?
-            REQUIRE_FALSE(b.getPosition(),arr); //
+            REQUIRE_FALSE(b.getPosition(),arr);
             REQUIRE_EQ(bi.casse(),true);
         }
 
         SUBCASE("Collision avec brique tueuse")
         {
             briqueIncassable bi{pbg, phd, &st};
-            while(b.getPosition().y()=<arr.y()&& b.getPosition().y()>=p.y())
+            while(b.getPosition().y()<arr.y()&& b.getPosition().y()>p.y())
             {
                  b.avance(hauteur,largeur); //Avec cette collision le point doit revenir au départ
             }
@@ -122,7 +123,7 @@ TEST_CASE("{balle} Déplacements de la balle en jeu"){
         SUBCASE("Collision avec raquette")
         {
             raquette ra{pbg, phd, &s};
-            while(b.getPosition().y()=<arr.y()&& b.getPosition().y()>=p.y())
+            while(b.getPosition().y()<arr.y()&& b.getPosition().y()>p.y())
             {
                  b.avance(hauteur,largeur);
             }
@@ -132,40 +133,40 @@ TEST_CASE("{balle} Déplacements de la balle en jeu"){
 
         SUBCASE("Collision avec mur")
         {
-
-            while(b.getPosition().y()=<arr.y()&& b.getPosition().y()>=p.y())
+            SUBCASE("Collision Mur coté droit")
             {
-                 b.avance(hauteur,largeur);
-            }
-            REQUIRE_EQ(b.getPosition(),p);
-            REQUIRE_FALSE(b.getPosition(),arr);
-        }
+                v{2,0};     //La balle se déplace désormais à l'horizontale
 
-        /*SUBCASE("Pas de collision x")
-        {
-            int hauteur = 0;
-            int largeur = 1;
-            geom::point arr{2,10};
-            while(p.x()<arr.x())
+            while(b.getPosition().x()<=p.x() && b.getPosition().x()<=p.x() || b.x()>largeur) //Tant que la balle ne revient pas à son origine ou est plus loin que le mur
             {
                 b.avance(hauteur,largeur);
             }
-            REQUIRE_EQ(b.getPosition,arr);
-        }
-        SUBCASE("Pas de collision y")
-        {
-            int hauteur = 2;
-            int largeur = 0;
-            geom::point arr{10,2};
-            while(p.y()<arr.y()||p.)
+            REQUIRE(b.getPosition().x()<p.x()); //Le point doit se trouver plus "loin" que sa position origine //
+            }
+            SUBCASE("Collision Mur coté gauche")
+            {
+                v{-2,0};
+
+            while(b.getPosition().x()>=p.x() && b.getPosition().x()>=p.x() || b.getPosition().x()<largeur) //Tant que la balle ne revient pas à son origine ou est plus loin que le mur
             {
                 b.avance(hauteur,largeur);
             }
-            REQUIRE_EQ(b.getPosition,arr);
-        }*/
-        //On ne pourra pas tester les fonctions graphiques, est-ce que cela va faire planter le programme ?
-    }
-    //ECHOUE CAR DIVISION PAR 0 DANS LA FONCTION AVANCE
+            REQUIRE(b.getPosition().x()<p.x()); //Le point doit se trouver plus "loin" que sa position origine //
+            }
+            SUBCASE("Collision Mur en haut")
+            {
+                v{0,-2};     //La balle se déplace désormais en haut
+
+            while(b.getPosition().y()>=p.y() && b.getPosition().y()>=p.y() || b.getPosition().x()<0) //Tant que la balle ne revient pas à son origine ou est plus loin que le mur
+            {
+                b.avance(hauteur,largeur);
+            }
+            REQUIRE(b.getPosition().x()<p.y()); //Le point doit se trouver plus "loin" que sa position origine //
+            }
+        }
+        }
+        //Pas de tests de fonctions graphiques
 }
+    //SI ECHEC, REGARDER LA DIVISION PAR 0 DANS LA FONCTION AVANCE
 
 //On ne pourra pas tester les fonctions affiche() et efface() car ce sont des fonctions graphiques
