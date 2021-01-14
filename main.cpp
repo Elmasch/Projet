@@ -6,14 +6,14 @@ using namespace std;
 
 int main()
 {
-    const int hauteur=800;
-    const int largeur=800;
-    terrain* t;
+    const int hauteur=1080;
+    const int largeur=1920;
     fluxFichier f;
-    string nomFichier="";
-
+    terrain* t;
     int chx;
+    string nomFichier;
     do{
+        nomFichier ="";
         chx=0;
         cout<<"Que voulez-vous faire ? (1-Jouer)(2-Quitter): ";
         cin>>chx;
@@ -32,7 +32,8 @@ int main()
 
             if(f.fichierExiste(nomFichier)){
                 f.fluxLecture(nomFichier, t);
-                cout<< t->getBalle().getPosition().x() << " " << t->getBalle().getPosition().y()<<endl;
+                t->getBalle().getPosition().x();
+                t->getBalle().getPosition().y();
             }
             else{
                 t = new terrain{hauteur, largeur};

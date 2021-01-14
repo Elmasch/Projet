@@ -160,7 +160,7 @@ int terrain ::getLargeur() const{
     return d_largeur;
 }
 
-balle terrain::getBalle(){
+balle terrain::getBalle() const{
     return d_balle;
 }
 

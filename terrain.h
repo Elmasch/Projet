@@ -41,7 +41,7 @@ class terrain
         void setHauteur(int hauteur);
         void setLargeur(int largeur);
 
-        balle getBalle();
+        balle getBalle() const;
         const std::vector<std::unique_ptr<brique>>* getBriques() const;
         raquette getRaquette() const;
 
