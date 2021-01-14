@@ -15,7 +15,7 @@ int main()
     int chx;
     do{
         chx=0;
-        cout<<"Que voulez-vous faire ? (1-Jouer)(2-Quitter) ";
+        cout<<"Que voulez-vous faire ? (1-Jouer)(2-Quitter): ";
         cin>>chx;
         if(chx == 1){
             char c;

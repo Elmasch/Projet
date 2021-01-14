@@ -56,12 +56,12 @@ void balle::avance(int hauteur, int largeur){
 
 void balle::affiche(){
     setcolor(WHITE);
-    circle(d_position.x(),d_position.y(),d_rayon);
+    fillellipse(d_position.x(),d_position.y(),d_rayon, d_rayon);
 }
 
 void balle::efface(){
     setcolor(BLACK);
-    circle(d_position.x(),d_position.y(),d_rayon);
+    fillellipse(d_position.x(),d_position.y(),d_rayon, d_rayon);
 }
 
 void balle::collision(std::vector<std::unique_ptr<brique>> &b, raquette &r, int hauteur, int largeur){
