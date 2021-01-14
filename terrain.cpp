@@ -130,7 +130,7 @@ void terrain::jouer(){
                 if(direction == 'q' || direction == 'd' || direction == 'Q' || direction == 'D')
                     d_raquette.bouge(direction, d_largeur);
             }
-            Sleep(100);
+            Sleep(10);
         }
     }
     closegraph();
